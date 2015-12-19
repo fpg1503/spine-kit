@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AFE6FEBB1C25B69500F3C05B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE6FEBA1C25B69500F3C05B /* AppDelegate.swift */; };
+		AFE6FEBD1C25B69500F3C05B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE6FEBC1C25B69500F3C05B /* ViewController.swift */; };
+		AFE6FEC01C25B69500F3C05B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE6FEBE1C25B69500F3C05B /* Main.storyboard */; };
+		AFE6FEC21C25B69500F3C05B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE6FEC11C25B69500F3C05B /* Assets.xcassets */; };
+		AFE6FEC51C25B69500F3C05B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE6FEC31C25B69500F3C05B /* LaunchScreen.storyboard */; };
+		AFE6FED01C25B69500F3C05B /* spritekit_spine_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE6FECF1C25B69500F3C05B /* spritekit_spine_sdkTests.swift */; };
+		AFE6FEDB1C25B69500F3C05B /* spritekit_spine_sdkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE6FEDA1C25B69500F3C05B /* spritekit_spine_sdkUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AFE6FECC1C25B69500F3C05B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AFE6FEAF1C25B69500F3C05B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AFE6FEB61C25B69500F3C05B;
+			remoteInfo = "spritekit-spine-sdk";
+		};
+		AFE6FED71C25B69500F3C05B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AFE6FEAF1C25B69500F3C05B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AFE6FEB61C25B69500F3C05B;
+			remoteInfo = "spritekit-spine-sdk";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AFE6FEB71C25B69500F3C05B /* spritekit-spine-sdk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spritekit-spine-sdk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFE6FEBA1C25B69500F3C05B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AFE6FEBC1C25B69500F3C05B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AFE6FEBF1C25B69500F3C05B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AFE6FEC11C25B69500F3C05B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AFE6FEC41C25B69500F3C05B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AFE6FEC61C25B69500F3C05B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFE6FECB1C25B69500F3C05B /* spritekit-spine-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "spritekit-spine-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFE6FECF1C25B69500F3C05B /* spritekit_spine_sdkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spritekit_spine_sdkTests.swift; sourceTree = "<group>"; };
+		AFE6FED11C25B69500F3C05B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFE6FED61C25B69500F3C05B /* spritekit-spine-sdkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "spritekit-spine-sdkUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFE6FEDA1C25B69500F3C05B /* spritekit_spine_sdkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spritekit_spine_sdkUITests.swift; sourceTree = "<group>"; };
+		AFE6FEDC1C25B69500F3C05B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AFE6FEB41C25B69500F3C05B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFE6FEC81C25B69500F3C05B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFE6FED31C25B69500F3C05B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AFE6FEAE1C25B69500F3C05B = {
+			isa = PBXGroup;
+			children = (
+				AFE6FEB91C25B69500F3C05B /* spritekit-spine-sdk */,
+				AFE6FECE1C25B69500F3C05B /* spritekit-spine-sdkTests */,
+				AFE6FED91C25B69500F3C05B /* spritekit-spine-sdkUITests */,
+				AFE6FEB81C25B69500F3C05B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AFE6FEB81C25B69500F3C05B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AFE6FEB71C25B69500F3C05B /* spritekit-spine-sdk.app */,
+				AFE6FECB1C25B69500F3C05B /* spritekit-spine-sdkTests.xctest */,
+				AFE6FED61C25B69500F3C05B /* spritekit-spine-sdkUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AFE6FEB91C25B69500F3C05B /* spritekit-spine-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				AFE6FEBA1C25B69500F3C05B /* AppDelegate.swift */,
+				AFE6FEBC1C25B69500F3C05B /* ViewController.swift */,
+				AFE6FEBE1C25B69500F3C05B /* Main.storyboard */,
+				AFE6FEC11C25B69500F3C05B /* Assets.xcassets */,
+				AFE6FEC31C25B69500F3C05B /* LaunchScreen.storyboard */,
+				AFE6FEC61C25B69500F3C05B /* Info.plist */,
+			);
+			path = "spritekit-spine-sdk";
+			sourceTree = "<group>";
+		};
+		AFE6FECE1C25B69500F3C05B /* spritekit-spine-sdkTests */ = {
+			isa = PBXGroup;
+			children = (
+				AFE6FECF1C25B69500F3C05B /* spritekit_spine_sdkTests.swift */,
+				AFE6FED11C25B69500F3C05B /* Info.plist */,
+			);
+			path = "spritekit-spine-sdkTests";
+			sourceTree = "<group>";
+		};
+		AFE6FED91C25B69500F3C05B /* spritekit-spine-sdkUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AFE6FEDA1C25B69500F3C05B /* spritekit_spine_sdkUITests.swift */,
+				AFE6FEDC1C25B69500F3C05B /* Info.plist */,
+			);
+			path = "spritekit-spine-sdkUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AFE6FEB61C25B69500F3C05B /* spritekit-spine-sdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFE6FEDF1C25B69500F3C05B /* Build configuration list for PBXNativeTarget "spritekit-spine-sdk" */;
+			buildPhases = (
+				AFE6FEB31C25B69500F3C05B /* Sources */,
+				AFE6FEB41C25B69500F3C05B /* Frameworks */,
+				AFE6FEB51C25B69500F3C05B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "spritekit-spine-sdk";
+			productName = "spritekit-spine-sdk";
+			productReference = AFE6FEB71C25B69500F3C05B /* spritekit-spine-sdk.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AFE6FECA1C25B69500F3C05B /* spritekit-spine-sdkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFE6FEE21C25B69500F3C05B /* Build configuration list for PBXNativeTarget "spritekit-spine-sdkTests" */;
+			buildPhases = (
+				AFE6FEC71C25B69500F3C05B /* Sources */,
+				AFE6FEC81C25B69500F3C05B /* Frameworks */,
+				AFE6FEC91C25B69500F3C05B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AFE6FECD1C25B69500F3C05B /* PBXTargetDependency */,
+			);
+			name = "spritekit-spine-sdkTests";
+			productName = "spritekit-spine-sdkTests";
+			productReference = AFE6FECB1C25B69500F3C05B /* spritekit-spine-sdkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AFE6FED51C25B69500F3C05B /* spritekit-spine-sdkUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFE6FEE51C25B69500F3C05B /* Build configuration list for PBXNativeTarget "spritekit-spine-sdkUITests" */;
+			buildPhases = (
+				AFE6FED21C25B69500F3C05B /* Sources */,
+				AFE6FED31C25B69500F3C05B /* Frameworks */,
+				AFE6FED41C25B69500F3C05B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AFE6FED81C25B69500F3C05B /* PBXTargetDependency */,
+			);
+			name = "spritekit-spine-sdkUITests";
+			productName = "spritekit-spine-sdkUITests";
+			productReference = AFE6FED61C25B69500F3C05B /* spritekit-spine-sdkUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AFE6FEAF1C25B69500F3C05B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Thiago Medeiros dos Santos";
+				TargetAttributes = {
+					AFE6FEB61C25B69500F3C05B = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					AFE6FECA1C25B69500F3C05B = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = AFE6FEB61C25B69500F3C05B;
+					};
+					AFE6FED51C25B69500F3C05B = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = AFE6FEB61C25B69500F3C05B;
+					};
+				};
+			};
+			buildConfigurationList = AFE6FEB21C25B69500F3C05B /* Build configuration list for PBXProject "spritekit-spine-sdk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AFE6FEAE1C25B69500F3C05B;
+			productRefGroup = AFE6FEB81C25B69500F3C05B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AFE6FEB61C25B69500F3C05B /* spritekit-spine-sdk */,
+				AFE6FECA1C25B69500F3C05B /* spritekit-spine-sdkTests */,
+				AFE6FED51C25B69500F3C05B /* spritekit-spine-sdkUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AFE6FEB51C25B69500F3C05B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFE6FEC51C25B69500F3C05B /* LaunchScreen.storyboard in Resources */,
+				AFE6FEC21C25B69500F3C05B /* Assets.xcassets in Resources */,
+				AFE6FEC01C25B69500F3C05B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFE6FEC91C25B69500F3C05B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFE6FED41C25B69500F3C05B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AFE6FEB31C25B69500F3C05B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFE6FEBD1C25B69500F3C05B /* ViewController.swift in Sources */,
+				AFE6FEBB1C25B69500F3C05B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFE6FEC71C25B69500F3C05B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFE6FED01C25B69500F3C05B /* spritekit_spine_sdkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFE6FED21C25B69500F3C05B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFE6FEDB1C25B69500F3C05B /* spritekit_spine_sdkUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AFE6FECD1C25B69500F3C05B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AFE6FEB61C25B69500F3C05B /* spritekit-spine-sdk */;
+			targetProxy = AFE6FECC1C25B69500F3C05B /* PBXContainerItemProxy */;
+		};
+		AFE6FED81C25B69500F3C05B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AFE6FEB61C25B69500F3C05B /* spritekit-spine-sdk */;
+			targetProxy = AFE6FED71C25B69500F3C05B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AFE6FEBE1C25B69500F3C05B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AFE6FEBF1C25B69500F3C05B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AFE6FEC31C25B69500F3C05B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AFE6FEC41C25B69500F3C05B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AFE6FEDD1C25B69500F3C05B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AFE6FEDE1C25B69500F3C05B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AFE6FEE01C25B69500F3C05B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "spritekit-spine-sdk/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.coldcool.spritekit-spine-sdk";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AFE6FEE11C25B69500F3C05B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "spritekit-spine-sdk/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.coldcool.spritekit-spine-sdk";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AFE6FEE31C25B69500F3C05B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "spritekit-spine-sdkTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.coldcool.spritekit-spine-sdkTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/spritekit-spine-sdk.app/spritekit-spine-sdk";
+			};
+			name = Debug;
+		};
+		AFE6FEE41C25B69500F3C05B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "spritekit-spine-sdkTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.coldcool.spritekit-spine-sdkTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/spritekit-spine-sdk.app/spritekit-spine-sdk";
+			};
+			name = Release;
+		};
+		AFE6FEE61C25B69500F3C05B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "spritekit-spine-sdkUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.coldcool.spritekit-spine-sdkUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "spritekit-spine-sdk";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		AFE6FEE71C25B69500F3C05B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "spritekit-spine-sdkUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.coldcool.spritekit-spine-sdkUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "spritekit-spine-sdk";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AFE6FEB21C25B69500F3C05B /* Build configuration list for PBXProject "spritekit-spine-sdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFE6FEDD1C25B69500F3C05B /* Debug */,
+				AFE6FEDE1C25B69500F3C05B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFE6FEDF1C25B69500F3C05B /* Build configuration list for PBXNativeTarget "spritekit-spine-sdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFE6FEE01C25B69500F3C05B /* Debug */,
+				AFE6FEE11C25B69500F3C05B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AFE6FEE21C25B69500F3C05B /* Build configuration list for PBXNativeTarget "spritekit-spine-sdkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFE6FEE31C25B69500F3C05B /* Debug */,
+				AFE6FEE41C25B69500F3C05B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AFE6FEE51C25B69500F3C05B /* Build configuration list for PBXNativeTarget "spritekit-spine-sdkUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFE6FEE61C25B69500F3C05B /* Debug */,
+				AFE6FEE71C25B69500F3C05B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AFE6FEAF1C25B69500F3C05B /* Project object */;
+}
