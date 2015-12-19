@@ -7,13 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AFE6FEBB1C25B69500F3C05B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE6FEBA1C25B69500F3C05B /* AppDelegate.swift */; };
-		AFE6FEBD1C25B69500F3C05B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE6FEBC1C25B69500F3C05B /* ViewController.swift */; };
-		AFE6FEC01C25B69500F3C05B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE6FEBE1C25B69500F3C05B /* Main.storyboard */; };
-		AFE6FEC21C25B69500F3C05B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE6FEC11C25B69500F3C05B /* Assets.xcassets */; };
-		AFE6FEC51C25B69500F3C05B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE6FEC31C25B69500F3C05B /* LaunchScreen.storyboard */; };
-		AFE6FED01C25B69500F3C05B /* spritekit_spine_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE6FECF1C25B69500F3C05B /* spritekit_spine_sdkTests.swift */; };
-		AFE6FEDB1C25B69500F3C05B /* spritekit_spine_sdkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE6FEDA1C25B69500F3C05B /* spritekit_spine_sdkUITests.swift */; };
+		AFFA97A01C26094200C7EB2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA979D1C26094200C7EB2E /* ViewController.swift */; };
+		AFFA97A31C26097800C7EB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFFA97A11C26097800C7EB2E /* Assets.xcassets */; };
+		AFFA97B31C2609EB00C7EB2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFFA97B11C2609EB00C7EB2E /* LaunchScreen.storyboard */; };
+		AFFA97B41C2609EB00C7EB2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFFA97B21C2609EB00C7EB2E /* Main.storyboard */; };
+		AFFA97BD1C260AD800C7EB2E /* AtlasBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97BA1C260AD800C7EB2E /* AtlasBuilder.swift */; };
+		AFFA97C01C260ADD00C7EB2E /* AtlasBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97BA1C260AD800C7EB2E /* AtlasBuilder.swift */; };
+		AFFA97C41C260AEA00C7EB2E /* SpineParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97C31C260AEA00C7EB2E /* SpineParse.swift */; };
+		AFFA97C51C260AEF00C7EB2E /* SpineParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97C31C260AEA00C7EB2E /* SpineParse.swift */; };
+		AFFA97D01C260B0600C7EB2E /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97C71C260B0600C7EB2E /* Animation.swift */; };
+		AFFA97D11C260B0600C7EB2E /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97C71C260B0600C7EB2E /* Animation.swift */; };
+		AFFA97D21C260B0600C7EB2E /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97C81C260B0600C7EB2E /* Attachment.swift */; };
+		AFFA97D31C260B0600C7EB2E /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97C81C260B0600C7EB2E /* Attachment.swift */; };
+		AFFA97D41C260B0600C7EB2E /* Bone.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97C91C260B0600C7EB2E /* Bone.swift */; };
+		AFFA97D51C260B0600C7EB2E /* Bone.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97C91C260B0600C7EB2E /* Bone.swift */; };
+		AFFA97D61C260B0600C7EB2E /* Curve.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97CA1C260B0600C7EB2E /* Curve.swift */; };
+		AFFA97D71C260B0600C7EB2E /* Curve.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97CA1C260B0600C7EB2E /* Curve.swift */; };
+		AFFA97D81C260B0600C7EB2E /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97CB1C260B0600C7EB2E /* Skin.swift */; };
+		AFFA97D91C260B0600C7EB2E /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97CB1C260B0600C7EB2E /* Skin.swift */; };
+		AFFA97DA1C260B0600C7EB2E /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97CC1C260B0600C7EB2E /* Slot.swift */; };
+		AFFA97DB1C260B0600C7EB2E /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97CC1C260B0600C7EB2E /* Slot.swift */; };
+		AFFA97DC1C260B0600C7EB2E /* SpineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97CD1C260B0600C7EB2E /* SpineModel.swift */; };
+		AFFA97DD1C260B0600C7EB2E /* SpineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97CD1C260B0600C7EB2E /* SpineModel.swift */; };
+		AFFA97DE1C260B0600C7EB2E /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97CE1C260B0600C7EB2E /* Timeline.swift */; };
+		AFFA97DF1C260B0600C7EB2E /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97CE1C260B0600C7EB2E /* Timeline.swift */; };
+		AFFA97E01C260B0600C7EB2E /* TimelineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97CF1C260B0600C7EB2E /* TimelineEntry.swift */; };
+		AFFA97E11C260B0600C7EB2E /* TimelineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97CF1C260B0600C7EB2E /* TimelineEntry.swift */; };
+		AFFA97E41C260B1D00C7EB2E /* example.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AFFA97E21C260B1D00C7EB2E /* example.atlas */; };
+		AFFA97E51C260B1D00C7EB2E /* example.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AFFA97E21C260B1D00C7EB2E /* example.atlas */; };
+		AFFA97E61C260B1D00C7EB2E /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = AFFA97E31C260B1D00C7EB2E /* example.json */; };
+		AFFA97E71C260B1D00C7EB2E /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = AFFA97E31C260B1D00C7EB2E /* example.json */; };
+		AFFA97E91C260B2A00C7EB2E /* SpineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97E81C260B2A00C7EB2E /* SpineBuilder.swift */; };
+		AFFA97EE1C260B3700C7EB2E /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97EB1C260B3700C7EB2E /* FileHelper.swift */; };
+		AFFA97F01C260B3700C7EB2E /* PairKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97EC1C260B3700C7EB2E /* PairKey.swift */; };
+		AFFA97F21C260B3700C7EB2E /* UIColoFromHexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97ED1C260B3700C7EB2E /* UIColoFromHexString.swift */; };
+		AFFA97F81C260BCF00C7EB2E /* SpineParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97F71C260BCF00C7EB2E /* SpineParseTests.swift */; };
+		AFFA97FB1C260C4F00C7EB2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97F91C260C4F00C7EB2E /* AppDelegate.swift */; };
+		AFFA97FC1C260C4F00C7EB2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97F91C260C4F00C7EB2E /* AppDelegate.swift */; };
+		AFFA97FD1C260C4F00C7EB2E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFFA97FA1C260C4F00C7EB2E /* Info.plist */; };
+		AFFA97FE1C260C4F00C7EB2E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFFA97FA1C260C4F00C7EB2E /* Info.plist */; };
+		AFFA98011C26105C00C7EB2E /* AtlasBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97FF1C26105C00C7EB2E /* AtlasBuilderTests.swift */; };
+		AFFA98031C2616B400C7EB2E /* JsonParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA98021C2616B400C7EB2E /* JsonParserHelper.swift */; };
+		AFFA98051C26172200C7EB2E /* SpineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97E81C260B2A00C7EB2E /* SpineBuilder.swift */; };
+		AFFA98061C26172200C7EB2E /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97EB1C260B3700C7EB2E /* FileHelper.swift */; };
+		AFFA98071C26172200C7EB2E /* JsonParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA98021C2616B400C7EB2E /* JsonParserHelper.swift */; };
+		AFFA98081C26172200C7EB2E /* UIColoFromHexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97ED1C260B3700C7EB2E /* UIColoFromHexString.swift */; };
+		AFFA98091C26172200C7EB2E /* PairKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97EC1C260B3700C7EB2E /* PairKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,18 +74,37 @@
 
 /* Begin PBXFileReference section */
 		AFE6FEB71C25B69500F3C05B /* spritekit-spine-sdk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spritekit-spine-sdk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFE6FEBA1C25B69500F3C05B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AFE6FEBC1C25B69500F3C05B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AFE6FEBF1C25B69500F3C05B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AFE6FEC11C25B69500F3C05B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AFE6FEC41C25B69500F3C05B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AFE6FEC61C25B69500F3C05B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFE6FECB1C25B69500F3C05B /* spritekit-spine-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "spritekit-spine-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFE6FECF1C25B69500F3C05B /* spritekit_spine_sdkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spritekit_spine_sdkTests.swift; sourceTree = "<group>"; };
 		AFE6FED11C25B69500F3C05B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFE6FED61C25B69500F3C05B /* spritekit-spine-sdkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "spritekit-spine-sdkUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFE6FEDA1C25B69500F3C05B /* spritekit_spine_sdkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spritekit_spine_sdkUITests.swift; sourceTree = "<group>"; };
 		AFE6FEDC1C25B69500F3C05B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFFA979A1C26094200C7EB2E /* spritekit-spine-sdk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "spritekit-spine-sdk-Bridging-Header.h"; sourceTree = "<group>"; };
+		AFFA979D1C26094200C7EB2E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AFFA97A11C26097800C7EB2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AFFA97B11C2609EB00C7EB2E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AFFA97B21C2609EB00C7EB2E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		AFFA97BA1C260AD800C7EB2E /* AtlasBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtlasBuilder.swift; sourceTree = "<group>"; };
+		AFFA97C31C260AEA00C7EB2E /* SpineParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpineParse.swift; sourceTree = "<group>"; };
+		AFFA97C71C260B0600C7EB2E /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		AFFA97C81C260B0600C7EB2E /* Attachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
+		AFFA97C91C260B0600C7EB2E /* Bone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bone.swift; sourceTree = "<group>"; };
+		AFFA97CA1C260B0600C7EB2E /* Curve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Curve.swift; sourceTree = "<group>"; };
+		AFFA97CB1C260B0600C7EB2E /* Skin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
+		AFFA97CC1C260B0600C7EB2E /* Slot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
+		AFFA97CD1C260B0600C7EB2E /* SpineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpineModel.swift; sourceTree = "<group>"; };
+		AFFA97CE1C260B0600C7EB2E /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
+		AFFA97CF1C260B0600C7EB2E /* TimelineEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineEntry.swift; sourceTree = "<group>"; };
+		AFFA97E21C260B1D00C7EB2E /* example.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = example.atlas; sourceTree = "<group>"; };
+		AFFA97E31C260B1D00C7EB2E /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
+		AFFA97E81C260B2A00C7EB2E /* SpineBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpineBuilder.swift; sourceTree = "<group>"; };
+		AFFA97EB1C260B3700C7EB2E /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileHelper.swift; path = utils/FileHelper.swift; sourceTree = "<group>"; };
+		AFFA97EC1C260B3700C7EB2E /* PairKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PairKey.swift; path = utils/PairKey.swift; sourceTree = "<group>"; };
+		AFFA97ED1C260B3700C7EB2E /* UIColoFromHexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColoFromHexString.swift; path = utils/UIColoFromHexString.swift; sourceTree = "<group>"; };
+		AFFA97F71C260BCF00C7EB2E /* SpineParseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpineParseTests.swift; sourceTree = "<group>"; };
+		AFFA97F91C260C4F00C7EB2E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AFFA97FA1C260C4F00C7EB2E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFFA97FF1C26105C00C7EB2E /* AtlasBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtlasBuilderTests.swift; sourceTree = "<group>"; };
+		AFFA98021C2616B400C7EB2E /* JsonParserHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParserHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +155,12 @@
 		AFE6FEB91C25B69500F3C05B /* spritekit-spine-sdk */ = {
 			isa = PBXGroup;
 			children = (
-				AFE6FEBA1C25B69500F3C05B /* AppDelegate.swift */,
-				AFE6FEBC1C25B69500F3C05B /* ViewController.swift */,
-				AFE6FEBE1C25B69500F3C05B /* Main.storyboard */,
-				AFE6FEC11C25B69500F3C05B /* Assets.xcassets */,
-				AFE6FEC31C25B69500F3C05B /* LaunchScreen.storyboard */,
-				AFE6FEC61C25B69500F3C05B /* Info.plist */,
+				AFFA97B51C2609F700C7EB2E /* atlas */,
+				AFFA97B61C260A0300C7EB2E /* data */,
+				AFE6FEE81C25B84D00F3C05B /* main */,
+				AFFA97B81C260A2D00C7EB2E /* resources */,
+				AFFA97B71C260A0900C7EB2E /* spritekit */,
+				AFFA97B91C260A6F00C7EB2E /* utils */,
 			);
 			path = "spritekit-spine-sdk";
 			sourceTree = "<group>";
@@ -110,7 +168,8 @@
 		AFE6FECE1C25B69500F3C05B /* spritekit-spine-sdkTests */ = {
 			isa = PBXGroup;
 			children = (
-				AFE6FECF1C25B69500F3C05B /* spritekit_spine_sdkTests.swift */,
+				AFFA97F71C260BCF00C7EB2E /* SpineParseTests.swift */,
+				AFFA97FF1C26105C00C7EB2E /* AtlasBuilderTests.swift */,
 				AFE6FED11C25B69500F3C05B /* Info.plist */,
 			);
 			path = "spritekit-spine-sdkTests";
@@ -119,10 +178,85 @@
 		AFE6FED91C25B69500F3C05B /* spritekit-spine-sdkUITests */ = {
 			isa = PBXGroup;
 			children = (
-				AFE6FEDA1C25B69500F3C05B /* spritekit_spine_sdkUITests.swift */,
 				AFE6FEDC1C25B69500F3C05B /* Info.plist */,
 			);
 			path = "spritekit-spine-sdkUITests";
+			sourceTree = "<group>";
+		};
+		AFE6FEE81C25B84D00F3C05B /* main */ = {
+			isa = PBXGroup;
+			children = (
+				AFFA97F91C260C4F00C7EB2E /* AppDelegate.swift */,
+				AFFA97FA1C260C4F00C7EB2E /* Info.plist */,
+				AFFA97A11C26097800C7EB2E /* Assets.xcassets */,
+				AFFA97B11C2609EB00C7EB2E /* LaunchScreen.storyboard */,
+				AFFA97B21C2609EB00C7EB2E /* Main.storyboard */,
+				AFFA979D1C26094200C7EB2E /* ViewController.swift */,
+				AFFA979A1C26094200C7EB2E /* spritekit-spine-sdk-Bridging-Header.h */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		AFFA97B51C2609F700C7EB2E /* atlas */ = {
+			isa = PBXGroup;
+			children = (
+				AFFA97BA1C260AD800C7EB2E /* AtlasBuilder.swift */,
+			);
+			path = atlas;
+			sourceTree = "<group>";
+		};
+		AFFA97B61C260A0300C7EB2E /* data */ = {
+			isa = PBXGroup;
+			children = (
+				AFFA97C61C260AF400C7EB2E /* struct */,
+				AFFA97C31C260AEA00C7EB2E /* SpineParse.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		AFFA97B71C260A0900C7EB2E /* spritekit */ = {
+			isa = PBXGroup;
+			children = (
+				AFFA97E81C260B2A00C7EB2E /* SpineBuilder.swift */,
+			);
+			path = spritekit;
+			sourceTree = "<group>";
+		};
+		AFFA97B81C260A2D00C7EB2E /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				AFFA97E21C260B1D00C7EB2E /* example.atlas */,
+				AFFA97E31C260B1D00C7EB2E /* example.json */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		AFFA97B91C260A6F00C7EB2E /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				AFFA97EB1C260B3700C7EB2E /* FileHelper.swift */,
+				AFFA98021C2616B400C7EB2E /* JsonParserHelper.swift */,
+				AFFA97ED1C260B3700C7EB2E /* UIColoFromHexString.swift */,
+				AFFA97EC1C260B3700C7EB2E /* PairKey.swift */,
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
+		AFFA97C61C260AF400C7EB2E /* struct */ = {
+			isa = PBXGroup;
+			children = (
+				AFFA97C71C260B0600C7EB2E /* Animation.swift */,
+				AFFA97C81C260B0600C7EB2E /* Attachment.swift */,
+				AFFA97C91C260B0600C7EB2E /* Bone.swift */,
+				AFFA97CA1C260B0600C7EB2E /* Curve.swift */,
+				AFFA97CB1C260B0600C7EB2E /* Skin.swift */,
+				AFFA97CC1C260B0600C7EB2E /* Slot.swift */,
+				AFFA97CD1C260B0600C7EB2E /* SpineModel.swift */,
+				AFFA97CE1C260B0600C7EB2E /* Timeline.swift */,
+				AFFA97CF1C260B0600C7EB2E /* TimelineEntry.swift */,
+			);
+			name = struct;
+			path = structs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +363,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFE6FEC51C25B69500F3C05B /* LaunchScreen.storyboard in Resources */,
-				AFE6FEC21C25B69500F3C05B /* Assets.xcassets in Resources */,
-				AFE6FEC01C25B69500F3C05B /* Main.storyboard in Resources */,
+				AFFA97B31C2609EB00C7EB2E /* LaunchScreen.storyboard in Resources */,
+				AFFA97A31C26097800C7EB2E /* Assets.xcassets in Resources */,
+				AFFA97FD1C260C4F00C7EB2E /* Info.plist in Resources */,
+				AFFA97E61C260B1D00C7EB2E /* example.json in Resources */,
+				AFFA97E41C260B1D00C7EB2E /* example.atlas in Resources */,
+				AFFA97B41C2609EB00C7EB2E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +376,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFFA97E71C260B1D00C7EB2E /* example.json in Resources */,
+				AFFA97E51C260B1D00C7EB2E /* example.atlas in Resources */,
+				AFFA97FE1C260C4F00C7EB2E /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +396,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFE6FEBD1C25B69500F3C05B /* ViewController.swift in Sources */,
-				AFE6FEBB1C25B69500F3C05B /* AppDelegate.swift in Sources */,
+				AFFA97D81C260B0600C7EB2E /* Skin.swift in Sources */,
+				AFFA97FB1C260C4F00C7EB2E /* AppDelegate.swift in Sources */,
+				AFFA97DC1C260B0600C7EB2E /* SpineModel.swift in Sources */,
+				AFFA97E91C260B2A00C7EB2E /* SpineBuilder.swift in Sources */,
+				AFFA97A01C26094200C7EB2E /* ViewController.swift in Sources */,
+				AFFA97C41C260AEA00C7EB2E /* SpineParse.swift in Sources */,
+				AFFA97D21C260B0600C7EB2E /* Attachment.swift in Sources */,
+				AFFA97D61C260B0600C7EB2E /* Curve.swift in Sources */,
+				AFFA97DE1C260B0600C7EB2E /* Timeline.swift in Sources */,
+				AFFA97DA1C260B0600C7EB2E /* Slot.swift in Sources */,
+				AFFA98031C2616B400C7EB2E /* JsonParserHelper.swift in Sources */,
+				AFFA97D41C260B0600C7EB2E /* Bone.swift in Sources */,
+				AFFA97BD1C260AD800C7EB2E /* AtlasBuilder.swift in Sources */,
+				AFFA97EE1C260B3700C7EB2E /* FileHelper.swift in Sources */,
+				AFFA97E01C260B0600C7EB2E /* TimelineEntry.swift in Sources */,
+				AFFA97F01C260B3700C7EB2E /* PairKey.swift in Sources */,
+				AFFA97F21C260B3700C7EB2E /* UIColoFromHexString.swift in Sources */,
+				AFFA97D01C260B0600C7EB2E /* Animation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +421,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFE6FED01C25B69500F3C05B /* spritekit_spine_sdkTests.swift in Sources */,
+				AFFA97DF1C260B0600C7EB2E /* Timeline.swift in Sources */,
+				AFFA98071C26172200C7EB2E /* JsonParserHelper.swift in Sources */,
+				AFFA97D51C260B0600C7EB2E /* Bone.swift in Sources */,
+				AFFA97FC1C260C4F00C7EB2E /* AppDelegate.swift in Sources */,
+				AFFA98091C26172200C7EB2E /* PairKey.swift in Sources */,
+				AFFA98011C26105C00C7EB2E /* AtlasBuilderTests.swift in Sources */,
+				AFFA97C51C260AEF00C7EB2E /* SpineParse.swift in Sources */,
+				AFFA97E11C260B0600C7EB2E /* TimelineEntry.swift in Sources */,
+				AFFA97DB1C260B0600C7EB2E /* Slot.swift in Sources */,
+				AFFA97D71C260B0600C7EB2E /* Curve.swift in Sources */,
+				AFFA97D91C260B0600C7EB2E /* Skin.swift in Sources */,
+				AFFA97D11C260B0600C7EB2E /* Animation.swift in Sources */,
+				AFFA97DD1C260B0600C7EB2E /* SpineModel.swift in Sources */,
+				AFFA98061C26172200C7EB2E /* FileHelper.swift in Sources */,
+				AFFA97D31C260B0600C7EB2E /* Attachment.swift in Sources */,
+				AFFA97F81C260BCF00C7EB2E /* SpineParseTests.swift in Sources */,
+				AFFA97C01C260ADD00C7EB2E /* AtlasBuilder.swift in Sources */,
+				AFFA98051C26172200C7EB2E /* SpineBuilder.swift in Sources */,
+				AFFA98081C26172200C7EB2E /* UIColoFromHexString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +447,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFE6FEDB1C25B69500F3C05B /* spritekit_spine_sdkUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,25 +464,6 @@
 			targetProxy = AFE6FED71C25B69500F3C05B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		AFE6FEBE1C25B69500F3C05B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AFE6FEBF1C25B69500F3C05B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		AFE6FEC31C25B69500F3C05B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AFE6FEC41C25B69500F3C05B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AFE6FEDD1C25B69500F3C05B /* Debug */ = {
@@ -399,10 +553,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "spritekit-spine-sdk/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.coldcool.spritekit-spine-sdk";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "spritekit-spine-sdk/main/spritekit-spine-sdk-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -410,10 +567,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "spritekit-spine-sdk/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.coldcool.spritekit-spine-sdk";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "spritekit-spine-sdk/main/spritekit-spine-sdk-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -484,6 +643,7 @@
 				AFE6FEE11C25B69500F3C05B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AFE6FEE21C25B69500F3C05B /* Build configuration list for PBXNativeTarget "spritekit-spine-sdkTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +652,7 @@
 				AFE6FEE41C25B69500F3C05B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AFE6FEE51C25B69500F3C05B /* Build configuration list for PBXNativeTarget "spritekit-spine-sdkUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +661,7 @@
 				AFE6FEE71C25B69500F3C05B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

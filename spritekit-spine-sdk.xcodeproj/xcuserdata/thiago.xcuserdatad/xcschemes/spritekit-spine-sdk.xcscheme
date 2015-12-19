@@ -5,6 +5,22 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AFE6FEB61C25B69500F3C05B"
+               BuildableName = "spritekit-spine-sdk.app"
+               BlueprintName = "spritekit-spine-sdk"
+               ReferencedContainer = "container:spritekit-spine-sdk.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -12,7 +28,36 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AFE6FECA1C25B69500F3C05B"
+               BuildableName = "spritekit-spine-sdkTests.xctest"
+               BlueprintName = "spritekit-spine-sdkTests"
+               ReferencedContainer = "container:spritekit-spine-sdk.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AFE6FED51C25B69500F3C05B"
+               BuildableName = "spritekit-spine-sdkUITests.xctest"
+               BlueprintName = "spritekit-spine-sdkUITests"
+               ReferencedContainer = "container:spritekit-spine-sdk.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "AFE6FEB61C25B69500F3C05B"
+            BuildableName = "spritekit-spine-sdk.app"
+            BlueprintName = "spritekit-spine-sdk"
+            ReferencedContainer = "container:spritekit-spine-sdk.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -26,6 +71,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "AFE6FEB61C25B69500F3C05B"
+            BuildableName = "spritekit-spine-sdk.app"
+            BlueprintName = "spritekit-spine-sdk"
+            ReferencedContainer = "container:spritekit-spine-sdk.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -35,6 +90,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "AFE6FEB61C25B69500F3C05B"
+            BuildableName = "spritekit-spine-sdk.app"
+            BlueprintName = "spritekit-spine-sdk"
+            ReferencedContainer = "container:spritekit-spine-sdk.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
