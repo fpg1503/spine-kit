@@ -33,8 +33,6 @@
 		AFFA97DF1C260B0600C7EB2E /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97CE1C260B0600C7EB2E /* Timeline.swift */; };
 		AFFA97E01C260B0600C7EB2E /* TimelineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97CF1C260B0600C7EB2E /* TimelineEntry.swift */; };
 		AFFA97E11C260B0600C7EB2E /* TimelineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97CF1C260B0600C7EB2E /* TimelineEntry.swift */; };
-		AFFA97E41C260B1D00C7EB2E /* example.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AFFA97E21C260B1D00C7EB2E /* example.atlas */; };
-		AFFA97E51C260B1D00C7EB2E /* example.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AFFA97E21C260B1D00C7EB2E /* example.atlas */; };
 		AFFA97E61C260B1D00C7EB2E /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = AFFA97E31C260B1D00C7EB2E /* example.json */; };
 		AFFA97E71C260B1D00C7EB2E /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = AFFA97E31C260B1D00C7EB2E /* example.json */; };
 		AFFA97E91C260B2A00C7EB2E /* SpineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA97E81C260B2A00C7EB2E /* SpineBuilder.swift */; };
@@ -94,7 +92,6 @@
 		AFFA97CD1C260B0600C7EB2E /* SpineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpineModel.swift; sourceTree = "<group>"; };
 		AFFA97CE1C260B0600C7EB2E /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
 		AFFA97CF1C260B0600C7EB2E /* TimelineEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineEntry.swift; sourceTree = "<group>"; };
-		AFFA97E21C260B1D00C7EB2E /* example.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = example.atlas; sourceTree = "<group>"; };
 		AFFA97E31C260B1D00C7EB2E /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
 		AFFA97E81C260B2A00C7EB2E /* SpineBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpineBuilder.swift; sourceTree = "<group>"; };
 		AFFA97EB1C260B3700C7EB2E /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileHelper.swift; path = utils/FileHelper.swift; sourceTree = "<group>"; };
@@ -225,7 +222,6 @@
 		AFFA97B81C260A2D00C7EB2E /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				AFFA97E21C260B1D00C7EB2E /* example.atlas */,
 				AFFA97E31C260B1D00C7EB2E /* example.json */,
 			);
 			path = resources;
@@ -367,7 +363,6 @@
 				AFFA97A31C26097800C7EB2E /* Assets.xcassets in Resources */,
 				AFFA97FD1C260C4F00C7EB2E /* Info.plist in Resources */,
 				AFFA97E61C260B1D00C7EB2E /* example.json in Resources */,
-				AFFA97E41C260B1D00C7EB2E /* example.atlas in Resources */,
 				AFFA97B41C2609EB00C7EB2E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,7 +372,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFFA97E71C260B1D00C7EB2E /* example.json in Resources */,
-				AFFA97E51C260B1D00C7EB2E /* example.atlas in Resources */,
 				AFFA97FE1C260C4F00C7EB2E /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

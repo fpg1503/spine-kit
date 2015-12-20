@@ -10,7 +10,9 @@ import Foundation
 import SpriteKit
 
 
-class AtlasBuilder {
+struct AtlasBuilder {
+    
+    
     
     func load(spine: SpineModel?) -> SKTextureAtlas? {
         

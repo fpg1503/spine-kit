@@ -7,17 +7,37 @@
 //
 
 import UIKit
+import SpriteKit
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let skView = SKView(frame: self.view.bounds)
+        skView.ignoresSiblingOrder = true
+        
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+        skView.showsDrawCount = true
+        
+        let scene = SKScene(size: self.view.bounds.size)
+        scene.scaleMode = SKSceneScaleMode.AspectFill
+        
+        SpineBuilder().buildSpine("example") { node in
+            node.position = self.view.center
+            
+            scene.addChild(node)
+            
+        }
+                
+        skView.presentScene(scene)
+        
+        self.view.addSubview(skView)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 

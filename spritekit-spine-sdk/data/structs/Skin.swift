@@ -11,5 +11,5 @@ import Foundation
 
 struct Skin {
     var name: String
-    var entries: [PairKey<String, String>: Attachment]
+    var entries: [PairKey<String, String> : Attachment]
 }

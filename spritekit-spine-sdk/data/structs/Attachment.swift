@@ -7,12 +7,12 @@
 //
 
 import Foundation
-
+import CoreGraphics
 
 struct Attachment {
     var name: String
-    var x: Float
-    var y: Float
+    var x: CGFloat
+    var y: CGFloat
     var scaleX: Float
     var scaleY: Float
     var rotation: Float

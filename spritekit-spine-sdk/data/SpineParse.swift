@@ -122,8 +122,8 @@ class SpineParse {
     func parseAttachment(dictionary: [String: AnyObject]) -> Attachment {
         return Attachment(
             name: JsonParserHelper.parseString(dictionary, key: "name"),
-            x: JsonParserHelper.parseFloat(dictionary, key: "x"),
-            y: JsonParserHelper.parseFloat(dictionary, key: "y"),
+            x: CGFloat(JsonParserHelper.parseFloat(dictionary, key: "x")),
+            y: CGFloat(JsonParserHelper.parseFloat(dictionary, key: "y")),
             scaleX: JsonParserHelper.parseFloat(dictionary, key: "scaleX"),
             scaleY: JsonParserHelper.parseFloat(dictionary, key: "scaleY"),
             rotation: JsonParserHelper.parseFloat(dictionary, key: "rotation"),

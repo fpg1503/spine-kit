@@ -12,7 +12,7 @@ func ==<A: Hashable, B: Hashable>(pair1: PairKey<A, B>, pair2: PairKey<A, B>) ->
     return pair1.hashValue == pair2.hashValue
 }
 
-class PairKey<A: Hashable, B: Hashable> : Hashable {
+class PairKey<A: Hashable, B: Hashable> : Hashable, CustomDebugStringConvertible, CustomStringConvertible {
     
     var key1: A
     var key2: B
@@ -26,5 +26,12 @@ class PairKey<A: Hashable, B: Hashable> : Hashable {
     init(key1: A, key2: B) {
         self.key1 = key1
         self.key2 = key2
+    }
+    
+    var debugDescription: String {
+        return "\(key1), \(key2)"
+    }
+    var description: String {
+        return self.debugDescription
     }
 }
