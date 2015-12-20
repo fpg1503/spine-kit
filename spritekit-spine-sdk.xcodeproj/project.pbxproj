@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9FA61BAF1C2705B700F853F1 /* example.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 9FA61BAE1C2705B700F853F1 /* example.atlas */; };
 		AFFA97A01C26094200C7EB2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA979D1C26094200C7EB2E /* ViewController.swift */; };
 		AFFA97A31C26097800C7EB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFFA97A11C26097800C7EB2E /* Assets.xcassets */; };
 		AFFA97B31C2609EB00C7EB2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFFA97B11C2609EB00C7EB2E /* LaunchScreen.storyboard */; };
@@ -71,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9FA61BAE1C2705B700F853F1 /* example.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = example.atlas; sourceTree = "<group>"; };
 		AFE6FEB71C25B69500F3C05B /* spritekit-spine-sdk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spritekit-spine-sdk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE6FECB1C25B69500F3C05B /* spritekit-spine-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "spritekit-spine-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE6FED11C25B69500F3C05B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 		AFFA97B81C260A2D00C7EB2E /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				9FA61BAE1C2705B700F853F1 /* example.atlas */,
 				AFFA97E31C260B1D00C7EB2E /* example.json */,
 			);
 			path = resources;
@@ -364,6 +367,7 @@
 				AFFA97FD1C260C4F00C7EB2E /* Info.plist in Resources */,
 				AFFA97E61C260B1D00C7EB2E /* example.json in Resources */,
 				AFFA97B41C2609EB00C7EB2E /* Main.storyboard in Resources */,
+				9FA61BAF1C2705B700F853F1 /* example.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +504,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -538,6 +543,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

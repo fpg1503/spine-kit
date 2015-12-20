@@ -24,12 +24,14 @@ class ViewController: UIViewController {
         let scene = SKScene(size: self.view.bounds.size)
         scene.scaleMode = SKSceneScaleMode.AspectFill
         
-        SpineBuilder().buildSpine("example") { node in
-            node.position = self.view.center
-            
-            scene.addChild(node)
-            
-        }
+        let node = SpineBuilder().buildSpine("example");
+        
+        let rotateAction = SKAction.rotateByAngle(0.1, duration: 0.1)
+        let repeatAction = SKAction.repeatActionForever(rotateAction)
+        
+        node.position = self.view.center
+        scene.addChild(node)
+        node.runAction(repeatAction)
                 
         skView.presentScene(scene)
         
