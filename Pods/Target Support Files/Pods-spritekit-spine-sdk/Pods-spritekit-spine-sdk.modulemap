@@ -1,0 +1,6 @@
+framework module Pods_spritekit_spine_sdk {
+  umbrella header "Pods-spritekit-spine-sdk-umbrella.h"
+
+  export *
+  module * { export * }
+}
