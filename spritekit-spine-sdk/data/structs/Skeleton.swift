@@ -8,10 +8,11 @@
 
 import Foundation
 
-struct SpineModel {
+struct Skeleton {
     var name: String
     var slots: [Slot]
     var bones: [Bone]
     var skins: [Skin]
     var animations: [Animation]
+    var defaultSkin: String
 }

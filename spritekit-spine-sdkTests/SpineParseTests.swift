@@ -19,9 +19,9 @@ class SpineParseTests: XCTestCase {
         let json = FileHelper.loadTextFile("example", type: "json")
         let parsedModel = parse.parse("example", data: json!)
         
-        XCTAssertTrue(parsedModel?.slots.count > 0)
-        XCTAssertTrue(parsedModel?.bones.count > 0)
-        XCTAssertTrue(parsedModel?.skins.count > 0)
+        XCTAssertTrue(parsedModel?.slots?.count > 0)
+        XCTAssertTrue(parsedModel?.bones?.count > 0)
+        XCTAssertTrue(parsedModel?.skins?.count > 0)
     }
     
     override func tearDown() {

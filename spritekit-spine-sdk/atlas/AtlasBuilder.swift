@@ -12,14 +12,12 @@ import SpriteKit
 
 struct AtlasBuilder {
     
-    
-    
-    func load(spine: SpineModel?) -> SKTextureAtlas? {
+    func load(skeleton: Skeleton?) -> SKTextureAtlas? {
         
         var result: SKTextureAtlas? = nil
         
-        if let verifiedModel = spine {
-           result = SKTextureAtlas(named: verifiedModel.name)
+        if let skeleton = skeleton {
+           result = SKTextureAtlas(named: skeleton.name)
         }
         return result
     }
