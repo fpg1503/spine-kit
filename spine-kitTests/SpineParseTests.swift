@@ -16,8 +16,8 @@ class SpineParseTests: XCTestCase {
     
     func test() {
         let parse = SpineParse()
-        let json = FileHelper.loadTextFile("example", type: "json")
-        let parsedModel = parse.parse("example", data: json!)
+        let json = FileHelper.loadTextFile("dragon", type: "json", subpath: "dragon")
+        let parsedModel = parse.parse("dragon", data: json!)
         
         XCTAssertTrue(parsedModel?.slots?.count > 0)
         XCTAssertTrue(parsedModel?.bones?.count > 0)

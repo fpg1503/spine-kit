@@ -11,11 +11,11 @@ import Foundation
 
 struct FileHelper {
 
-    static func loadTextFile(fileName: String, type: String) -> String? {
+    static func loadTextFile(fileName: String, type: String, subpath: String? = nil) -> String? {
         
         var result: String? = nil
         
-        if let path = NSBundle.mainBundle().pathForResource(fileName, ofType: type) {
+        if let path = NSBundle.mainBundle().pathForResource(fileName, ofType: type, inDirectory: subpath) {
             do {
                 result = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
             } catch {

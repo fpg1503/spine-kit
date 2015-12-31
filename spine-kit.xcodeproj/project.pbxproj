@@ -32,6 +32,13 @@
 		AF4045711C34B1F300F7E3CE /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AC61C34AE9100734C1C /* FileHelper.swift */; };
 		AF4045721C34B1F300F7E3CE /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AC71C34AE9100734C1C /* JSONDecodable.swift */; };
 		AF4045731C34B1F300F7E3CE /* UIColoFromHexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AC81C34AE9100734C1C /* UIColoFromHexString.swift */; };
+		AF40457E1C34B56700F7E3CE /* alien in Resources */ = {isa = PBXBuildFile; fileRef = AF4045741C34B56700F7E3CE /* alien */; };
+		AF40457F1C34B56700F7E3CE /* dragon in Resources */ = {isa = PBXBuildFile; fileRef = AF4045751C34B56700F7E3CE /* dragon */; };
+		AF4045821C34B56700F7E3CE /* powerup in Resources */ = {isa = PBXBuildFile; fileRef = AF4045781C34B56700F7E3CE /* powerup */; };
+		AF4045831C34B56700F7E3CE /* raptor in Resources */ = {isa = PBXBuildFile; fileRef = AF4045791C34B56700F7E3CE /* raptor */; };
+		AF4045841C34B56700F7E3CE /* speedy in Resources */ = {isa = PBXBuildFile; fileRef = AF40457A1C34B56700F7E3CE /* speedy */; };
+		AF4045871C34B56700F7E3CE /* spinosaurus in Resources */ = {isa = PBXBuildFile; fileRef = AF40457D1C34B56700F7E3CE /* spinosaurus */; };
+		AF40458B1C34B6CD00F7E3CE /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = AF40458A1C34B6CD00F7E3CE /* license.txt */; };
 		AF594A511C34ACAC00734C1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A501C34ACAC00734C1C /* AppDelegate.swift */; };
 		AF594A531C34ACAC00734C1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A521C34ACAC00734C1C /* ViewController.swift */; };
 		AF594A561C34ACAC00734C1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF594A541C34ACAC00734C1C /* Main.storyboard */; };
@@ -84,6 +91,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF4045741C34B56700F7E3CE /* alien */ = {isa = PBXFileReference; lastKnownFileType = folder; path = alien; sourceTree = "<group>"; };
+		AF4045751C34B56700F7E3CE /* dragon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dragon; sourceTree = "<group>"; };
+		AF4045781C34B56700F7E3CE /* powerup */ = {isa = PBXFileReference; lastKnownFileType = folder; path = powerup; sourceTree = "<group>"; };
+		AF4045791C34B56700F7E3CE /* raptor */ = {isa = PBXFileReference; lastKnownFileType = folder; path = raptor; sourceTree = "<group>"; };
+		AF40457A1C34B56700F7E3CE /* speedy */ = {isa = PBXFileReference; lastKnownFileType = folder; path = speedy; sourceTree = "<group>"; };
+		AF40457D1C34B56700F7E3CE /* spinosaurus */ = {isa = PBXFileReference; lastKnownFileType = folder; path = spinosaurus; sourceTree = "<group>"; };
+		AF40458A1C34B6CD00F7E3CE /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		AF594A4D1C34ACAC00734C1C /* spine-kit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spine-kit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF594A501C34ACAC00734C1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF594A521C34ACAC00734C1C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +300,13 @@
 		AF594ACF1C34AEB900734C1C /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				AF4045741C34B56700F7E3CE /* alien */,
+				AF4045751C34B56700F7E3CE /* dragon */,
+				AF4045781C34B56700F7E3CE /* powerup */,
+				AF4045791C34B56700F7E3CE /* raptor */,
+				AF40457A1C34B56700F7E3CE /* speedy */,
+				AF40457D1C34B56700F7E3CE /* spinosaurus */,
+				AF40458A1C34B6CD00F7E3CE /* license.txt */,
 				AF594AD01C34AEC800734C1C /* example.json */,
 			);
 			path = resources;
@@ -403,10 +424,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF4045831C34B56700F7E3CE /* raptor in Resources */,
 				AF594AD11C34AEC800734C1C /* example.json in Resources */,
+				AF40458B1C34B6CD00F7E3CE /* license.txt in Resources */,
 				AF594A5B1C34ACAC00734C1C /* LaunchScreen.storyboard in Resources */,
 				AF594A581C34ACAC00734C1C /* Assets.xcassets in Resources */,
 				AF594A561C34ACAC00734C1C /* Main.storyboard in Resources */,
+				AF4045871C34B56700F7E3CE /* spinosaurus in Resources */,
+				AF4045821C34B56700F7E3CE /* powerup in Resources */,
+				AF40457E1C34B56700F7E3CE /* alien in Resources */,
+				AF4045841C34B56700F7E3CE /* speedy in Resources */,
+				AF40457F1C34B56700F7E3CE /* dragon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
