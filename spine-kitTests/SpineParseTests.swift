@@ -22,6 +22,7 @@ class SpineParseTests: XCTestCase {
         XCTAssertTrue(parsedModel?.slots?.count > 0)
         XCTAssertTrue(parsedModel?.bones?.count > 0)
         XCTAssertTrue(parsedModel?.skins?.count > 0)
+        XCTAssertTrue(parsedModel?.animations?.count > 0)
     }
     
     override func tearDown() {

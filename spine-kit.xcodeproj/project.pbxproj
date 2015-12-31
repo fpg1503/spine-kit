@@ -7,6 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF40455B1C34B1F300F7E3CE /* AtlasBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AD31C34AEEB00734C1C /* AtlasBuilder.swift */; };
+		AF40455C1C34B1F300F7E3CE /* Curve.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AC11C34AE6D00734C1C /* Curve.swift */; };
+		AF40455D1C34B1F300F7E3CE /* DrawOrderOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AC21C34AE6D00734C1C /* DrawOrderOffset.swift */; };
+		AF40455E1C34B1F300F7E3CE /* AttachmentKeyFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AB51C34AE5E00734C1C /* AttachmentKeyFrame.swift */; };
+		AF40455F1C34B1F300F7E3CE /* ColorTransitionKeyFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AB61C34AE5E00734C1C /* ColorTransitionKeyFrame.swift */; };
+		AF4045601C34B1F300F7E3CE /* DrawOrderKeyFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AB71C34AE5E00734C1C /* DrawOrderKeyFrame.swift */; };
+		AF4045611C34B1F300F7E3CE /* RotateKeyFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AB81C34AE5E00734C1C /* RotateKeyFrame.swift */; };
+		AF4045621C34B1F300F7E3CE /* ScaleKeyFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AB91C34AE5E00734C1C /* ScaleKeyFrame.swift */; };
+		AF4045631C34B1F300F7E3CE /* TranslateKeyFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594ABA1C34AE5E00734C1C /* TranslateKeyFrame.swift */; };
+		AF4045641C34B1F300F7E3CE /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AAF1C34AE4600734C1C /* Animation.swift */; };
+		AF4045651C34B1F300F7E3CE /* BoneTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AB01C34AE4600734C1C /* BoneTimeline.swift */; };
+		AF4045661C34B1F300F7E3CE /* SlotTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AB11C34AE4600734C1C /* SlotTimeline.swift */; };
+		AF4045671C34B1F300F7E3CE /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A831C34AD8400734C1C /* Attachment.swift */; };
+		AF4045681C34B1F300F7E3CE /* Bone.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A851C34AD8400734C1C /* Bone.swift */; };
+		AF4045691C34B1F300F7E3CE /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A8B1C34AD8400734C1C /* Event.swift */; };
+		AF40456A1C34B1F300F7E3CE /* Skeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A8E1C34AD8400734C1C /* Skeleton.swift */; };
+		AF40456B1C34B1F300F7E3CE /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A8F1C34AD8400734C1C /* Skin.swift */; };
+		AF40456C1C34B1F300F7E3CE /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A901C34AD8400734C1C /* Slot.swift */; };
+		AF40456D1C34B1F300F7E3CE /* SpineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A921C34AD8400734C1C /* SpineModel.swift */; };
+		AF40456E1C34B1F300F7E3CE /* SpineParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A801C34AD5500734C1C /* SpineParse.swift */; };
+		AF40456F1C34B1F300F7E3CE /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = AF594AD01C34AEC800734C1C /* example.json */; };
+		AF4045701C34B1F300F7E3CE /* SpineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594ACD1C34AEB000734C1C /* SpineBuilder.swift */; };
+		AF4045711C34B1F300F7E3CE /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AC61C34AE9100734C1C /* FileHelper.swift */; };
+		AF4045721C34B1F300F7E3CE /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AC71C34AE9100734C1C /* JSONDecodable.swift */; };
+		AF4045731C34B1F300F7E3CE /* UIColoFromHexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AC81C34AE9100734C1C /* UIColoFromHexString.swift */; };
 		AF594A511C34ACAC00734C1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A501C34ACAC00734C1C /* AppDelegate.swift */; };
 		AF594A531C34ACAC00734C1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A521C34ACAC00734C1C /* ViewController.swift */; };
 		AF594A561C34ACAC00734C1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF594A541C34ACAC00734C1C /* Main.storyboard */; };
@@ -73,7 +98,7 @@
 		AF594A801C34AD5500734C1C /* SpineParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpineParse.swift; sourceTree = "<group>"; };
 		AF594A831C34AD8400734C1C /* Attachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
 		AF594A851C34AD8400734C1C /* Bone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bone.swift; sourceTree = "<group>"; };
-		AF594A8B1C34AD8400734C1C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		AF594A8B1C34AD8400734C1C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = ../Event.swift; sourceTree = "<group>"; };
 		AF594A8E1C34AD8400734C1C /* Skeleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skeleton.swift; sourceTree = "<group>"; };
 		AF594A8F1C34AD8400734C1C /* Skin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
 		AF594A901C34AD8400734C1C /* Slot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
@@ -197,7 +222,6 @@
 				AF594AA61C34ADB700734C1C /* animation */,
 				AF594A831C34AD8400734C1C /* Attachment.swift */,
 				AF594A851C34AD8400734C1C /* Bone.swift */,
-				AF594A8B1C34AD8400734C1C /* Event.swift */,
 				AF594A8E1C34AD8400734C1C /* Skeleton.swift */,
 				AF594A8F1C34AD8400734C1C /* Skin.swift */,
 				AF594A901C34AD8400734C1C /* Slot.swift */,
@@ -211,6 +235,7 @@
 			children = (
 				AF594AA71C34ADBF00734C1C /* keyframes */,
 				AF594AAF1C34AE4600734C1C /* Animation.swift */,
+				AF594A8B1C34AD8400734C1C /* Event.swift */,
 				AF594AB01C34AE4600734C1C /* BoneTimeline.swift */,
 				AF594AB11C34AE4600734C1C /* SlotTimeline.swift */,
 			);
@@ -389,6 +414,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF40456F1C34B1F300F7E3CE /* example.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,8 +465,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF4045601C34B1F300F7E3CE /* DrawOrderKeyFrame.swift in Sources */,
+				AF4045721C34B1F300F7E3CE /* JSONDecodable.swift in Sources */,
+				AF4045611C34B1F300F7E3CE /* RotateKeyFrame.swift in Sources */,
 				AF594AD81C34AF4500734C1C /* AtlasBuilderTests.swift in Sources */,
+				AF40456C1C34B1F300F7E3CE /* Slot.swift in Sources */,
+				AF40455B1C34B1F300F7E3CE /* AtlasBuilder.swift in Sources */,
+				AF4045671C34B1F300F7E3CE /* Attachment.swift in Sources */,
+				AF4045661C34B1F300F7E3CE /* SlotTimeline.swift in Sources */,
+				AF4045621C34B1F300F7E3CE /* ScaleKeyFrame.swift in Sources */,
+				AF4045651C34B1F300F7E3CE /* BoneTimeline.swift in Sources */,
+				AF40456D1C34B1F300F7E3CE /* SpineModel.swift in Sources */,
+				AF4045691C34B1F300F7E3CE /* Event.swift in Sources */,
+				AF4045711C34B1F300F7E3CE /* FileHelper.swift in Sources */,
+				AF4045701C34B1F300F7E3CE /* SpineBuilder.swift in Sources */,
+				AF40456E1C34B1F300F7E3CE /* SpineParse.swift in Sources */,
+				AF4045731C34B1F300F7E3CE /* UIColoFromHexString.swift in Sources */,
+				AF40455D1C34B1F300F7E3CE /* DrawOrderOffset.swift in Sources */,
+				AF4045681C34B1F300F7E3CE /* Bone.swift in Sources */,
+				AF4045631C34B1F300F7E3CE /* TranslateKeyFrame.swift in Sources */,
+				AF40456A1C34B1F300F7E3CE /* Skeleton.swift in Sources */,
 				AF594AD91C34AF4500734C1C /* SpineParseTests.swift in Sources */,
+				AF40455F1C34B1F300F7E3CE /* ColorTransitionKeyFrame.swift in Sources */,
+				AF40455E1C34B1F300F7E3CE /* AttachmentKeyFrame.swift in Sources */,
+				AF4045641C34B1F300F7E3CE /* Animation.swift in Sources */,
+				AF40456B1C34B1F300F7E3CE /* Skin.swift in Sources */,
+				AF40455C1C34B1F300F7E3CE /* Curve.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,6 +713,7 @@
 				AF594A771C34ACAC00734C1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF594A781C34ACAC00734C1C /* Build configuration list for PBXNativeTarget "spine-kitTests" */ = {
 			isa = XCConfigurationList;
@@ -671,6 +722,7 @@
 				AF594A7A1C34ACAC00734C1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF594A7B1C34ACAC00734C1C /* Build configuration list for PBXNativeTarget "spine-kitUITests" */ = {
 			isa = XCConfigurationList;
@@ -679,6 +731,7 @@
 				AF594A7D1C34ACAC00734C1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

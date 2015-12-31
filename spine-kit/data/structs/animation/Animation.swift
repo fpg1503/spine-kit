@@ -10,10 +10,10 @@ import Foundation
 
 struct Animation {
     var name: String
-    var slotTimelines: [SlotTimeline]
-    var boneTimelines: [BoneTimeline]
-    var drawOrderKeyFrames: [DrawOrderKeyFrame]
-    var events: [Event]
+    let slotTimelines: [SlotTimeline]
+    let boneTimelines: [BoneTimeline]
+    let drawOrderKeyFrames: [DrawOrderKeyFrame]
+    let events: [Event]
 }
 
 extension Animation: JSONDecodable {

@@ -13,7 +13,6 @@ struct SpineModel {
     let slots: [Slot]?
     let bones: [Bone]?
     let skins: [Skin]?
-    let events: [Event]?
     let animations: [Animation]?
     let defaultSkin: String
 }
@@ -25,14 +24,29 @@ extension SpineModel: JSONDecodable {
         let slots = decodeArray(json, key: "slots", decode: Slot.decode)
         let bones = decodeArray(json, key: "bones", decode: Bone.decode)
         let skins = parseSkin(json)
-        let events = decodeArray(json, key: "events", decode: Event.decode)
-        let animations = decodeArray(json, key: "animations", decode: Animation.decode)
+        let animations = parseAnimation(json)
         let defaultSkin = asSafeString(json, key: "defaultSkin", defaultValue: "default")
         
-        return SpineModel(name: "", slots: slots, bones: bones, skins: skins, events: events, animations: animations, defaultSkin: defaultSkin)
+        return SpineModel(name: "", slots: slots, bones: bones, skins: skins, animations: animations, defaultSkin: defaultSkin)
     }
     
-    static func parseSkin(json: JSON?) -> [Skin] {
+    static func parseAnimation(json: JSON?) -> [Animation]? {
+        var result: [Animation] = []
+        let animationJSONs = asSafeJSON(json, key: "animations")
+        
+        for (animationName, value) in animationJSONs {
+            
+            if let animationJSON = value as? JSON {
+                if var animation = Animation.decode(animationJSON) {
+                    animation.name = animationName
+                    result.append(animation)
+                }
+            }
+        }
+        return result
+    }
+    
+    static func parseSkin(json: JSON?) -> [Skin]? {
         let skinsJSON = asSafeJSON(json, key: "skins")
         var skins: [Skin] = []
         for (key, value) in skinsJSON {

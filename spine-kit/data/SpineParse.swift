@@ -24,6 +24,7 @@ class SpineParse {
                     let json = try NSJSONSerialization.JSONObjectWithData(decodedData, options: [])
                     if let json = json as? JSON {
                         result = SpineModel.decode(json)
+                        result?.name = name
                     }
                 }
             }
