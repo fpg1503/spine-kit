@@ -21,10 +21,10 @@ extension Slot: JSONDecodable {
     
     static func decode(json: JSON?) -> Slot? {
         
-        let grayInHex = "#808080FF"
+        let whiteInHex = "#FFFFFFFF"
         let name = asSafeString(json, key: "name")
         let bone = asString(json, key: "bone")
-        let color = asSafeString(json, key: "color", defaultValue: grayInHex)
+        let color = asSafeString(json, key: "color", defaultValue: whiteInHex)
         let attachment = asString(json, key: "attachment")
         let additiveBlending = asSafeBool(json, key: "additiveBlending")
         

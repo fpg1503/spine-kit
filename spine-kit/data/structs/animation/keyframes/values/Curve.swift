@@ -10,7 +10,7 @@ import Foundation
 
 enum Curve {
     case Stepped
-    case Undefined
+    case Linear
     case Bezier([Double])
 }
 
@@ -18,7 +18,7 @@ extension Curve: JSONDecodable {
     
     static func decode(json: JSON?) -> Curve? {
         
-        var result: Curve? = Curve.Undefined
+        var result: Curve? = Curve.Linear
         
         if let stringValue = asString(json, key:"curve") where stringValue == "stepped" {
             result = Curve.Stepped

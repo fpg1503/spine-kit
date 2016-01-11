@@ -21,7 +21,7 @@ extension ColorTransitionKeyFrame: JSONDecodable {
     static func decode(json: JSON?) -> ColorTransitionKeyFrame? {
         
         let time = asSafeDouble(json, key: "time")
-        let color = asSafeString(json, key: "color", defaultValue: "#808080")
+        let color = asSafeString(json, key: "color", defaultValue: "#FFFFFFFF")
         
         return ColorTransitionKeyFrame(time: time, color: UIColor(hex: color), curve: Curve.decode(json))
     }
