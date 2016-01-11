@@ -12,13 +12,11 @@ import SpriteKit
 
 struct AtlasBuilder {
     
-    func load(spineModel: SpineModel?) -> SKTextureAtlas? {
-        
-        var result: SKTextureAtlas? = nil
-        
-        if let spineName = spineModel?.name {
-           result = SKTextureAtlas(named: spineName)
-        }
-        return result
+    func buildFromResources(name: String) -> SKTextureAtlas? {
+        return SKTextureAtlas(named: name)
     }
+    
+    //TODO build from remote
+    
+    //TODO build creating atlas in runtime
 }

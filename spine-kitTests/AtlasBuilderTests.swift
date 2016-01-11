@@ -20,7 +20,7 @@ class AtlasBuilderTests: XCTestCase {
         let parsedModel = parse.parse("example", data: json!);
         
         let atlasBuilder = AtlasBuilder()
-        let atlas = atlasBuilder.load(parsedModel)
+        let atlas = atlasBuilder.buildFromResources((parsedModel?.name)!)
         
         XCTAssertNotNil(atlas)
     }

@@ -13,7 +13,6 @@ struct DrawOrderKeyFrame {
     let offsets: [DrawOrderOffset]
 }
 
-
 extension DrawOrderKeyFrame: JSONDecodable {
     
     static func decode(json: JSON?) -> DrawOrderKeyFrame? {

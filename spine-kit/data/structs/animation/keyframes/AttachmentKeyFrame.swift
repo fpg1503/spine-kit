@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct AttachmentKeyFrame {
     var time: Double
     var name: String?

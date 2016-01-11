@@ -27,18 +27,22 @@
 		AF40456C1C34B1F300F7E3CE /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A901C34AD8400734C1C /* Slot.swift */; };
 		AF40456D1C34B1F300F7E3CE /* SpineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A921C34AD8400734C1C /* SpineModel.swift */; };
 		AF40456E1C34B1F300F7E3CE /* SpineParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A801C34AD5500734C1C /* SpineParse.swift */; };
-		AF40456F1C34B1F300F7E3CE /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = AF594AD01C34AEC800734C1C /* example.json */; };
 		AF4045701C34B1F300F7E3CE /* SpineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594ACD1C34AEB000734C1C /* SpineBuilder.swift */; };
 		AF4045711C34B1F300F7E3CE /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AC61C34AE9100734C1C /* FileHelper.swift */; };
 		AF4045721C34B1F300F7E3CE /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AC71C34AE9100734C1C /* JSONDecodable.swift */; };
 		AF4045731C34B1F300F7E3CE /* UIColoFromHexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AC81C34AE9100734C1C /* UIColoFromHexString.swift */; };
-		AF40457E1C34B56700F7E3CE /* alien in Resources */ = {isa = PBXBuildFile; fileRef = AF4045741C34B56700F7E3CE /* alien */; };
-		AF40457F1C34B56700F7E3CE /* dragon in Resources */ = {isa = PBXBuildFile; fileRef = AF4045751C34B56700F7E3CE /* dragon */; };
-		AF4045821C34B56700F7E3CE /* powerup in Resources */ = {isa = PBXBuildFile; fileRef = AF4045781C34B56700F7E3CE /* powerup */; };
-		AF4045831C34B56700F7E3CE /* raptor in Resources */ = {isa = PBXBuildFile; fileRef = AF4045791C34B56700F7E3CE /* raptor */; };
-		AF4045841C34B56700F7E3CE /* speedy in Resources */ = {isa = PBXBuildFile; fileRef = AF40457A1C34B56700F7E3CE /* speedy */; };
-		AF4045871C34B56700F7E3CE /* spinosaurus in Resources */ = {isa = PBXBuildFile; fileRef = AF40457D1C34B56700F7E3CE /* spinosaurus */; };
-		AF40458B1C34B6CD00F7E3CE /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = AF40458A1C34B6CD00F7E3CE /* license.txt */; };
+		AF4045A31C35794600F7E3CE /* alien.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AF4045971C35794600F7E3CE /* alien.atlas */; };
+		AF4045A41C35794600F7E3CE /* alien.json in Resources */ = {isa = PBXBuildFile; fileRef = AF4045981C35794600F7E3CE /* alien.json */; };
+		AF4045A51C35794600F7E3CE /* dragon.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AF4045991C35794600F7E3CE /* dragon.atlas */; };
+		AF4045A61C35794600F7E3CE /* dragon.json in Resources */ = {isa = PBXBuildFile; fileRef = AF40459A1C35794600F7E3CE /* dragon.json */; };
+		AF4045A71C35794600F7E3CE /* powerup.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AF40459B1C35794600F7E3CE /* powerup.atlas */; };
+		AF4045A81C35794600F7E3CE /* powerup.json in Resources */ = {isa = PBXBuildFile; fileRef = AF40459C1C35794600F7E3CE /* powerup.json */; };
+		AF4045A91C35794600F7E3CE /* raptor.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AF40459D1C35794600F7E3CE /* raptor.atlas */; };
+		AF4045AA1C35794600F7E3CE /* raptor.json in Resources */ = {isa = PBXBuildFile; fileRef = AF40459E1C35794600F7E3CE /* raptor.json */; };
+		AF4045AB1C35794600F7E3CE /* speedy.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AF40459F1C35794600F7E3CE /* speedy.atlas */; };
+		AF4045AC1C35794600F7E3CE /* speedy.json in Resources */ = {isa = PBXBuildFile; fileRef = AF4045A01C35794600F7E3CE /* speedy.json */; };
+		AF4045AD1C35794600F7E3CE /* spinosaurus.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AF4045A11C35794600F7E3CE /* spinosaurus.atlas */; };
+		AF4045AE1C35794600F7E3CE /* spinosaurus.json in Resources */ = {isa = PBXBuildFile; fileRef = AF4045A21C35794600F7E3CE /* spinosaurus.json */; };
 		AF594A511C34ACAC00734C1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A501C34ACAC00734C1C /* AppDelegate.swift */; };
 		AF594A531C34ACAC00734C1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A521C34ACAC00734C1C /* ViewController.swift */; };
 		AF594A561C34ACAC00734C1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF594A541C34ACAC00734C1C /* Main.storyboard */; };
@@ -67,7 +71,6 @@
 		AF594ACA1C34AE9100734C1C /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AC71C34AE9100734C1C /* JSONDecodable.swift */; };
 		AF594ACB1C34AE9100734C1C /* UIColoFromHexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AC81C34AE9100734C1C /* UIColoFromHexString.swift */; };
 		AF594ACE1C34AEB000734C1C /* SpineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594ACD1C34AEB000734C1C /* SpineBuilder.swift */; };
-		AF594AD11C34AEC800734C1C /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = AF594AD01C34AEC800734C1C /* example.json */; };
 		AF594AD41C34AEEB00734C1C /* AtlasBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AD31C34AEEB00734C1C /* AtlasBuilder.swift */; };
 		AF594AD81C34AF4500734C1C /* AtlasBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AD61C34AF4500734C1C /* AtlasBuilderTests.swift */; };
 		AF594AD91C34AF4500734C1C /* SpineParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AD71C34AF4500734C1C /* SpineParseTests.swift */; };
@@ -91,13 +94,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AF4045741C34B56700F7E3CE /* alien */ = {isa = PBXFileReference; lastKnownFileType = folder; path = alien; sourceTree = "<group>"; };
-		AF4045751C34B56700F7E3CE /* dragon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dragon; sourceTree = "<group>"; };
-		AF4045781C34B56700F7E3CE /* powerup */ = {isa = PBXFileReference; lastKnownFileType = folder; path = powerup; sourceTree = "<group>"; };
-		AF4045791C34B56700F7E3CE /* raptor */ = {isa = PBXFileReference; lastKnownFileType = folder; path = raptor; sourceTree = "<group>"; };
-		AF40457A1C34B56700F7E3CE /* speedy */ = {isa = PBXFileReference; lastKnownFileType = folder; path = speedy; sourceTree = "<group>"; };
-		AF40457D1C34B56700F7E3CE /* spinosaurus */ = {isa = PBXFileReference; lastKnownFileType = folder; path = spinosaurus; sourceTree = "<group>"; };
-		AF40458A1C34B6CD00F7E3CE /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
+		AF4045971C35794600F7E3CE /* alien.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = alien.atlas; sourceTree = "<group>"; };
+		AF4045981C35794600F7E3CE /* alien.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = alien.json; sourceTree = "<group>"; };
+		AF4045991C35794600F7E3CE /* dragon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = dragon.atlas; sourceTree = "<group>"; };
+		AF40459A1C35794600F7E3CE /* dragon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dragon.json; sourceTree = "<group>"; };
+		AF40459B1C35794600F7E3CE /* powerup.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = powerup.atlas; sourceTree = "<group>"; };
+		AF40459C1C35794600F7E3CE /* powerup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = powerup.json; sourceTree = "<group>"; };
+		AF40459D1C35794600F7E3CE /* raptor.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = raptor.atlas; sourceTree = "<group>"; };
+		AF40459E1C35794600F7E3CE /* raptor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = raptor.json; sourceTree = "<group>"; };
+		AF40459F1C35794600F7E3CE /* speedy.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = speedy.atlas; sourceTree = "<group>"; };
+		AF4045A01C35794600F7E3CE /* speedy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = speedy.json; sourceTree = "<group>"; };
+		AF4045A11C35794600F7E3CE /* spinosaurus.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = spinosaurus.atlas; sourceTree = "<group>"; };
+		AF4045A21C35794600F7E3CE /* spinosaurus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spinosaurus.json; sourceTree = "<group>"; };
 		AF594A4D1C34ACAC00734C1C /* spine-kit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spine-kit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF594A501C34ACAC00734C1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF594A521C34ACAC00734C1C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +140,6 @@
 		AF594AC71C34AE9100734C1C /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
 		AF594AC81C34AE9100734C1C /* UIColoFromHexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColoFromHexString.swift; sourceTree = "<group>"; };
 		AF594ACD1C34AEB000734C1C /* SpineBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpineBuilder.swift; sourceTree = "<group>"; };
-		AF594AD01C34AEC800734C1C /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
 		AF594AD31C34AEEB00734C1C /* AtlasBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtlasBuilder.swift; sourceTree = "<group>"; };
 		AF594AD51C34AF4400734C1C /* spine-kitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "spine-kitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		AF594AD61C34AF4500734C1C /* AtlasBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtlasBuilderTests.swift; sourceTree = "<group>"; };
@@ -164,6 +171,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF4045961C35791600F7E3CE /* spine */ = {
+			isa = PBXGroup;
+			children = (
+				AF4045971C35794600F7E3CE /* alien.atlas */,
+				AF4045981C35794600F7E3CE /* alien.json */,
+				AF4045991C35794600F7E3CE /* dragon.atlas */,
+				AF40459A1C35794600F7E3CE /* dragon.json */,
+				AF40459B1C35794600F7E3CE /* powerup.atlas */,
+				AF40459C1C35794600F7E3CE /* powerup.json */,
+				AF40459D1C35794600F7E3CE /* raptor.atlas */,
+				AF40459E1C35794600F7E3CE /* raptor.json */,
+				AF40459F1C35794600F7E3CE /* speedy.atlas */,
+				AF4045A01C35794600F7E3CE /* speedy.json */,
+				AF4045A11C35794600F7E3CE /* spinosaurus.atlas */,
+				AF4045A21C35794600F7E3CE /* spinosaurus.json */,
+			);
+			path = spine;
+			sourceTree = "<group>";
+		};
 		AF594A441C34ACAC00734C1C = {
 			isa = PBXGroup;
 			children = (
@@ -300,14 +326,7 @@
 		AF594ACF1C34AEB900734C1C /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				AF4045741C34B56700F7E3CE /* alien */,
-				AF4045751C34B56700F7E3CE /* dragon */,
-				AF4045781C34B56700F7E3CE /* powerup */,
-				AF4045791C34B56700F7E3CE /* raptor */,
-				AF40457A1C34B56700F7E3CE /* speedy */,
-				AF40457D1C34B56700F7E3CE /* spinosaurus */,
-				AF40458A1C34B6CD00F7E3CE /* license.txt */,
-				AF594AD01C34AEC800734C1C /* example.json */,
+				AF4045961C35791600F7E3CE /* spine */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -424,17 +443,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF4045831C34B56700F7E3CE /* raptor in Resources */,
-				AF594AD11C34AEC800734C1C /* example.json in Resources */,
-				AF40458B1C34B6CD00F7E3CE /* license.txt in Resources */,
+				AF4045AA1C35794600F7E3CE /* raptor.json in Resources */,
 				AF594A5B1C34ACAC00734C1C /* LaunchScreen.storyboard in Resources */,
+				AF4045AD1C35794600F7E3CE /* spinosaurus.atlas in Resources */,
+				AF4045AE1C35794600F7E3CE /* spinosaurus.json in Resources */,
+				AF4045A91C35794600F7E3CE /* raptor.atlas in Resources */,
 				AF594A581C34ACAC00734C1C /* Assets.xcassets in Resources */,
+				AF4045A71C35794600F7E3CE /* powerup.atlas in Resources */,
+				AF4045A61C35794600F7E3CE /* dragon.json in Resources */,
+				AF4045A51C35794600F7E3CE /* dragon.atlas in Resources */,
+				AF4045A81C35794600F7E3CE /* powerup.json in Resources */,
 				AF594A561C34ACAC00734C1C /* Main.storyboard in Resources */,
-				AF4045871C34B56700F7E3CE /* spinosaurus in Resources */,
-				AF4045821C34B56700F7E3CE /* powerup in Resources */,
-				AF40457E1C34B56700F7E3CE /* alien in Resources */,
-				AF4045841C34B56700F7E3CE /* speedy in Resources */,
-				AF40457F1C34B56700F7E3CE /* dragon in Resources */,
+				AF4045AC1C35794600F7E3CE /* speedy.json in Resources */,
+				AF4045AB1C35794600F7E3CE /* speedy.atlas in Resources */,
+				AF4045A31C35794600F7E3CE /* alien.atlas in Resources */,
+				AF4045A41C35794600F7E3CE /* alien.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,7 +465,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF40456F1C34B1F300F7E3CE /* example.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

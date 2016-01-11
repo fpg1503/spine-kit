@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct ScaleKeyFrame {
     var time: Double
     var x: Double?

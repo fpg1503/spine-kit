@@ -12,7 +12,7 @@ struct Animation {
     var name: String
     let slotTimelines: [SlotTimeline]
     let boneTimelines: [BoneTimeline]
-    let drawOrderKeyFrames: [DrawOrderKeyFrame]
+    let drawOrderTimeline: [DrawOrderKeyFrame]
     let events: [Event]
 }
 
@@ -23,10 +23,10 @@ extension Animation: JSONDecodable {
         let name = asSafeString(json, key: "name")
         let slotTimelines = parseSlotTimelines(json)
         let boneTimelines = parseBoneTimelines(json)
-        let drawOrderKeyFrames = decodeArray(json, key: "drawOrder", decode: DrawOrderKeyFrame.decode)
+        let drawOrderTimeline = decodeArray(json, key: "drawOrder", decode: DrawOrderKeyFrame.decode)
         let events = decodeArray(json, key: "events", decode: Event.decode)
         
-        return Animation(name: name, slotTimelines: slotTimelines, boneTimelines: boneTimelines, drawOrderKeyFrames: drawOrderKeyFrames, events: events)
+        return Animation(name: name, slotTimelines: slotTimelines, boneTimelines: boneTimelines, drawOrderTimeline: drawOrderTimeline, events: events)
     }
     
     static func parseSlotTimelines(json: JSON?) -> [SlotTimeline] {

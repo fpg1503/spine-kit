@@ -11,7 +11,7 @@ import UIKit
 
 class SpineParse {
 
-    func parse(name: String, data: String?) -> SpineModel?{
+    func parse(name: String, data: String?) -> SpineModel? {
         var result: SpineModel?
         
         do {
