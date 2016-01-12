@@ -49,8 +49,10 @@ class SpineBuilder {
                 if let slotMap = skin.attachments[slot.name] {
                     
                     if let attachment = slotMap[attachmentName], let bone = bone {
+
+                        let texture = atlas.textureNamed(attachmentName)
+                        let attachmentNode = attachment.toSKNode(attachmentName, texture: texture, zIndex: order)
                         
-                        let attachmentNode = setupAttachment(attachment, name: attachmentName, atlas: atlas, zIndex: order)
                         bone.addChild(attachmentNode)
                     }
                 }
@@ -74,7 +76,7 @@ class SpineBuilder {
                 if let parentName = bone.parent{
                     
                     let parent = boneMap[parentName]
-                    let boneNode = setupBone(bone, parent: parent)
+                    let boneNode = bone.toSKNode(parent)
                     
                     boneMap[bone.name] = boneNode
                     parent?.addChild(boneNode)
@@ -94,49 +96,6 @@ class SpineBuilder {
         }
         return result
     }
-
-    private func setupBone(bone: Bone, parent: SKNode?) -> SKNode {
-        
-        let boneNode = SKNode()
-        
-        boneNode.name = bone.name
-        boneNode.position = CGPoint(x: CGFloat(bone.x), y: CGFloat(bone.y))
-
-        if bone.inheritRotation {
-            if let parentRotation = parent?.zRotation {
-                boneNode.zRotation = (boneNode.zRotation + parentRotation)
-            }
-        } else {
-            boneNode.zRotation = CGFloat(CGFloat(bone.rotation) * CGFloat(M_PI) / 180.0)
-        }
-        
-        if bone.inheritScale {
-            
-            if let parentXScale = parent?.xScale, let parentYScale = parent?.yScale {
-                boneNode.xScale = parentXScale + CGFloat(bone.scaleX)
-                boneNode.yScale = parentYScale + CGFloat(bone.scaleY)
-            }
-            
-        } else {
-            boneNode.xScale = CGFloat(bone.scaleX)
-            boneNode.yScale = CGFloat(bone.scaleY)
-        }
-        return boneNode
-    }
-    
-    private func setupAttachment(attachment: Attachment, name: String, atlas:SKTextureAtlas, zIndex: Int) -> SKNode {
-        
-        let attachmentNode = SKSpriteNode(texture: atlas.textureNamed(name), size: CGSize(width: CGFloat(attachment.width), height: CGFloat(attachment.height)))
-        
-        attachmentNode.xScale = CGFloat(attachment.scaleX)
-        attachmentNode.yScale = CGFloat(attachment.scaleY)
-        attachmentNode.position = CGPoint(x: CGFloat(attachment.x), y: CGFloat(attachment.y))
-        attachmentNode.zRotation = CGFloat(CGFloat(attachment.rotation) * CGFloat(M_PI) / 180.0)
-        attachmentNode.zPosition = CGFloat(zIndex)
-        
-        return attachmentNode
-    }
-    
     private func findSkinByName(skins: [Skin]?, name: String?) -> Skin? {
         let skins = skins?.filter{ (skin) in skin.name == name }
         return skins?.count > 0 ? skins?.first : nil

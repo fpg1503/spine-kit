@@ -6,8 +6,6 @@
 //  Copyright © 2015 Thiago Medeiros dos Santos. All rights reserved.
 //
 
-import Foundation
-
 struct ScaleKeyFrame {
     var time: Double
     var x: Double?

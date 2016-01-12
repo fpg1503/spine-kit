@@ -6,8 +6,6 @@
 //  Copyright © 2015 Thiago Medeiros dos Santos. All rights reserved.
 //
 
-import Foundation
-
 struct AttachmentKeyFrame {
     var time: Double
     var name: String?

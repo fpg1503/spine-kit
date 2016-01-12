@@ -6,7 +6,6 @@
 //  Copyright © 2015 Thiago Medeiros dos Santos. All rights reserved.
 //
 
-import Foundation
 
 struct DrawOrderOffset {
     let slot: String

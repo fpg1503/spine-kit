@@ -6,7 +6,6 @@
 //  Copyright © 2016 Thiago Medeiros dos Santos. All rights reserved.
 //
 
-import Foundation
 import SpriteKit
 
 class SKSpineRootNode: SKNode {

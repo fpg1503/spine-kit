@@ -6,10 +6,6 @@
 //  Copyright © 2015 Thiago Medeiros dos Santos. All rights reserved.
 //
 
-import Foundation
-
-import UIKit
-
 typealias JSON = Dictionary<String, AnyObject>
 
 protocol JSONDecodable {
