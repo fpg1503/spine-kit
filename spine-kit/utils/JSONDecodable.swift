@@ -116,7 +116,18 @@ extension JSONDecodable {
         return asSafeGeneric(json, key: key, safeValue: [], defaultValue: defaultValue)
     }
     
-    static func asGeneric<T>(json: JSON?, key: String?, defaultValue: T?) -> T? {
+    static func decodeArray<T>(json: JSON?, key: String?, decode: (json: JSON?) -> T?) -> [T]{
+        var result: [T] = []
+        let arrayJSON = asSafeJSONArray(json, key: key)
+        for jsonItem in arrayJSON {
+            if let item = decode(json: jsonItem) {
+                result.append(item)
+            }
+        }
+        return result
+    }
+    
+    private static func asGeneric<T>(json: JSON?, key: String?, defaultValue: T?) -> T? {
         
         if let verifiedJson = json, let verifiedKey = key {
             if let object = verifiedJson[verifiedKey] as? T {
@@ -125,22 +136,11 @@ extension JSONDecodable {
         }
         return defaultValue
     }
-
-    static func asSafeGeneric<T>(json: JSON?, key: String?, safeValue: T!, defaultValue: T!) -> T! {
+    
+    private static func asSafeGeneric<T>(json: JSON?, key: String?, safeValue: T!, defaultValue: T!) -> T! {
         var result = safeValue
         if let optionalValue = asGeneric(json, key: key, defaultValue: defaultValue) {
             result = optionalValue
-        }
-        return result
-    }
-    
-    static func decodeArray<T>(json: JSON?, key: String?, decode: (json: JSON?) -> T?) -> [T]{
-        var result: [T] = []
-        let arrayJSON = asSafeJSONArray(json, key: key)
-        for jsonItem in arrayJSON {
-            if let item = decode(json: jsonItem) {
-                result.append(item)
-            }
         }
         return result
     }
