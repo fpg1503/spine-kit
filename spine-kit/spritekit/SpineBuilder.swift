@@ -25,18 +25,18 @@ class SpineBuilder {
         if let spine = spine {
             
             let skin = findSkinByName(spine.skins, name: spine.defaultSkin)
-            let slotZIndexes = createSlotZIndexDict(spine.slots)
-            let (boneRoot, bonesMap) = createBonesTree(spine.bones)
+            let slotZIndexes = buildSlotZIndexDict(spine.slots)
+            let (boneRoot, bonesMap) = buildBonesTree(spine.bones)
             
             if let slots = spine.slots, let skin = skin {
-                root = createSpineRootNode(boneRoot, bonesMap: bonesMap, slots: slots, skin: skin, atlas: atlas, slotZIndexes: slotZIndexes)
+                root = buildSpineRootNode(boneRoot, bonesMap: bonesMap, slots: slots, skin: skin, atlas: atlas, slotZIndexes: slotZIndexes)
             }
         }
         
         return root
     }
     
-    private func createSpineRootNode(root: SKSpineRootNode, bonesMap: [String: SKNode], slots: [Slot], skin: Skin, atlas: SKTextureAtlas, slotZIndexes: [String: Int]) -> SKSpineRootNode {
+    private func buildSpineRootNode(root: SKSpineRootNode, bonesMap: [String: SKNode], slots: [Slot], skin: Skin, atlas: SKTextureAtlas, slotZIndexes: [String: Int]) -> SKSpineRootNode {
         
         for slot in slots {
             
@@ -61,7 +61,7 @@ class SpineBuilder {
         return root
     }
     
-    private func createBonesTree(bones: [Bone]?) -> (SKSpineRootNode, [String: SKNode]) {
+    private func buildBonesTree(bones: [Bone]?) -> (SKSpineRootNode, [String: SKNode]) {
 
         let root = SKSpineRootNode()
         let rootNodeName = "root"
@@ -86,7 +86,7 @@ class SpineBuilder {
         return (root, boneMap)
     }
     
-    private func createSlotZIndexDict(slots: [Slot]?) -> [String: Int] {
+    private func buildSlotZIndexDict(slots: [Slot]?) -> [String: Int] {
         
         var result: [String: Int] = [:]
         if let slots = slots {
