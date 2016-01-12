@@ -10,7 +10,7 @@ struct ScaleKeyFrame {
     var time: Double
     var x: Double?
     var y: Double?
-    var curve: Curve?
+    var curve: Curve
 }
 
 extension ScaleKeyFrame: JSONDecodable {
@@ -20,7 +20,8 @@ extension ScaleKeyFrame: JSONDecodable {
         let time = asSafeDouble(json, key: "time")
         let x = asDouble(json, key: "x")
         let y = asDouble(json, key: "y")
-        
-        return ScaleKeyFrame(time: time, x: x, y: y, curve: Curve.decode(json))
+        let curve = Curve.decode(json) ?? Curve.Linear
+
+        return ScaleKeyFrame(time: time, x: x, y: y, curve: curve)
     }
 }

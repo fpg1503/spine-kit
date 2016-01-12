@@ -10,10 +10,16 @@ import SpriteKit
 
 extension RotateKeyFrame {
     
-    func toSKAction() -> SKAction? {
+    func toSKAction(timeOffset: Double, curve: Curve) -> SKAction? {
         var result: SKAction? = nil
+
         if let angle = self.angle {
-            result = SKAction.rotateByAngle(CGFloat(angle.degreesToRadians), duration: self.time)
+            switch curve {
+            case .Stepped:
+                result = SKAction.sequence([SKAction.waitForDuration(self.time - timeOffset), SKAction.rotateToAngle(CGFloat(angle.degreesToRadians), duration: 0)])
+            default:
+                result = SKAction.rotateToAngle(CGFloat(angle.degreesToRadians), duration: self.time - timeOffset)
+            }
         }
         return result
     }

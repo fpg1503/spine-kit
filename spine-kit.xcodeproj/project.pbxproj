@@ -82,6 +82,7 @@
 		AFFF4B771C45393700D7FD61 /* ScaleKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B761C45393700D7FD61 /* ScaleKeyFrame+SKAction.swift */; };
 		AFFF4B791C45394900D7FD61 /* TranslateKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B781C45394900D7FD61 /* TranslateKeyFrame+SKAction.swift */; };
 		AFFF4B7B1C453D5800D7FD61 /* MathExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B7A1C453D5800D7FD61 /* MathExtensions.swift */; };
+		AFFF4B7D1C453E4100D7FD61 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B7C1C453E4100D7FD61 /* AnimationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +162,7 @@
 		AFFF4B761C45393700D7FD61 /* ScaleKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ScaleKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
 		AFFF4B781C45394900D7FD61 /* TranslateKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TranslateKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
 		AFFF4B7A1C453D5800D7FD61 /* MathExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathExtensions.swift; sourceTree = "<group>"; };
+		AFFF4B7C1C453E4100D7FD61 /* AnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,7 +339,7 @@
 			children = (
 				AFFF4B681C45352500D7FD61 /* extensions */,
 				AF594ACD1C34AEB000734C1C /* SpineBuilder.swift */,
-				AFFF4B641C44751900D7FD61 /* SKSpineRootNode.swift */,
+				AFFF4B7C1C453E4100D7FD61 /* AnimationController.swift */,
 			);
 			path = spritekit;
 			sourceTree = "<group>";
@@ -361,6 +363,7 @@
 				AFFF4B741C45392600D7FD61 /* RotateKeyFrame+SKAction.swift */,
 				AFFF4B761C45393700D7FD61 /* ScaleKeyFrame+SKAction.swift */,
 				AFFF4B781C45394900D7FD61 /* TranslateKeyFrame+SKAction.swift */,
+				AFFF4B641C44751900D7FD61 /* SKSpineRootNode.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				AF594A511C34ACAC00734C1C /* AppDelegate.swift in Sources */,
 				AF594AB41C34AE4600734C1C /* SlotTimeline.swift in Sources */,
 				AF594AC91C34AE9100734C1C /* FileHelper.swift in Sources */,
+				AFFF4B7D1C453E4100D7FD61 /* AnimationController.swift in Sources */,
 				AFFF4B771C45393700D7FD61 /* ScaleKeyFrame+SKAction.swift in Sources */,
 				AFFF4B6A1C45355200D7FD61 /* Attachment+SKNode.swift in Sources */,
 				AF594ACA1C34AE9100734C1C /* JSONDecodable.swift in Sources */,

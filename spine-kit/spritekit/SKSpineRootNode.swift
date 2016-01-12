@@ -10,23 +10,23 @@ import SpriteKit
 
 class SKSpineRootNode: SKNode {
     
-    private var spine: SpineModel? = nil
-    private var bonesMap: [String: SKNode]? = nil
+    var animationController: AnimationController?
     
-    init(spine: SpineModel, bonesMap: [String: SKNode]) {
-        self.spine = spine
-        self.bonesMap = bonesMap
-        super.init()
-    }
-
     override init() {
-       super.init()
+        super.init()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    func animate(name: String) {
+    func setup(spine: SpineModel?, bonesDict: [String: SKNode]?) {
+        self.animationController = AnimationController(animations: spine?.animations, bonesDict: bonesDict)
+    }
+    
+    func play(name: String) {
+        if let animationController = self.animationController {
+            animationController.play(name)
+        }
     }
 }

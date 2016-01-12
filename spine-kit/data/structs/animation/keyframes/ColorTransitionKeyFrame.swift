@@ -11,7 +11,7 @@ import UIKit
 struct ColorTransitionKeyFrame {
     var time: Double
     var color: UIColor?
-    var curve: Curve?
+    var curve: Curve
 }
 
 extension ColorTransitionKeyFrame: JSONDecodable {
@@ -20,7 +20,8 @@ extension ColorTransitionKeyFrame: JSONDecodable {
         
         let time = asSafeDouble(json, key: "time")
         let color = asSafeString(json, key: "color", defaultValue: "#FFFFFFFF")
+        let curve = Curve.decode(json) ?? Curve.Linear
         
-        return ColorTransitionKeyFrame(time: time, color: UIColor(hex: color), curve: Curve.decode(json))
+        return ColorTransitionKeyFrame(time: time, color: UIColor(hex: color), curve: curve)
     }
 }

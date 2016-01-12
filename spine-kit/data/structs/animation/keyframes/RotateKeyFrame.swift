@@ -9,7 +9,7 @@
 struct RotateKeyFrame {
     var time: Double
     var angle: Double?
-    var curve: Curve?
+    var curve: Curve
 }
 
 extension RotateKeyFrame: JSONDecodable {
@@ -18,7 +18,8 @@ extension RotateKeyFrame: JSONDecodable {
         
         let time = asSafeDouble(json, key: "time")
         let angle = asDouble(json, key: "angle")
-        
-        return RotateKeyFrame(time: time, angle: angle, curve: Curve.decode(json))
+        let curve = Curve.decode(json) ?? Curve.Linear
+
+        return RotateKeyFrame(time: time, angle: angle, curve: curve)
     }
 }

@@ -12,7 +12,9 @@ import SpriteKit
 
 class SpineBuilder {
     
-    func build(name: String, skinName: String = "default") -> SKNode {
+    let rootNodeName: String = "root"
+    
+    func build(name: String, skinName: String = "default") -> SKSpineRootNode? {
 
         let json = FileHelper.loadTextFile(name, type: "json")
 
@@ -20,23 +22,26 @@ class SpineBuilder {
         
         let atlas = SKTextureAtlas(named: name)
         
-        var root = SKSpineRootNode()
+        var root: SKSpineRootNode? = nil
         
         if let spine = spine {
             
             let skin = findSkinByName(spine.skins, name: spine.defaultSkin)
+            let bonesDict = buildBonesTree(spine.bones)
             let slotZIndexes = buildSlotZIndexDict(spine.slots)
-            let (boneRoot, bonesMap) = buildBonesTree(spine.bones)
             
             if let slots = spine.slots, let skin = skin {
-                root = buildSpineRootNode(boneRoot, bonesMap: bonesMap, slots: slots, skin: skin, atlas: atlas, slotZIndexes: slotZIndexes)
+                root = buildSpineRootNode(bonesDict, slots: slots, skin: skin, atlas: atlas, slotZIndexes: slotZIndexes)
+                root?.setup(spine, bonesDict:bonesDict)
             }
         }
         
         return root
     }
     
-    private func buildSpineRootNode(root: SKSpineRootNode, bonesMap: [String: SKNode], slots: [Slot], skin: Skin, atlas: SKTextureAtlas, slotZIndexes: [String: Int]) -> SKSpineRootNode {
+    private func buildSpineRootNode(bonesDict: [String: SKNode], slots: [Slot], skin: Skin, atlas: SKTextureAtlas, slotZIndexes: [String: Int]) -> SKSpineRootNode? {
+        
+        var result: SKSpineRootNode? = nil
         
         for slot in slots {
             
@@ -44,7 +49,7 @@ class SpineBuilder {
             
             if let bone = slot.bone, let attachmentName = slot.attachment {
                 
-                let bone = bonesMap[bone]
+                let bone = bonesDict[bone]
                 
                 if let slotMap = skin.attachments[slot.name] {
                     
@@ -58,13 +63,18 @@ class SpineBuilder {
                 }
             }
         }
-        return root
+        
+        if let root = bonesDict[self.rootNodeName] as? SKSpineRootNode {
+            result = root
+        }
+        
+        return result
     }
     
-    private func buildBonesTree(bones: [Bone]?) -> (SKSpineRootNode, [String: SKNode]) {
+    private func buildBonesTree(bones: [Bone]?) -> [String: SKNode] {
 
         let root = SKSpineRootNode()
-        let rootNodeName = "root"
+        let rootNodeName = self.rootNodeName
         
         var boneMap: [String: SKNode] = [:]
         boneMap[rootNodeName] = root
@@ -83,7 +93,7 @@ class SpineBuilder {
                 }
             }
         }
-        return (root, boneMap)
+        return boneMap
     }
     
     private func buildSlotZIndexDict(slots: [Slot]?) -> [String: Int] {

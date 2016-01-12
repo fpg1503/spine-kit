@@ -10,10 +10,17 @@ import SpriteKit
 
 extension ScaleKeyFrame {
     
-    func toSKAction() -> SKAction? {
+    func toSKAction(timeOffset: Double, curve: Curve) -> SKAction? {
+
         var result: SKAction? = nil
+        
         if let x = self.x, let y = self.y {
-            result = SKAction.group([SKAction.scaleXTo(CGFloat(x), duration: self.time), SKAction.scaleXTo(CGFloat(y), duration: self.time)])
+            switch curve {
+            case .Stepped:
+                result = SKAction.sequence([SKAction.waitForDuration(self.time - timeOffset), SKAction.group([SKAction.scaleXTo(CGFloat(x), duration: self.time), SKAction.scaleYTo(CGFloat(y), duration: self.time - timeOffset)])])
+            default:
+                result = SKAction.group([SKAction.scaleXTo(CGFloat(x), duration: self.time), SKAction.scaleYTo(CGFloat(y), duration: self.time - timeOffset)])
+            }
         }
         return result
     }

@@ -10,10 +10,17 @@ import SpriteKit
 
 extension TranslateKeyFrame {
     
-    func toSKAction() -> SKAction? {
+    func toSKAction(timeOffset: Double, curve: Curve) -> SKAction? {
         var result: SKAction? = nil
         if let x = self.x, let y = self.y {
-            result = SKAction.moveTo(CGPoint(x: CGFloat(x), y: CGFloat(y)), duration: self.time)
+            
+            switch curve {
+            case .Stepped:
+                result = SKAction.sequence([SKAction.waitForDuration(self.time - timeOffset), SKAction.moveTo(CGPoint(x: CGFloat(x), y: CGFloat(-y)), duration: self.time - timeOffset)])
+            default:
+                result = SKAction.moveTo(CGPoint(x: CGFloat(x), y: CGFloat(-y)), duration: self.time - timeOffset)
+            }
+
         }
         return result
     }
