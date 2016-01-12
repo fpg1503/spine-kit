@@ -18,7 +18,7 @@ extension RotateKeyFrame {
             case .Stepped:
                 result = SKAction.sequence([SKAction.waitForDuration(self.time - timeOffset), SKAction.rotateToAngle(CGFloat(angle.degreesToRadians), duration: 0)])
             default:
-                result = SKAction.rotateToAngle(CGFloat(angle.degreesToRadians), duration: self.time - timeOffset)
+                result = SKAction.rotateToAngle(CGFloat(angle.degreesToRadians), duration: self.time - timeOffset).timingFunction
             }
         }
         return result
