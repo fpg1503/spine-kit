@@ -17,7 +17,7 @@ extension Attachment {
         attachmentNode.xScale = CGFloat(self.scaleX)
         attachmentNode.yScale = CGFloat(self.scaleY)
         attachmentNode.position = CGPoint(x: CGFloat(self.x), y: CGFloat(self.y))
-        attachmentNode.zRotation = CGFloat(CGFloat(self.rotation) * CGFloat(M_PI) / 180.0)
+        attachmentNode.zRotation = self.rotation.degreesToRadians
         attachmentNode.zPosition = CGFloat(zIndex)
         
         return attachmentNode

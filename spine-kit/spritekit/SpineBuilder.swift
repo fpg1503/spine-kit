@@ -96,6 +96,7 @@ class SpineBuilder {
         }
         return result
     }
+    
     private func findSkinByName(skins: [Skin]?, name: String?) -> Skin? {
         let skins = skins?.filter{ (skin) in skin.name == name }
         return skins?.count > 0 ? skins?.first : nil

@@ -22,7 +22,7 @@ extension Bone {
                 boneNode.zRotation = (boneNode.zRotation + parentRotation)
             }
         } else {
-            boneNode.zRotation = CGFloat(CGFloat(self.rotation) * CGFloat(M_PI) / 180.0)
+            boneNode.zRotation = self.rotation.degreesToRadians
         }
         
         if self.inheritScale {
