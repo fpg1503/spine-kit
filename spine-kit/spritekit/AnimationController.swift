@@ -22,56 +22,57 @@ class AnimationController {
     }
     
     func play(animationName: String) {
+
         let animation: Animation? = self.animationsDict[animationName]
+        
         if let bonesTimelines = animation?.boneTimelines {
+            
             for boneTimeline in bonesTimelines {
                 
                 if let boneName = boneTimeline.name {
           
-                    var translateActions: [SKAction] = []
-                    var lastFrameTime: Double = 0
+                    let translateActions: [SKAction]? = self.buildSKActionsTimeline(boneTimeline.translate)
+                    let scaleActions: [SKAction]? = self.buildSKActionsTimeline(boneTimeline.scale)
+                    let rotateActions: [SKAction]? = self.buildSKActionsTimeline(boneTimeline.rotate)
 
-                    boneTimeline.translate.forEach  { keyFrame in
-                        if let action = keyFrame.toSKAction(lastFrameTime, curve: keyFrame.curve) {
-                            translateActions.append(action)
-                            lastFrameTime = keyFrame.time
-                        }
-                    }
-                    
-                    var scaleActions: [SKAction] = []
-                    lastFrameTime = 0
-                    boneTimeline.scale.forEach  { keyFrame in
-                        if let action = keyFrame.toSKAction(lastFrameTime, curve: keyFrame.curve) {
-                            scaleActions.append(action)
-                                lastFrameTime = keyFrame.time
-                        }
-                    }
-                    
-                    var rotateActions: [SKAction] = []
-                    lastFrameTime = 0
-                    boneTimeline.rotate.forEach { keyFrame in
-                        if let action = keyFrame.toSKAction(lastFrameTime, curve: keyFrame.curve) {
-                            rotateActions.append(action)
-                            lastFrameTime = keyFrame.time
-                        }
-                    }
-                    
-                    if let bone = self.bonesDict[boneName] {
-                        if rotateActions.count > 0 {
-                            bone.runAction(SKAction.repeatActionForever(SKAction.sequence(rotateActions)))
-                        }
-                        
-                        if scaleActions.count > 0 {
-                            bone.runAction(SKAction.repeatActionForever(SKAction.sequence(scaleActions)))
-                        }
-                        
-                        if translateActions.count > 0 {
-                            bone.runAction(SKAction.repeatActionForever(SKAction.sequence(translateActions)))
-                        }
+                    if let bone = self.bonesDict[boneName], let group = self.buildGroup(translateActions, scaleActions, rotateActions) {
+                        bone.runAction(group)
                     }
                 }
             }
         }
+    }
+    
+    private func buildGroup(timelineSequences: [SKAction]?...) -> SKAction? {
+
+        var result: SKAction? = nil
+        var sequences: [SKAction] = []
+        
+        for sequence in timelineSequences {
+            if let sequence = sequence {
+                if !sequence.isEmpty {
+                    sequences.append(SKAction.repeatActionForever(SKAction.sequence(sequence)))
+                }
+            }
+        }
+        
+        if !sequences.isEmpty {
+            result = SKAction.group(sequences)
+        }
+        return result
+    }
+    
+    private func buildSKActionsTimeline<T: SKActionKeyFrame>(keyframes: [T]) -> [SKAction]? {
+        var lastFrameTime: Double = 0
+        var actions: [SKAction] = []
+    
+        keyframes.forEach  { keyFrame in
+            if let action = keyFrame.toSKAction(lastFrameTime, curve: keyFrame.animationData().curve) {
+                actions.append(action)
+                lastFrameTime = keyFrame.animationData().time
+            }
+        }
+        return actions.isEmpty ? nil : actions
     }
     
 }

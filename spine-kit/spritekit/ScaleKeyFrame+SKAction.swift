@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-extension ScaleKeyFrame {
+extension ScaleKeyFrame: SKActionKeyFrame  {
     
     func toSKAction(timeOffset: Double, curve: Curve) -> SKAction? {
 
@@ -18,10 +18,15 @@ extension ScaleKeyFrame {
             switch curve {
             case .Stepped:
                 result = SKAction.sequence([SKAction.waitForDuration(self.time - timeOffset), SKAction.group([SKAction.scaleXTo(CGFloat(x), duration: self.time), SKAction.scaleYTo(CGFloat(y), duration: self.time - timeOffset)])])
+                break
             default:
                 result = SKAction.group([SKAction.scaleXTo(CGFloat(x), duration: self.time), SKAction.scaleYTo(CGFloat(y), duration: self.time - timeOffset)])
             }
         }
         return result
+    }
+    
+    func animationData() -> (time: Double, curve: Curve) {
+        return (self.time, self.curve)
     }
 }

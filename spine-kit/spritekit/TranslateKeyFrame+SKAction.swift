@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-extension TranslateKeyFrame {
+extension TranslateKeyFrame: SKActionKeyFrame  {
     
     func toSKAction(timeOffset: Double, curve: Curve) -> SKAction? {
         var result: SKAction? = nil
@@ -23,5 +23,9 @@ extension TranslateKeyFrame {
 
         }
         return result
+    }
+    
+    func animationData() -> (time: Double, curve: Curve) {
+        return (self.time, self.curve)
     }
 }

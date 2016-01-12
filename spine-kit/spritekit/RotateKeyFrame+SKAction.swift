@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-extension RotateKeyFrame {
+extension RotateKeyFrame: SKActionKeyFrame {
     
     func toSKAction(timeOffset: Double, curve: Curve) -> SKAction? {
         var result: SKAction? = nil
@@ -18,9 +18,13 @@ extension RotateKeyFrame {
             case .Stepped:
                 result = SKAction.sequence([SKAction.waitForDuration(self.time - timeOffset), SKAction.rotateToAngle(CGFloat(angle.degreesToRadians), duration: 0)])
             default:
-                result = SKAction.rotateToAngle(CGFloat(angle.degreesToRadians), duration: self.time - timeOffset).timingFunction
+                result = SKAction.rotateToAngle(CGFloat(angle.degreesToRadians), duration: self.time - timeOffset)
             }
         }
         return result
+    }
+    
+    func animationData() -> (time: Double, curve: Curve) {
+        return (self.time, self.curve)
     }
 }
