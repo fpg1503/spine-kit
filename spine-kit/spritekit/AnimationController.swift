@@ -29,13 +29,13 @@ class AnimationController {
             
             for boneTimeline in bonesTimelines {
                 
-                if let boneName = boneTimeline.name {
+                if let boneName = boneTimeline.name, let bone = self.bonesDict[boneName] {
           
                     let translateActions: [SKAction]? = self.buildSKActionsTimeline(boneTimeline.translate)
                     let scaleActions: [SKAction]? = self.buildSKActionsTimeline(boneTimeline.scale)
                     let rotateActions: [SKAction]? = self.buildSKActionsTimeline(boneTimeline.rotate)
 
-                    if let bone = self.bonesDict[boneName], let group = self.buildGroup(translateActions, scaleActions, rotateActions) {
+                    if let group = self.buildGroup(translateActions, scaleActions, rotateActions) {
                         bone.runAction(group)
                     }
                 }
@@ -51,7 +51,11 @@ class AnimationController {
         for sequence in timelineSequences {
             if let sequence = sequence {
                 if !sequence.isEmpty {
-                    sequences.append(SKAction.repeatActionForever(SKAction.sequence(sequence)))
+                    if !(sequence.first?.duration ==  0 && sequence.count == 1) {
+                        sequences.append(SKAction.repeatActionForever(SKAction.sequence(sequence)))
+                    } else {
+                        sequences.append(SKAction.sequence(sequence))
+                    }
                 }
             }
         }

@@ -12,7 +12,9 @@ extension Bone {
     
     func toSKNode(parent: SKNode?) -> SKNode {
         
-        let boneNode = SKNode()
+        let boneNode = SKShapeNode(rect: CGRect(x: -10, y: -10, width: 10, height: 10))
+        boneNode.strokeColor = UIColor.blueColor()
+        boneNode.lineWidth = 2
         
         boneNode.name = self.name
         boneNode.position = CGPoint(x: CGFloat(self.x), y: CGFloat(self.y))

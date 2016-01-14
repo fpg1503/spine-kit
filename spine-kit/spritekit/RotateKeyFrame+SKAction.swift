@@ -11,6 +11,7 @@ import SpriteKit
 extension RotateKeyFrame: SKActionKeyFrame {
     
     func toSKAction(timeOffset: Double, curve: Curve) -> SKAction? {
+        
         var result: SKAction? = nil
 
         if let angle = self.angle {
