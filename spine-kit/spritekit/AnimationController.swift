@@ -66,7 +66,7 @@ class AnimationController {
             if let slotName = slotTimeline.name, let slot = self.slotsDict[slotName] {
                 
                 let colorActions: [SKAction]? =  nil //self.buildSKActionsTimeline(slot, keyframes: slotTimeline.color)
-                let attachmentActions: [SKAction]? = nil // self.buildSKActionsTimeline(slot, keyframes: slotTimeline.attachment)
+                let attachmentActions: [SKAction]? = self.buildSKActionsTimeline(slot, keyframes: slotTimeline.attachment)
                 if let group = self.buildTimelinesGroup(colorActions, attachmentActions) {
                     slot.runAction(group)
                 }

@@ -66,8 +66,11 @@ class SKSlotNode: SKNode {
     
     func showAttachment(attachmentName: String) {
         if let currentAttachmentName = self.currentAttachmentName {
-            attachmentsIndex[currentAttachmentName]?.hidden = false
-            attachmentsIndex[attachmentName]?.hidden = true
+            if attachmentName != currentAttachmentName {
+                attachmentsIndex[currentAttachmentName]?.hidden = true
+                attachmentsIndex[attachmentName]?.hidden = false
+                self.currentAttachmentName = attachmentName
+            }
         }
     }
 }
