@@ -14,94 +14,105 @@ class SpineBuilder {
     
     let rootNodeName: String = "root"
     
-    func build(name: String, skinName: String = "default") -> SKSpineRootNode? {
+    func build(name: String, skinName: String = "default") -> SKSpineNode? {
+        
+        var root: SKSpineNode? = nil
 
         let json = FileHelper.loadTextFile(name, type: "json")
-
         let spine = SpineParse().parse(name, data: json)
-        
         let atlas = SKTextureAtlas(named: name)
+        let currentSkin = findSkinByName(spine?.skins, name: spine?.defaultSkin)
         
-        var root: SKSpineRootNode? = nil
-        
-        if let spine = spine {
+        if let spine = spine, let bones = spine.bones, let slots = spine.slots, let animations = spine.animations, let skin = currentSkin {
             
-            let skin = findSkinByName(spine.skins, name: spine.defaultSkin)
-            let bonesDict = buildBonesTree(spine.bones)
-            let slotZIndexes = buildSlotZIndexDict(spine.slots)
+            let bonesDict = buildBonesDict(bones)
+            let slotsDict = buildSlotDict(slots, skin: skin, atlas: atlas, slotZIndexes: buildSlotZIndexDict(spine.slots))
+            let animationController = AnimationController(animations: animations, bonesDict: bonesDict, slotsDict: slotsDict)
             
-            if let slots = spine.slots, let skin = skin {
-                root = buildSpineRootNode(bonesDict, slots: slots, skin: skin, atlas: atlas, slotZIndexes: slotZIndexes)
-                root?.setup(spine, bonesDict:bonesDict)
-            }
+            root = buildSpineRootNode(animationController, slots: slots, bonesDict:bonesDict, slotsDict: slotsDict)
+            root?.setupPose()
         }
         
         return root
     }
     
-    private func buildSpineRootNode(bonesDict: [String: SKNode], slots: [Slot], skin: Skin, atlas: SKTextureAtlas, slotZIndexes: [String: Int]) -> SKSpineRootNode? {
+    private func buildSpineRootNode(animationController: AnimationController, slots: [Slot], bonesDict: [String: SKBoneNode], slotsDict: [String: SKSlotNode]) -> SKSpineNode? {
         
-        var result: SKSpineRootNode? = nil
+        let spineNode: SKSpineNode? = SKSpineNode(animationController: animationController)
         
-        for slot in slots {
+        if let rootNode = bonesDict[self.rootNodeName] {
             
-            let order = slotZIndexes[slot.name] ?? 0
+            spineNode?.addChild(rootNode)
             
-            if let bone = slot.bone, let attachmentName = slot.attachment {
-                
-                let bone = bonesDict[bone]
-                
-                if let slotMap = skin.attachments[slot.name] {
-                    
-                    if let attachment = slotMap[attachmentName], let bone = bone {
+            for slot in slots {
 
-                        let texture = atlas.textureNamed(attachmentName)
-                        let attachmentNode = attachment.toSKNode(attachmentName, texture: texture, zIndex: order)
-                        
-                        bone.addChild(attachmentNode)
+                if let bone = slot.bone {
+                    let bone = bonesDict[bone]
+                    
+                    if let slotNode = slotsDict[slot.name] {
+                        bone?.addSlot(slotNode)
                     }
                 }
             }
         }
         
-        if let root = bonesDict[self.rootNodeName] as? SKSpineRootNode {
-            result = root
-        }
-        
-        return result
+        return spineNode
     }
     
-    private func buildBonesTree(bones: [Bone]?) -> [String: SKNode] {
+    
+    private func buildBonesDict(bones: [Bone]) -> [String: SKBoneNode] {
 
-        let root = SKSpineRootNode()
-        let rootNodeName = self.rootNodeName
+        var boneDict: [String: SKBoneNode] = [:]
         
-        var boneMap: [String: SKNode] = [:]
-        boneMap[rootNodeName] = root
-        
-        if let bones = bones {
+        if let rootBoneNode = bones.first {
+            
+            if rootBoneNode.name == self.rootNodeName {
+                boneDict[self.rootNodeName] = SKBoneNode(bone: rootBoneNode)
+                
+                for bone in bones {
 
-            for bone in bones {
-
-                if let parentName = bone.parent{
-                    
-                    let parent = boneMap[parentName]
-                    let boneNode = bone.toSKNode(parent)
-                    
-                    boneMap[bone.name] = boneNode
-                    parent?.addChild(boneNode)
+                    if let parentName = bone.parent {
+                        
+                        let parent = boneDict[parentName]
+                        let boneNode = SKBoneNode(bone: bone)
+                        
+                        boneDict[bone.name] = boneNode
+                        parent?.addChild(boneNode)
+                    }
                 }
+            } else {
+                print("Root node must be the first element in bones list")
             }
         }
-        return boneMap
+        
+        return boneDict
     }
     
-    private func buildSlotZIndexDict(slots: [Slot]?) -> [String: Int] {
+    private func buildSlotDict(slots: [Slot], skin: Skin, atlas: SKTextureAtlas, slotZIndexes: [String: Double]) -> [String: SKSlotNode] {
         
-        var result: [String: Int] = [:]
+        var slotNodes:  [String: SKSlotNode] = [:]
+        
+        for slot in slots {
+            
+            if let attachmentsOfSlot = skin.attachments[slot.name], slotZIndex = slotZIndexes[slot.name] {
+                
+                var attachmentNodes: [SKAttachmentNode] = []
+                for (attachmentName, attachment) in attachmentsOfSlot {
+                    attachmentNodes.append(SKAttachmentNode(attachment: attachment, name: attachmentName, texture: atlas.textureNamed(attachmentName)))
+                }
+                
+                slotNodes[slot.name] = SKSlotNode(slot: slot, zIndex: slotZIndex, region: attachmentNodes)
+            }
+        }
+        return slotNodes
+    }
+
+    private func buildSlotZIndexDict(slots: [Slot]?) -> [String: Double] {
+        
+        var result: [String: Double] = [:]
         if let slots = slots {
             for (index, slot) in slots.enumerate() {
-                result[slot.name] = index
+                result[slot.name] = Double(index)
             }
         }
         return result

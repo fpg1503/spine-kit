@@ -10,15 +10,26 @@ import SpriteKit
 class AnimationController {
     
     let animationsDict: [String: Animation] = [:]
-    var bonesDict: [String: SKNode] = [:]
+    var bonesDict: [String: SKBoneNode] = [:]
+    var slotsDict: [String: SKSlotNode] = [:]
     
-    init(animations: [Animation]?, bonesDict: [String: SKNode]?) {
+    init(animations: [Animation]?, bonesDict: [String: SKBoneNode]?, slotsDict: [String: SKSlotNode]?) {
+
         if let bonesDict = bonesDict {
             self.bonesDict = bonesDict
         }
+        
+        if let slotsDict = slotsDict {
+            self.slotsDict = slotsDict
+        }
+        
         if let animations = animations {
             animations.forEach{ animation in self.animationsDict[animation.name] = animation }
         }
+    }
+    
+    func findAnimatedNode(name: String) -> SKNode? {
+        return nil
     }
     
     func play(animationName: String) {
@@ -51,10 +62,12 @@ class AnimationController {
         for sequence in timelineSequences {
             if let sequence = sequence {
                 if !sequence.isEmpty {
-                    if !(sequence.first?.duration ==  0 && sequence.count == 1) {
-                        sequences.append(SKAction.repeatActionForever(SKAction.sequence(sequence)))
-                    } else {
+                    let isDurationTimeZero = (sequence.first?.duration ==  0 && sequence.count == 1)
+
+                    if isDurationTimeZero {
                         sequences.append(SKAction.sequence(sequence))
+                    } else {
+                        sequences.append(SKAction.repeatActionForever(SKAction.sequence(sequence)))
                     }
                 }
             }

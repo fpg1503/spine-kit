@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         if let node = node {
 
             node.position = self.view.center
-            node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
+            node.runAction(SKAction.scaleTo(0.6, duration: 0.0))
             node.play("run")
 
             scene.addChild(node)
