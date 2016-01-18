@@ -33,37 +33,58 @@ class AnimationController {
     }
     
     func play(animationName: String) {
-
+        
         let animation: Animation? = self.animationsDict[animationName]
         
-        if let bonesTimelines = animation?.boneTimelines {
+        if  let animation = animation {
+            self.addActionsToBones(animation)
+            self.addActionsToSlots(animation)
+        }
+    }
+    
+    private func addActionsToBones(animation: Animation) {
+        
+        for boneTimeline in animation.boneTimelines {
             
-            for boneTimeline in bonesTimelines {
+            if let boneName = boneTimeline.name, let bone = self.bonesDict[boneName] {
                 
-                if let boneName = boneTimeline.name, let bone = self.bonesDict[boneName] {
-          
-                    let translateActions: [SKAction]? = self.buildSKActionsTimeline(bone, keyframes: boneTimeline.translate)
-                    let scaleActions: [SKAction]? = self.buildSKActionsTimeline(bone, keyframes: boneTimeline.scale)
-                    let rotateActions: [SKAction]? = self.buildSKActionsTimeline(bone, keyframes: boneTimeline.rotate)
-
-                    if let group = self.buildGroup(translateActions, scaleActions, rotateActions) {
-                        bone.runAction(group)
-                    }
+                let translateActions: [SKAction]? = self.buildSKActionsTimeline(bone, keyframes: boneTimeline.translate)
+                let scaleActions: [SKAction]? = self.buildSKActionsTimeline(bone, keyframes: boneTimeline.scale)
+                let rotateActions: [SKAction]? = self.buildSKActionsTimeline(bone, keyframes: boneTimeline.rotate)
+                
+                if let group = self.buildTimelinesGroup(translateActions, scaleActions, rotateActions) {
+                    bone.runAction(group)
                 }
             }
         }
     }
     
-    private func buildGroup(timelineSequences: [SKAction]?...) -> SKAction? {
+    private func addActionsToSlots(animation: Animation) {
+        
+        for slotTimeline in animation.slotTimelines {
+            
+            if let slotName = slotTimeline.name, let slot = self.slotsDict[slotName] {
+                
+                let colorActions: [SKAction]? =  nil //self.buildSKActionsTimeline(slot, keyframes: slotTimeline.color)
+                let attachmentActions: [SKAction]? = nil // self.buildSKActionsTimeline(slot, keyframes: slotTimeline.attachment)
+                if let group = self.buildTimelinesGroup(colorActions, attachmentActions) {
+                    slot.runAction(group)
+                }
+            }
+        }
+    }
+    
+    private func buildTimelinesGroup(timelineSequences: [SKAction]?...) -> SKAction? {
 
         var result: SKAction? = nil
         var sequences: [SKAction] = []
         
         for sequence in timelineSequences {
+
             if let sequence = sequence {
                 if !sequence.isEmpty {
+                    
                     let isDurationTimeZero = (sequence.first?.duration ==  0 && sequence.count == 1)
-
                     if isDurationTimeZero {
                         sequences.append(SKAction.sequence(sequence))
                     } else {
@@ -79,12 +100,12 @@ class AnimationController {
         return result
     }
     
-    private func buildSKActionsTimeline<T: SKActionKeyFrame>(bone: SKBoneNode, keyframes: [T]) -> [SKAction]? {
+    private func buildSKActionsTimeline<T: SKActionKeyFrame>(nodeToAnimate: SKNode, keyframes: [T]) -> [SKAction]? {
         var lastFrameTime: Double = 0
         var actions: [SKAction] = []
     
         keyframes.forEach  { keyFrame in
-            if let action = keyFrame.toSKAction(bone, timeOffset: lastFrameTime, curve: keyFrame.animationData().curve) {
+            if let action = keyFrame.toSKAction(nodeToAnimate, timeOffset: lastFrameTime, curve: keyFrame.animationData().curve) {
                 actions.append(action)
                 lastFrameTime = keyFrame.animationData().time
             }

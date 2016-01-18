@@ -10,11 +10,12 @@ import SpriteKit
 
 extension RotateKeyFrame: SKActionKeyFrame {
     
-    func toSKAction(bone: SKBoneNode, timeOffset: Double, curve: Curve) -> SKAction? {
+    func toSKAction(nodeToAnimate: SKNode, timeOffset: Double, curve: Curve) -> SKAction? {
         
         var result: SKAction? = nil
 
-        if let angle = self.angle {
+        if let angle = self.angle, bone = nodeToAnimate as? SKBoneNode {
+
             let absoluteAngle: Double = bone.rotation() + angle
             switch curve {
             case .Stepped:

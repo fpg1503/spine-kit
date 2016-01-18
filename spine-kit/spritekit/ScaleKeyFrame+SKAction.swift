@@ -10,11 +10,12 @@ import SpriteKit
 
 extension ScaleKeyFrame: SKActionKeyFrame  {
     
-    func toSKAction(bone: SKBoneNode, timeOffset: Double, curve: Curve) -> SKAction? {
+    func toSKAction(nodeToAnimate: SKNode, timeOffset: Double, curve: Curve) -> SKAction? {
 
         var result: SKAction? = nil
         
         if let x = self.x, let y = self.y {
+            
             switch curve {
             case .Stepped:
                 result = SKAction.sequence([SKAction.waitForDuration(self.time - timeOffset), SKAction.group([SKAction.scaleXTo(CGFloat(x), duration: 0), SKAction.scaleYTo(CGFloat(y), duration: 0)])])

@@ -79,7 +79,6 @@
 		AFFF4B6C1C45356400D7FD61 /* SKBoneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B6B1C45356400D7FD61 /* SKBoneNode.swift */; };
 		AFFF4B6F1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B6E1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift */; };
 		AFFF4B711C4538F900D7FD61 /* ColorTransitionKeyFrame+ SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B701C4538F900D7FD61 /* ColorTransitionKeyFrame+ SKAction.swift */; };
-		AFFF4B731C45391200D7FD61 /* DrawOrderKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B721C45391200D7FD61 /* DrawOrderKeyFrame+SKAction.swift */; };
 		AFFF4B751C45392600D7FD61 /* RotateKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B741C45392600D7FD61 /* RotateKeyFrame+SKAction.swift */; };
 		AFFF4B771C45393700D7FD61 /* ScaleKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B761C45393700D7FD61 /* ScaleKeyFrame+SKAction.swift */; };
 		AFFF4B791C45394900D7FD61 /* TranslateKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B781C45394900D7FD61 /* TranslateKeyFrame+SKAction.swift */; };
@@ -163,7 +162,6 @@
 		AFFF4B6B1C45356400D7FD61 /* SKBoneNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKBoneNode.swift; sourceTree = "<group>"; };
 		AFFF4B6E1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttachmentKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
 		AFFF4B701C4538F900D7FD61 /* ColorTransitionKeyFrame+ SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ColorTransitionKeyFrame+ SKAction.swift"; sourceTree = "<group>"; };
-		AFFF4B721C45391200D7FD61 /* DrawOrderKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DrawOrderKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
 		AFFF4B741C45392600D7FD61 /* RotateKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RotateKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
 		AFFF4B761C45393700D7FD61 /* ScaleKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ScaleKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
 		AFFF4B781C45394900D7FD61 /* TranslateKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TranslateKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
@@ -377,7 +375,6 @@
 				AFFF4B801C457C1400D7FD61 /* BezierEasyCurve+SKAction.swift */,
 				AFFF4B6E1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift */,
 				AFFF4B701C4538F900D7FD61 /* ColorTransitionKeyFrame+ SKAction.swift */,
-				AFFF4B721C45391200D7FD61 /* DrawOrderKeyFrame+SKAction.swift */,
 				AFFF4B741C45392600D7FD61 /* RotateKeyFrame+SKAction.swift */,
 				AFFF4B761C45393700D7FD61 /* ScaleKeyFrame+SKAction.swift */,
 				AFFF4B781C45394900D7FD61 /* TranslateKeyFrame+SKAction.swift */,
@@ -546,7 +543,6 @@
 				AF594ABE1C34AE5E00734C1C /* RotateKeyFrame.swift in Sources */,
 				AF594AB31C34AE4600734C1C /* BoneTimeline.swift in Sources */,
 				AF594ABC1C34AE5E00734C1C /* ColorTransitionKeyFrame.swift in Sources */,
-				AFFF4B731C45391200D7FD61 /* DrawOrderKeyFrame+SKAction.swift in Sources */,
 				AF594AB21C34AE4600734C1C /* Animation.swift in Sources */,
 				AFFF4B811C457C1400D7FD61 /* BezierEasyCurve+SKAction.swift in Sources */,
 				AFFF4B651C44751900D7FD61 /* SKSpineNode.swift in Sources */,

@@ -9,7 +9,7 @@ import SpriteKit
 
 protocol SKActionKeyFrame {
     
-    func toSKAction(bone: SKBoneNode, timeOffset: Double, curve: Curve) -> SKAction?
+    func toSKAction(nodeToAnimate: SKNode, timeOffset: Double, curve: Curve) -> SKAction?
     
     func animationData() -> (time: Double, curve: Curve)
     

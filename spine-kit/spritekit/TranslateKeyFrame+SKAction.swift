@@ -10,12 +10,13 @@ import SpriteKit
 
 extension TranslateKeyFrame: SKActionKeyFrame  {
     
-    func toSKAction(bone: SKBoneNode, timeOffset: Double, curve: Curve) -> SKAction? {
+    func toSKAction(nodeToAnimate: SKNode, timeOffset: Double, curve: Curve) -> SKAction? {
         
         var result: SKAction? = nil
-        let origin = bone.originCGPoint()
-        if let x = self.x, let y = self.y {
+        
+        if let x = self.x, let y = self.y, let bone = nodeToAnimate as? SKBoneNode  {
 
+            let origin = bone.originCGPoint()
             let absoluteX = origin.x + CGFloat(x)
             let absoluteY = origin.y + CGFloat(y)
             
