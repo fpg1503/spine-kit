@@ -10,16 +10,20 @@ import SpriteKit
 
 extension TranslateKeyFrame: SKActionKeyFrame  {
     
-    func toSKAction(timeOffset: Double, curve: Curve) -> SKAction? {
+    func toSKAction(bone: SKBoneNode, timeOffset: Double, curve: Curve) -> SKAction? {
         
         var result: SKAction? = nil
+        let origin = bone.originCGPoint()
         if let x = self.x, let y = self.y {
+
+            let absoluteX = origin.x + CGFloat(x)
+            let absoluteY = origin.y + CGFloat(y)
             
             switch curve {
             case .Stepped:
-                result = SKAction.sequence([SKAction.waitForDuration(self.time - timeOffset), SKAction.moveTo(CGPoint(x: CGFloat(x), y: CGFloat(y)), duration:0)])
+                result = SKAction.sequence([SKAction.waitForDuration(self.time - timeOffset), SKAction.moveTo(CGPoint(x: absoluteX, y: absoluteY), duration:0)])
             default:
-                result = SKAction.moveTo(CGPoint(x: CGFloat(x), y: CGFloat(y)), duration: self.time - timeOffset)
+                result = SKAction.moveTo(CGPoint(x: absoluteX, y: absoluteY), duration: self.time - timeOffset)
             }
 
         }

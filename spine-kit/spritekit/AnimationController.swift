@@ -42,9 +42,9 @@ class AnimationController {
                 
                 if let boneName = boneTimeline.name, let bone = self.bonesDict[boneName] {
           
-                    let translateActions: [SKAction]? = self.buildSKActionsTimeline(boneTimeline.translate)
-                    let scaleActions: [SKAction]? = self.buildSKActionsTimeline(boneTimeline.scale)
-                    let rotateActions: [SKAction]? = self.buildSKActionsTimeline(boneTimeline.rotate)
+                    let translateActions: [SKAction]? = self.buildSKActionsTimeline(bone, keyframes: boneTimeline.translate)
+                    let scaleActions: [SKAction]? = self.buildSKActionsTimeline(bone, keyframes: boneTimeline.scale)
+                    let rotateActions: [SKAction]? = self.buildSKActionsTimeline(bone, keyframes: boneTimeline.rotate)
 
                     if let group = self.buildGroup(translateActions, scaleActions, rotateActions) {
                         bone.runAction(group)
@@ -79,12 +79,12 @@ class AnimationController {
         return result
     }
     
-    private func buildSKActionsTimeline<T: SKActionKeyFrame>(keyframes: [T]) -> [SKAction]? {
+    private func buildSKActionsTimeline<T: SKActionKeyFrame>(bone: SKBoneNode, keyframes: [T]) -> [SKAction]? {
         var lastFrameTime: Double = 0
         var actions: [SKAction] = []
     
         keyframes.forEach  { keyFrame in
-            if let action = keyFrame.toSKAction(lastFrameTime, curve: keyFrame.animationData().curve) {
+            if let action = keyFrame.toSKAction(bone, timeOffset: lastFrameTime, curve: keyFrame.animationData().curve) {
                 actions.append(action)
                 lastFrameTime = keyFrame.animationData().time
             }

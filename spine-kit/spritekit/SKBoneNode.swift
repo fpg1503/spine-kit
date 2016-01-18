@@ -30,6 +30,22 @@ class SKBoneNode: SKNode {
         self.addChild(slotNode)
     }
     
+    func originCGPoint() -> CGPoint {
+        var point = CGPoint(x: CGFloat(0), y: CGFloat(0))
+        if let bone = self.bone {
+            point = CGPoint(x: CGFloat(bone.x), y: CGFloat(bone.y))
+        }
+        return point
+    }
+
+    func rotation() -> Double {
+        var rotation: Double = 0
+        if let bone = self.bone {
+            rotation = bone.rotation
+        }
+        return rotation
+    }
+    
     func setupPose() {
         
         if let bone = self.bone {

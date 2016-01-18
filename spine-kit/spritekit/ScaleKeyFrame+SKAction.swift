@@ -10,7 +10,7 @@ import SpriteKit
 
 extension ScaleKeyFrame: SKActionKeyFrame  {
     
-    func toSKAction(timeOffset: Double, curve: Curve) -> SKAction? {
+    func toSKAction(bone: SKBoneNode, timeOffset: Double, curve: Curve) -> SKAction? {
 
         var result: SKAction? = nil
         
