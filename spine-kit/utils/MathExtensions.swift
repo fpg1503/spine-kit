@@ -24,3 +24,4 @@ extension Float {
         return CGFloat(self) * CGFloat(M_PI) / 180.0
     }
 }
+

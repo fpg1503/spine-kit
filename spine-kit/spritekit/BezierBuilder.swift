@@ -7,9 +7,9 @@
 //
 import SpriteKit
 
-extension SKAction {
+class BezierBuilder {
 
-    static func moveBezier(pointA: CGPoint, pointB: CGPoint, control1: BezierControlPoint, control2: BezierControlPoint, duration: NSTimeInterval) -> SKAction {
+    func moveBezier(pointA: CGPoint, pointB: CGPoint, control1: BezierControlPoint, control2: BezierControlPoint, duration: NSTimeInterval) -> SKAction {
         let bezierCurve = BezierCurve(control1: control1, control2:control2)
         
         return SKAction.customActionWithDuration(duration, actionBlock: { (node, elapsedTime) -> Void in
@@ -17,7 +17,7 @@ extension SKAction {
         })
     }
 
-    static func scaleBezier(pointA: CGPoint, pointB: CGPoint, control1: BezierControlPoint, control2: BezierControlPoint, duration: NSTimeInterval) -> SKAction {
+    func scaleBezier(pointA: CGPoint, pointB: CGPoint, control1: BezierControlPoint, control2: BezierControlPoint, duration: NSTimeInterval) -> SKAction {
         let bezierCurve = BezierCurve(control1: control1, control2:control2)
         
         return SKAction.customActionWithDuration(duration, actionBlock: { (node, elapsedTime) -> Void in
@@ -27,7 +27,7 @@ extension SKAction {
         })
     }
     
-    static func colorBezier(color: SKColor, initBlendFactor: CGFloat, finalBlendFactor: CGFloat, control1: BezierControlPoint, control2: BezierControlPoint, duration: NSTimeInterval) -> SKAction {
+    func colorBezier(color: SKColor, initBlendFactor: CGFloat, finalBlendFactor: CGFloat, control1: BezierControlPoint, control2: BezierControlPoint, duration: NSTimeInterval) -> SKAction {
         let bezierCurve = BezierCurve(control1: control1, control2:control2)
 
         return SKAction.customActionWithDuration(duration, actionBlock: { (node, elapsedTime) -> Void in
@@ -41,29 +41,17 @@ extension SKAction {
         })
     }
     
-    static func rotateBezier(angleA: CGFloat, angleB: CGFloat, control1: BezierControlPoint, control2: BezierControlPoint, duration: NSTimeInterval) -> SKAction {
+    func rotateBezier(angleA: CGFloat, angleB: CGFloat, control1: BezierControlPoint, control2: BezierControlPoint, duration: NSTimeInterval) -> SKAction {
         let bezierCurve = BezierCurve(control1: control1, control2:control2)
-        
-        //Use shortest angle
-        let pi = CGFloat(M_PI)
-        var a = angleA < 0 ?  angleA + (pi * 2) : angleA;
-        var b = angleB < 0 ?  angleB + (pi * 2) : angleB;
-        
-        if a > b {
-            if a - b > CGFloat(M_PI) {
-                a = a - (pi * 2)
-            }
-        } else if b - a > pi {
-            b = b - (pi * 2)
-        }
-        
+        let shortestAngle: (origin: Double, dest: Double) = MathUtils().shortestAngleBetween((Double(angleA), Double(angleB)))
+
         return SKAction.customActionWithDuration(duration, actionBlock: { (node, elapsedTime) -> Void in
-            let angle = self.bezier(bezierCurve, pointA: CGPointMake(a, 0), pointB: CGPointMake(b, 0), duration: duration, elapsedTime: NSTimeInterval(elapsedTime)).x
+            let angle = self.bezier(bezierCurve, pointA: CGPointMake(CGFloat(shortestAngle.origin), 0), pointB: CGPointMake(CGFloat(shortestAngle.dest), 0), duration: duration, elapsedTime: NSTimeInterval(elapsedTime)).x
             node.zRotation = angle
         })
     }
     
-    private static func bezier(curve: BezierCurve, pointA: CGPoint, pointB: CGPoint, duration: NSTimeInterval, elapsedTime: NSTimeInterval) -> CGPoint {
+    private func bezier(curve: BezierCurve, pointA: CGPoint, pointB: CGPoint, duration: NSTimeInterval, elapsedTime: NSTimeInterval) -> CGPoint {
         let epsilon = (1000 / 60 / (duration * 1000)) / 4
         let bezierPoint = CGFloat(curve.solve(elapsedTime / duration, epsilon:epsilon))
         return CGPointMake(pointA.x * (1 - bezierPoint) + (pointB.x * bezierPoint), pointA.y * (1 - bezierPoint) + (pointB.y * bezierPoint));

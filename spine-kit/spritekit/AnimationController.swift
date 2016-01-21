@@ -29,7 +29,15 @@ class AnimationController {
     }
     
     func findAnimatedNode(name: String) -> SKNode? {
-        return nil
+        var result: SKNode? = nil
+        
+        if let node = self.bonesDict[name] {
+            result = node
+        } else if let node = self.slotsDict[name] {
+            result = node
+        }
+    
+        return result
     }
     
     func play(animationName: String) {
@@ -48,11 +56,12 @@ class AnimationController {
             
             if let boneName = boneTimeline.name, let bone = self.bonesDict[boneName] {
                 
-                let translateActions: [SKAction]? = self.buildSKActionsTimeline(bone, keyframes: boneTimeline.translate)
-                let scaleActions: [SKAction]? = self.buildSKActionsTimeline(bone, keyframes: boneTimeline.scale)
-                let rotateActions: [SKAction]? = self.buildSKActionsTimeline(bone, keyframes: boneTimeline.rotate)
+                let timelineBuilder = TimelineBuilder()
+                let translateActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(bone, keyframes: boneTimeline.translate)
+                let scaleActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(bone, keyframes: boneTimeline.scale)
+                let rotateActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(bone, keyframes: boneTimeline.rotate)
                 
-                if let group = self.buildTimelinesGroup(translateActions, scaleActions, rotateActions) {
+                if let group = timelineBuilder.buildTimelinesSKActionGroup(translateActions, scaleActions, rotateActions) {
                     bone.runAction(group)
                 }
             }
@@ -65,52 +74,13 @@ class AnimationController {
             
             if let slotName = slotTimeline.name, let slot = self.slotsDict[slotName] {
                 
-                let colorActions: [SKAction]? =  nil //self.buildSKActionsTimeline(slot, keyframes: slotTimeline.color)
-                let attachmentActions: [SKAction]? = self.buildSKActionsTimeline(slot, keyframes: slotTimeline.attachment)
-                if let group = self.buildTimelinesGroup(colorActions, attachmentActions) {
+                let timelineBuilder = TimelineBuilder()
+                let colorActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(slot, keyframes: slotTimeline.color)
+                let attachmentActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(slot, keyframes: slotTimeline.attachment)
+                
+                if let group = timelineBuilder.buildTimelinesSKActionGroup(colorActions, attachmentActions) {
                     slot.runAction(group)
                 }
             }
         }
-    }
-    
-    private func buildTimelinesGroup(timelineSequences: [SKAction]?...) -> SKAction? {
-
-        var result: SKAction? = nil
-        var sequences: [SKAction] = []
-        
-        for sequence in timelineSequences {
-
-            if let sequence = sequence {
-                if !sequence.isEmpty {
-                    
-                    let isDurationTimeZero = (sequence.first?.duration ==  0 && sequence.count == 1)
-                    if isDurationTimeZero {
-                        sequences.append(SKAction.sequence(sequence))
-                    } else {
-                        sequences.append(SKAction.repeatActionForever(SKAction.sequence(sequence)))
-                    }
-                }
-            }
-        }
-        
-        if !sequences.isEmpty {
-            result = SKAction.group(sequences)
-        }
-        return result
-    }
-    
-    private func buildSKActionsTimeline<T: SKActionKeyFrame>(nodeToAnimate: SKNode, keyframes: [T]) -> [SKAction]? {
-        var lastFrameTime: Double = 0
-        var actions: [SKAction] = []
-    
-        keyframes.forEach  { keyFrame in
-            if let action = keyFrame.toSKAction(nodeToAnimate, timeOffset: lastFrameTime, curve: keyFrame.animationData().curve) {
-                actions.append(action)
-                lastFrameTime = keyFrame.animationData().time
-            }
-        }
-        return actions.isEmpty ? nil : actions
-    }
-    
-}
+    }}

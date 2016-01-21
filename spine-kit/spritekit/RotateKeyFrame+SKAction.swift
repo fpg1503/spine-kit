@@ -17,11 +17,12 @@ extension RotateKeyFrame: SKActionKeyFrame {
         if let angle = self.angle, bone = nodeToAnimate as? SKBoneNode {
 
             let absoluteAngle: Double = bone.rotation() + angle
+            
             switch curve {
             case .Stepped:
-                result = SKAction.sequence([SKAction.waitForDuration(self.time - timeOffset), SKAction.rotateToAngle(CGFloat(absoluteAngle.degreesToRadians), duration: 0)])
+                result = SKAction.sequence([SKAction.waitForDuration(self.time - timeOffset), SKAction.rotateToAngle(CGFloat(absoluteAngle.degreesToRadians), duration: 0, shortestUnitArc: true)])
             default:
-                result = SKAction.rotateToAngle(CGFloat(absoluteAngle.degreesToRadians), duration: self.time - timeOffset)
+                result = SKAction.rotateToAngle(CGFloat(absoluteAngle.degreesToRadians), duration: self.time - timeOffset, shortestUnitArc: true)
             }
         }
         return result
