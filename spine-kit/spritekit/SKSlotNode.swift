@@ -12,6 +12,7 @@ class SKSlotNode: SKSpriteNode {
     
     private var slot: Slot?
     private var region: [String: (attachment: Attachment, texture: SKTexture)] = [:]
+
     private var currentAttachmentName: String?
     private var initialZIndex: Double?
     
