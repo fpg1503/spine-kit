@@ -22,6 +22,10 @@ extension TranslateKeyFrame: SKActionKeyFrame  {
         }
         return nil
     }
+ 
+    func bezierAction(nodeToAnimate: SKNode, timeOffset: Double, bezier: Bezier) -> SKAction? {
+        return linearAction(nodeToAnimate, timeOffset: timeOffset)
+    }
     
     func animationData() -> (time: Double, curve: Curve) {
         return (self.time, self.curve)

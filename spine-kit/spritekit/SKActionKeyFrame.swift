@@ -35,6 +35,8 @@ extension SKActionKeyFrame {
         case .Bezier:
             if let bezier = self.buildBezier() {
                 result = bezierAction(nodeToAnimate, timeOffset: timeOffset, bezier: bezier)
+            } else {
+                result = linearAction(nodeToAnimate, timeOffset: timeOffset)
             }
             break
             
@@ -45,15 +47,20 @@ extension SKActionKeyFrame {
         return result
     }
     
-    func bezierAction(nodeToAnimate: SKNode, timeOffset: Double) -> SKAction? {
+    func bezierAction(nodeToAnimate: SKNode, timeOffset: Double, bezier: Bezier) -> SKAction? {
         return linearAction(nodeToAnimate, timeOffset: timeOffset)
     }
     
     private func buildBezier() -> Bezier? {
+    
         var result: Bezier? = nil
+        
         switch animationData().curve  {
-            case let .Bezier(points):
+        
+        case let .Bezier(points):
+        
             if points.count == 4 {
+            
                 let control1 = (x: points[0], y: points[1])
                 let control2 = (x: points[2], y: points[3])
                 result = Bezier(control1: control1, control2: control2)
