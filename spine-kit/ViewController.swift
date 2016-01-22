@@ -26,11 +26,11 @@ class ViewController: UIViewController {
         let scene = SKScene(size: self.view.bounds.size)
         scene.scaleMode = SKSceneScaleMode.AspectFill
 
-        if let node = SpineBuilder().build("powerup") {
+        if let node = SpineBuilder().build("dragon") {
 
             node.position = self.view.center
-            node.runAction(SKAction.scaleTo(0.7, duration: 0.0))
-            node.play("animation")
+            node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
+            node.play("flying")
 
             scene.addChild(node)
         }
