@@ -10,16 +10,18 @@ import SpriteKit
 
 extension AttachmentKeyFrame: SKActionKeyFrame {
     
-    func toSKAction(nodeToAnimate: SKNode, timeOffset: Double, curve: Curve) -> SKAction? {
+    func linearAction(nodeToAnimate: SKNode, timeOffset: Double) -> SKAction? {
+    
         let attachmentName = self.name
+        
         return SKAction.sequence([
-                SKAction.waitForDuration(self.time - timeOffset),
-                SKAction.runBlock({ () -> Void in
-                    if let slotNode = nodeToAnimate as? SKSlotNode, let attachmentName = attachmentName {
-                        slotNode.showAttachment(attachmentName)
-                    }
-                })
-            ])
+            SKAction.waitForDuration(self.time - timeOffset),
+            SKAction.runBlock({ () -> Void in
+                if let slotNode = nodeToAnimate as? SKSlotNode, let attachmentName = attachmentName {
+                    slotNode.showAttachment(attachmentName)
+                }
+            })
+        ])
     }
     
     func animationData() -> (time: Double, curve: Curve) {

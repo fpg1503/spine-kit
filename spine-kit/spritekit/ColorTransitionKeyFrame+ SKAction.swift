@@ -10,19 +10,16 @@ import SpriteKit
 
 extension ColorTransitionKeyFrame: SKActionKeyFrame {
     
-    func toSKAction(nodeToAnimate: SKNode, timeOffset: Double, curve: Curve) -> SKAction? {
+    func linearAction(nodeToAnimate: SKNode, timeOffset: Double) -> SKAction? {
         
-        var result: SKAction? = nil
-        
-        if let color = self.color {
-            switch curve {
-            case .Stepped:
-                result = SKAction.sequence([SKAction.waitForDuration(self.time - timeOffset), SKAction.colorizeWithColor(color, colorBlendFactor: CGFloat(1), duration: 0)])
-            default:
-                result = SKAction.colorizeWithColor(color, colorBlendFactor: CGFloat(1), duration: self.time - timeOffset)
+        return SKAction.customActionWithDuration(self.time - timeOffset, actionBlock: { (node, duration) -> Void in
+            
+            if let slot = node as? SKSlotNode, let color = self.color {
+                
+                let position = duration/CGFloat(self.time - timeOffset)
+                slot.setColorSettings(color, colorBlendFactor: position)
             }
-        }
-        return result
+        })
     }
     
     func animationData() -> (time: Double, curve: Curve) {

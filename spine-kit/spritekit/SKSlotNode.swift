@@ -39,7 +39,7 @@ class SKSlotNode: SKNode {
             self.currentAttachmentName = slotAttachment
         }
     }
-    
+
     func setupPose() {
         
         let node = SKNode()
@@ -64,13 +64,29 @@ class SKSlotNode: SKNode {
         }
     }
     
+    func setColorSettings(color: UIColor, colorBlendFactor: CGFloat) {
+        if let currentAttachmentName = self.currentAttachmentName {
+            attachmentsIndex[currentAttachmentName]?.color = color
+            attachmentsIndex[currentAttachmentName]?.colorBlendFactor = colorBlendFactor
+        }
+    }
+    
     func showAttachment(attachmentName: String) {
         if let currentAttachmentName = self.currentAttachmentName {
             if attachmentName != currentAttachmentName {
                 attachmentsIndex[currentAttachmentName]?.hidden = true
                 attachmentsIndex[attachmentName]?.hidden = false
+                
+                self.copyColorSettings(nodeA:attachmentsIndex[currentAttachmentName], nodeB:attachmentsIndex[attachmentName])
                 self.currentAttachmentName = attachmentName
             }
+        }
+    }
+    
+    private func copyColorSettings(nodeA nodeA: SKSpriteNode?, nodeB: SKSpriteNode?) {
+        if let origin = nodeA, let dest = nodeB {
+            dest.color = origin.color
+            dest.colorBlendFactor = origin.colorBlendFactor
         }
     }
 }

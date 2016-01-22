@@ -8,18 +8,7 @@
 
 //Based on https://opensource.apple.com/source/WebCore/WebCore-955.66/platform/graphics/UnitBezier.h
 
-struct BezierControlPoint {
-    
-    let x: Double
-    let y: Double
-    
-    init(x: Double, y: Double) {
-        self.x = x
-        self.y = y
-    }
-}
-
-class BezierCurve {
+class Bezier {
     
     private var cx: Double
     private var bx: Double
@@ -28,7 +17,7 @@ class BezierCurve {
     private var by: Double
     private var ay: Double
     
-    init(control1: BezierControlPoint, control2: BezierControlPoint) {
+    init(control1: (x: Double, y: Double), control2: (x: Double, y: Double)) {
         self.cx = 3.0 * control1.x
         self.bx = 3.0 * control2.x - control1.x - self.cx
         self.ax = 1.0 - self.cx - self.bx
@@ -38,7 +27,13 @@ class BezierCurve {
         self.ay = 1.0 - self.cy - self.by
     }
     
-    func solve(x: Double, epsilon: Double) -> Double {
+    func solve(pointA pointA: (x: Double, y: Double), pointB: (x: Double, y: Double), duration: Double, elapsedTime: Double) -> (x: Double, y: Double) {
+        let epsilon = (1000 / 60 / (duration * 1000)) / 4
+        let bezierPoint = self.solve(elapsedTime / duration, epsilon:epsilon)
+        return (pointA.x * (1 - bezierPoint) + (pointB.x * bezierPoint), pointA.y * (1 - bezierPoint) + (pointB.y * bezierPoint));
+    }
+
+    private func solve(x: Double, epsilon: Double) -> Double {
         return self.sampleCurveY(self.solveCurveX(x, epsilon:epsilon));
     }
     
@@ -109,5 +104,6 @@ class BezierCurve {
     
         return t2
     }
+    
     
 }

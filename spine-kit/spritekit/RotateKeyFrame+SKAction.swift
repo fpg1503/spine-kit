@@ -10,20 +10,14 @@ import SpriteKit
 
 extension RotateKeyFrame: SKActionKeyFrame {
     
-    func toSKAction(nodeToAnimate: SKNode, timeOffset: Double, curve: Curve) -> SKAction? {
-        
+    func linearAction(nodeToAnimate: SKNode, timeOffset: Double) -> SKAction? {
+
         var result: SKAction? = nil
 
         if let angle = self.angle, bone = nodeToAnimate as? SKBoneNode {
-
-            let absoluteAngle: Double = bone.rotation() + angle
             
-            switch curve {
-            case .Stepped:
-                result = SKAction.sequence([SKAction.waitForDuration(self.time - timeOffset), SKAction.rotateToAngle(CGFloat(absoluteAngle.degreesToRadians), duration: 0, shortestUnitArc: true)])
-            default:
-                result = SKAction.rotateToAngle(CGFloat(absoluteAngle.degreesToRadians), duration: self.time - timeOffset, shortestUnitArc: true)
-            }
+            let absoluteAngle: Double = bone.rotation() + angle
+            result = SKAction.rotateToAngle(CGFloat(absoluteAngle.degreesToRadians), duration: self.time - timeOffset, shortestUnitArc: true)
         }
         return result
     }
