@@ -94,14 +94,14 @@ class SpineBuilder {
         
         for slot in slots {
             
-            if let attachmentsOfSlot = skin.attachments[slot.name], slotZIndex = slotZIndexes[slot.name] {
+            if let attachmentsOfSlot = skin.attachments[slot.name], let slotZIndex = slotZIndexes[slot.name] {
                 
-                var attachmentNodes: [SKAttachmentNode] = []
+                let slotNode = SKSlotNode(slot: slot, zIndex: slotZIndex)
                 for (attachmentName, attachment) in attachmentsOfSlot {
-                    attachmentNodes.append(SKAttachmentNode(attachment: attachment, name: attachmentName, texture: atlas.textureNamed(attachmentName)))
+                    slotNode.addAttachmentWithTexture(attachmentName, attachment: attachment, texture: atlas.textureNamed(attachmentName))
                 }
                 
-                slotNodes[slot.name] = SKSlotNode(slot: slot, zIndex: slotZIndex, region: attachmentNodes)
+                slotNodes[slot.name] = slotNode
             }
         }
         return slotNodes

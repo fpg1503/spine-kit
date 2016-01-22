@@ -76,7 +76,6 @@
 		AF594AD91C34AF4500734C1C /* SpineParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AD71C34AF4500734C1C /* SpineParseTests.swift */; };
 		AF6A776B1C4590290032514F /* SKActionKeyFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A776A1C4590290032514F /* SKActionKeyFrame.swift */; };
 		AFFF4B651C44751900D7FD61 /* SKSpineNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B641C44751900D7FD61 /* SKSpineNode.swift */; };
-		AFFF4B6A1C45355200D7FD61 /* SKAttachmentNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B691C45355200D7FD61 /* SKAttachmentNode.swift */; };
 		AFFF4B6C1C45356400D7FD61 /* SKBoneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B6B1C45356400D7FD61 /* SKBoneNode.swift */; };
 		AFFF4B6F1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B6E1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift */; };
 		AFFF4B711C4538F900D7FD61 /* ColorTransitionKeyFrame+ SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B701C4538F900D7FD61 /* ColorTransitionKeyFrame+ SKAction.swift */; };
@@ -158,7 +157,6 @@
 		AF594AD71C34AF4500734C1C /* SpineParseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpineParseTests.swift; sourceTree = "<group>"; };
 		AF6A776A1C4590290032514F /* SKActionKeyFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKActionKeyFrame.swift; sourceTree = "<group>"; };
 		AFFF4B641C44751900D7FD61 /* SKSpineNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSpineNode.swift; sourceTree = "<group>"; };
-		AFFF4B691C45355200D7FD61 /* SKAttachmentNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKAttachmentNode.swift; sourceTree = "<group>"; };
 		AFFF4B6B1C45356400D7FD61 /* SKBoneNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKBoneNode.swift; sourceTree = "<group>"; };
 		AFFF4B6E1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttachmentKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
 		AFFF4B701C4538F900D7FD61 /* ColorTransitionKeyFrame+ SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ColorTransitionKeyFrame+ SKAction.swift"; sourceTree = "<group>"; };
@@ -406,7 +404,6 @@
 		AFFF4B831C457C3300D7FD61 /* nodes */ = {
 			isa = PBXGroup;
 			children = (
-				AFFF4B691C45355200D7FD61 /* SKAttachmentNode.swift */,
 				AFFF4B6B1C45356400D7FD61 /* SKBoneNode.swift */,
 				AF515CB51C4C4516006FED09 /* SKSlotNode.swift */,
 				AFFF4B641C44751900D7FD61 /* SKSpineNode.swift */,
@@ -585,7 +582,6 @@
 				AFFF4B7D1C453E4100D7FD61 /* AnimationController.swift in Sources */,
 				AF3100AD1C5149980076F440 /* MathUtils.swift in Sources */,
 				AFFF4B771C45393700D7FD61 /* ScaleKeyFrame+SKAction.swift in Sources */,
-				AFFF4B6A1C45355200D7FD61 /* SKAttachmentNode.swift in Sources */,
 				AF594ACA1C34AE9100734C1C /* JSONDecodable.swift in Sources */,
 				AF3100AA1C5146F70076F440 /* TimelineBuilder.swift in Sources */,
 				AF594A951C34AD8400734C1C /* Attachment.swift in Sources */,

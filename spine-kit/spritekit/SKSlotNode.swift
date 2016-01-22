@@ -8,85 +8,54 @@
 
 import SpriteKit
 
-class SKSlotNode: SKNode {
+class SKSlotNode: SKSpriteNode {
     
     private var slot: Slot?
-    private var attachmentsIndex: [String: SKAttachmentNode] = [:]
+    private var region: [String: (attachment: Attachment, texture: SKTexture)] = [:]
     private var currentAttachmentName: String?
     private var initialZIndex: Double?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    func addAttachmentWithTexture(name: String, attachment: Attachment, texture: SKTexture) {
+        region[name] = (attachment, texture)
+    }
+    
+    init(slot: Slot, zIndex: Double) {
+        super.init(texture: SKTexture(), color: UIColor.clearColor(), size: CGSize.zero)
 
-    init(slot: Slot, zIndex: Double, region: [SKAttachmentNode]) {
-        super.init()
-        
         self.name = slot.name
         self.slot = slot
         self.initialZIndex = zIndex
-        
-        for attachment in region {
-            
-            attachment.hidden = true
-            if let attachmentName = attachment.name {
-                self.attachmentsIndex[attachmentName] = attachment
-            }
-            self.addChild(attachment)
-        }
-        
-        if let slotAttachment = self.slot?.attachment {
-            self.currentAttachmentName = slotAttachment
-        }
     }
 
     func setupPose() {
         
         let node = SKNode()
         node.name = self.name
-
-        var zIndex = self.initialZIndex ?? 0
         
-        //If 1 is the step between slots 0.9 is a safe piece to share between attachments
-        let zIndexIncrement = 0.9/Double(attachmentsIndex.count)
-        
-        for attachment in attachmentsIndex.values {
+        if let slotAttachmentName = slot?.attachment, let (attachment, _) = region[slotAttachmentName]  {
             
-            attachment.zPosition = CGFloat(zIndex)
-            attachment.hidden = true
-            attachment.setupPose()
-            zIndex += zIndexIncrement
+            self.showAttachment(slotAttachmentName)
             
-        }
-
-        if let slotAttachmentName = slot?.attachment {
-            attachmentsIndex[slotAttachmentName]?.hidden = false
-        }
-    }
-    
-    func setColorSettings(color: UIColor, colorBlendFactor: CGFloat) {
-        if let currentAttachmentName = self.currentAttachmentName {
-            attachmentsIndex[currentAttachmentName]?.color = color
-            attachmentsIndex[currentAttachmentName]?.colorBlendFactor = colorBlendFactor
+            self.position = CGPoint(x: CGFloat(attachment.x), y: CGFloat(attachment.y))
+            self.xScale = CGFloat(attachment.scaleX)
+            self.yScale = CGFloat(attachment.scaleY)
+            self.zRotation = CGFloat(attachment.rotation)
+            self.zPosition = CGFloat(self.initialZIndex ?? 0)
+            self.size = CGSize(width: CGFloat(attachment.width), height: CGFloat(attachment.height))
         }
     }
     
     func showAttachment(attachmentName: String) {
-        if let currentAttachmentName = self.currentAttachmentName {
-            if attachmentName != currentAttachmentName {
-                attachmentsIndex[currentAttachmentName]?.hidden = true
-                attachmentsIndex[attachmentName]?.hidden = false
-                
-                self.copyColorSettings(nodeA:attachmentsIndex[currentAttachmentName], nodeB:attachmentsIndex[attachmentName])
+
+        if self.currentAttachmentName != attachmentName {
+            if let (_, texture) = region[attachmentName] {
+                self.texture = texture
                 self.currentAttachmentName = attachmentName
             }
-        }
-    }
-    
-    private func copyColorSettings(nodeA nodeA: SKSpriteNode?, nodeB: SKSpriteNode?) {
-        if let origin = nodeA, let dest = nodeB {
-            dest.color = origin.color
-            dest.colorBlendFactor = origin.colorBlendFactor
         }
     }
 }
