@@ -27,10 +27,9 @@ class Bezier {
         self.ay = 1.0 - self.cy - self.by
     }
     
-    func solve(pointA pointA: (x: Double, y: Double), pointB: (x: Double, y: Double), duration: Double, elapsedTime: Double) -> (x: Double, y: Double) {
-        let epsilon = (1000 / 60 / (duration * 1000)) / 4
-        let bezierPoint = self.solve(elapsedTime / duration, epsilon:epsilon)
-        return (pointA.x * (1 - bezierPoint) + (pointB.x * bezierPoint), pointA.y * (1 - bezierPoint) + (pointB.y * bezierPoint));
+    func solve(x: Double, duration: Double) -> Double {
+        let epsilon =  1.0 / (1000 * duration);
+        return self.solve(x, epsilon:epsilon)
     }
 
     private func solve(x: Double, epsilon: Double) -> Double {

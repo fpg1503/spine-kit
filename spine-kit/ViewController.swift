@@ -34,9 +34,9 @@ class ViewController: UIViewController {
 
             scene.addChild(node)
         }
-        
+
         skView.presentScene(scene)
-        
+        skView.frameInterval = 2
         self.view.addSubview(skView)
     }
 

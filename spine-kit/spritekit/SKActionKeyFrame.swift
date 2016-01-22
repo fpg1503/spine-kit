@@ -26,6 +26,7 @@ extension SKActionKeyFrame {
         switch curve {
             
         case .Stepped:
+            
             if let linearAction = self.linearAction(nodeToAnimate, timeOffset: timeOffset) {
                 linearAction.duration = 0
                 result = SKAction.sequence([SKAction.waitForDuration(self.animationData().time - timeOffset), linearAction])
@@ -33,14 +34,20 @@ extension SKActionKeyFrame {
             break
             
         case .Bezier:
+            
+            let duration: Double = Double(self.animationData().time - timeOffset)
+            
             if let bezier = self.buildBezier() {
                 result = bezierAction(nodeToAnimate, timeOffset: timeOffset, bezier: bezier)
+                result?.timingFunction = self.bezierTimingFunction(duration, timeOffset: timeOffset, bezier: bezier)
             } else {
                 result = linearAction(nodeToAnimate, timeOffset: timeOffset)
             }
+            
             break
             
         default:
+            
             result = linearAction(nodeToAnimate, timeOffset: timeOffset)
             break
         }
@@ -49,6 +56,12 @@ extension SKActionKeyFrame {
     
     func bezierAction(nodeToAnimate: SKNode, timeOffset: Double, bezier: Bezier) -> SKAction? {
         return linearAction(nodeToAnimate, timeOffset: timeOffset)
+    }
+
+    private func bezierTimingFunction(duration: Double, timeOffset: Double, bezier: Bezier) -> (Float) -> Float {
+        return { time in
+            return Float(bezier.solve(Double(time), duration: duration))
+        }
     }
     
     private func buildBezier() -> Bezier? {
