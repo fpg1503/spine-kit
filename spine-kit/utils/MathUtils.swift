@@ -29,3 +29,21 @@ class MathUtils {
         return angle < 0 ?  angle + (M_PI * 2) : angle;
     }
 }
+
+extension Int {
+    var degreesToRadians : CGFloat {
+        return CGFloat(self) * CGFloat(M_PI) / 180.0
+    }
+}
+
+extension Double {
+    var degreesToRadians : CGFloat {
+        return CGFloat(self) * CGFloat(M_PI) / 180.0
+    }
+}
+
+extension Float {
+    var degreesToRadians : CGFloat {
+        return CGFloat(self) * CGFloat(M_PI) / 180.0
+    }
+}

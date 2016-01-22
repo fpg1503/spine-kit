@@ -83,7 +83,6 @@
 		AFFF4B751C45392600D7FD61 /* RotateKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B741C45392600D7FD61 /* RotateKeyFrame+SKAction.swift */; };
 		AFFF4B771C45393700D7FD61 /* ScaleKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B761C45393700D7FD61 /* ScaleKeyFrame+SKAction.swift */; };
 		AFFF4B791C45394900D7FD61 /* TranslateKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B781C45394900D7FD61 /* TranslateKeyFrame+SKAction.swift */; };
-		AFFF4B7B1C453D5800D7FD61 /* MathExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B7A1C453D5800D7FD61 /* MathExtensions.swift */; };
 		AFFF4B7D1C453E4100D7FD61 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B7C1C453E4100D7FD61 /* AnimationController.swift */; };
 		AFFF4B7F1C45750900D7FD61 /* Bezier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B7E1C45750900D7FD61 /* Bezier.swift */; };
 /* End PBXBuildFile section */
@@ -166,7 +165,6 @@
 		AFFF4B741C45392600D7FD61 /* RotateKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RotateKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
 		AFFF4B761C45393700D7FD61 /* ScaleKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ScaleKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
 		AFFF4B781C45394900D7FD61 /* TranslateKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TranslateKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
-		AFFF4B7A1C453D5800D7FD61 /* MathExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathExtensions.swift; sourceTree = "<group>"; };
 		AFFF4B7C1C453E4100D7FD61 /* AnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
 		AFFF4B7E1C45750900D7FD61 /* Bezier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bezier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,7 +197,6 @@
 		AF3100AE1C5149A00076F440 /* math */ = {
 			isa = PBXGroup;
 			children = (
-				AFFF4B7A1C453D5800D7FD61 /* MathExtensions.swift */,
 				AF3100AC1C5149980076F440 /* MathUtils.swift */,
 				AFFF4B7E1C45750900D7FD61 /* Bezier.swift */,
 			);
@@ -599,7 +596,6 @@
 				AF594ABF1C34AE5E00734C1C /* ScaleKeyFrame.swift in Sources */,
 				AF594AA41C34AD8400734C1C /* SpineModel.swift in Sources */,
 				AF594ACB1C34AE9100734C1C /* UIColoFromHexString.swift in Sources */,
-				AFFF4B7B1C453D5800D7FD61 /* MathExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
