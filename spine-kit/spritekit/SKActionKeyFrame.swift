@@ -14,6 +14,8 @@ protocol SKActionKeyFrame {
     func animationData() -> (time: Double, curve: Curve)
     
     func linearAction<Context>(context: Context, duration: Double) -> SKAction?
+ 
+    func steppedAction<Context>(context: Context, duration: Double) -> SKAction?
     
     func bezierAction<Context>(context: Context, duration: Double, bezier: Bezier) -> SKAction?
 }
@@ -27,15 +29,10 @@ extension SKActionKeyFrame {
         switch curve {
             
         case .Stepped:
-            
-            if let linearAction = self.linearAction(context, duration: duration) {
-                linearAction.duration = 0
-                result = SKAction.sequence([SKAction.waitForDuration(self.animationData().time - timeOffset), linearAction])
-            }
+            result = steppedAction(context, duration: duration)
             break
             
         case .Bezier:
-
             
             if let bezier = self.buildBezier() where duration != 0 {
                 result = bezierAction(context, duration: duration, bezier: bezier)
@@ -55,6 +52,18 @@ extension SKActionKeyFrame {
     
     func bezierAction<Context>(context: Context, duration: Double, bezier: Bezier) -> SKAction? {
         return linearAction(context, duration: duration)
+    }
+
+    func steppedAction<Context>(context: Context, duration: Double) -> SKAction? {
+
+        var result: SKAction? = nil
+        
+        if let linearAction = self.linearAction(context, duration: duration) {
+            linearAction.duration = 0
+            result = SKAction.sequence([SKAction.waitForDuration(duration), linearAction])
+        }
+        
+        return result
     }
     
     private func buildBezier() -> Bezier? {
