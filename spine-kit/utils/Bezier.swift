@@ -8,6 +8,14 @@
 
 //Based on https://opensource.apple.com/source/WebCore/WebCore-955.66/platform/graphics/UnitBezier.h
 
+
+//TODO think how to remove this state from here
+struct BezierCurveSampleData {
+   let pointA: (x: Double, y: Double)
+   let pointB: (x: Double, y: Double)
+    let duration: Double
+}
+
 class Bezier {
     
     private var cx: Double
@@ -17,6 +25,11 @@ class Bezier {
     private var by: Double
     private var ay: Double
     
+    private var pointA: (x: Double, y: Double)? = nil
+    private var pointB: (x: Double, y: Double)? = nil
+    private var duration: Double? = nil
+    private var hasCurveData: Bool = false
+    
     init(control1: (x: Double, y: Double), control2: (x: Double, y: Double)) {
         self.cx = 3.0 * control1.x
         self.bx = 3.0 * control2.x - control1.x - self.cx
@@ -25,11 +38,33 @@ class Bezier {
         self.cy = 3.0 * control1.y
         self.by = 3.0 * control2.y - control1.y - self.cy
         self.ay = 1.0 - self.cy - self.by
+    }    
+
+    func solve(elapsedTime: Double, curveSampleDataBlock: () -> BezierCurveSampleData) -> (x: Double, y: Double)  {
+        
+        if !self.hasCurveData {
+            let data = curveSampleDataBlock()
+            self.pointA = data.pointA
+            self.pointB = data.pointB
+            self.duration = data.duration
+            self.hasCurveData = true
+        }
+        
+        return solve(elapsedTime)
     }
     
-    func solve(x: Double, duration: Double) -> Double {
-        let epsilon =  1.0 / (1000 * duration);
-        return self.solve(x, epsilon:epsilon)
+    private func solve(elapsedTime: Double) -> (x: Double, y: Double) {
+        
+        var result: (x: Double, y: Double) = (x: 0, y: 0)
+        
+        if let pointA = self.pointA, let pointB = self.pointB, let duration = self.duration {
+        
+            let epsilon = (1000 / 60 / (duration * 1000)) / 4
+            let bezierPoint = self.solve(elapsedTime / duration, epsilon:epsilon)
+            result = (x: pointA.x * (1 - bezierPoint) + (pointB.x * bezierPoint), y: pointA.y * (1 - bezierPoint) + (pointB.y * bezierPoint));
+            
+        }
+        return result
     }
 
     private func solve(x: Double, epsilon: Double) -> Double {

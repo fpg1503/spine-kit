@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         if let node = SpineBuilder().build("dragon") {
 
             node.position = self.view.center
-            node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
+            node.runAction(SKAction.scaleTo(0.6, duration: 0.0))
             node.play("flying")
 
             scene.addChild(node)

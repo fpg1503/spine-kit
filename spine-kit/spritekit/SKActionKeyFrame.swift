@@ -13,55 +13,48 @@ protocol SKActionKeyFrame {
     
     func animationData() -> (time: Double, curve: Curve)
     
-    func linearAction(nodeToAnimate: SKNode, timeOffset: Double) -> SKAction?
+    func linearAction(nodeToAnimate: SKNode, duration: Double) -> SKAction?
     
-    func bezierAction(nodeToAnimate: SKNode, timeOffset: Double, bezier: Bezier) -> SKAction?
+    func bezierAction(nodeToAnimate: SKNode, duration: Double, bezier: Bezier) -> SKAction?
 }
 
 extension SKActionKeyFrame {
     
     func toSKAction(nodeToAnimate: SKNode, timeOffset: Double, curve: Curve) -> SKAction? {
-        
+        let duration = animationData().time - timeOffset
+
         var result: SKAction? = nil
         switch curve {
             
         case .Stepped:
             
-            if let linearAction = self.linearAction(nodeToAnimate, timeOffset: timeOffset) {
+            if let linearAction = self.linearAction(nodeToAnimate, duration: duration) {
                 linearAction.duration = 0
                 result = SKAction.sequence([SKAction.waitForDuration(self.animationData().time - timeOffset), linearAction])
             }
             break
             
         case .Bezier:
+
             
-            let duration: Double = Double(self.animationData().time - timeOffset)
-            
-            if let bezier = self.buildBezier() {
-                result = bezierAction(nodeToAnimate, timeOffset: timeOffset, bezier: bezier)
-                result?.timingFunction = self.bezierTimingFunction(duration, timeOffset: timeOffset, bezier: bezier)
+            if let bezier = self.buildBezier() where duration != 0 {
+                result = bezierAction(nodeToAnimate, duration: duration, bezier: bezier)
             } else {
-                result = linearAction(nodeToAnimate, timeOffset: timeOffset)
+                result = linearAction(nodeToAnimate, duration: duration)
             }
             
             break
             
         default:
             
-            result = linearAction(nodeToAnimate, timeOffset: timeOffset)
+            result = linearAction(nodeToAnimate, duration: duration)
             break
         }
         return result
     }
     
-    func bezierAction(nodeToAnimate: SKNode, timeOffset: Double, bezier: Bezier) -> SKAction? {
-        return linearAction(nodeToAnimate, timeOffset: timeOffset)
-    }
-
-    private func bezierTimingFunction(duration: Double, timeOffset: Double, bezier: Bezier) -> (Float) -> Float {
-        return { time in
-            return Float(bezier.solve(Double(time), duration: duration))
-        }
+    func bezierAction(nodeToAnimate: SKNode, duration: Double, bezier: Bezier) -> SKAction? {
+        return linearAction(nodeToAnimate, duration: duration)
     }
     
     private func buildBezier() -> Bezier? {

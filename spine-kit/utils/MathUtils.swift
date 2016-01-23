@@ -9,11 +9,11 @@ import CoreGraphics
 
 class MathUtils {
     
-    func shortestAngleBetween(point: (origin: Double, dest: Double)) -> (origin: Double, dest: Double) {
+    func shortestAngleBetween(origin: Double, to dest: Double) -> (origin: Double, dest: Double) {
         let pi = M_PI
 
-        var origin = self.positiveAngle(point.origin)
-        var dest = self.positiveAngle(point.dest)
+        var origin = self.positiveAngle(origin)
+        var dest = self.positiveAngle(dest)
         
         if origin > dest {
             if origin - dest > M_PI {
@@ -43,6 +43,12 @@ extension Double {
 }
 
 extension Float {
+    var degreesToRadians : CGFloat {
+        return CGFloat(self) * CGFloat(M_PI) / 180.0
+    }
+}
+
+extension CGFloat {
     var degreesToRadians : CGFloat {
         return CGFloat(self) * CGFloat(M_PI) / 180.0
     }
