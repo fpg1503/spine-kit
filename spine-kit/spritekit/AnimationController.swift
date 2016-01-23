@@ -40,17 +40,17 @@ class AnimationController {
         return result
     }
     
-    func play(animationName: String) {
+    func play(animationName: String, times: Int?) {
         
         let animation: Animation? = self.animationsDict[animationName]
         
         if  let animation = animation {
-            self.addActionsToBones(animation)
-            self.addActionsToSlots(animation)
+            self.addActionsToBones(animation, times: times)
+            self.addActionsToSlots(animation, times: times)
         }
     }
     
-    private func addActionsToBones(animation: Animation) {
+    private func addActionsToBones(animation: Animation, times: Int?) {
         
         for boneTimeline in animation.boneTimelines {
             
@@ -61,14 +61,14 @@ class AnimationController {
                 let scaleActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(bone, keyframes: boneTimeline.scale)
                 let rotateActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(bone, keyframes: boneTimeline.rotate)
                 
-                if let group = timelineBuilder.buildTimelinesSKActionGroup(translateActions, scaleActions, rotateActions) {
+                if let group = timelineBuilder.buildTimelinesSKActionGroup(translateActions, scaleActions, rotateActions, times: times) {
                     bone.runAction(group)
                 }
             }
         }
     }
     
-    private func addActionsToSlots(animation: Animation) {
+    private func addActionsToSlots(animation: Animation, times: Int?) {
         
         for slotTimeline in animation.slotTimelines {
             
@@ -78,7 +78,7 @@ class AnimationController {
                 let colorActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(slot, keyframes: slotTimeline.color)
                 let attachmentActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(slot, keyframes: slotTimeline.attachment)
                 
-                if let group = timelineBuilder.buildTimelinesSKActionGroup(colorActions, attachmentActions) {
+                if let group = timelineBuilder.buildTimelinesSKActionGroup(colorActions, attachmentActions, times: times) {
                     slot.runAction(group)
                 }
             }

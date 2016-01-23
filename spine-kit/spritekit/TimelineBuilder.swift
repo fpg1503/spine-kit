@@ -10,7 +10,7 @@ import SpriteKit
 
 class TimelineBuilder {
     
-    func buildTimelinesSKActionGroup(timelineSequences: [SKAction]?...) -> SKAction? {
+    func buildTimelinesSKActionGroup(timelineSequences: [SKAction]?..., times: Int?) -> SKAction? {
         
         var result: SKAction? = nil
         var sequences: [SKAction] = []
@@ -24,7 +24,7 @@ class TimelineBuilder {
                     if isDurationTimeZero {
                         sequences.append(SKAction.sequence(sequence))
                     } else {
-                        sequences.append(SKAction.repeatActionForever(SKAction.sequence(sequence)))
+                        sequences.append(SKAction.repeatAction(SKAction.sequence(sequence), count: times ?? Int.max))
                     }
                 }
             }

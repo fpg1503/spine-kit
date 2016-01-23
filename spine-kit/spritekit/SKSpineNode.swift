@@ -21,9 +21,9 @@ class SKSpineNode: SKNode {
         super.init(coder: aDecoder)
     }
     
-    func play(name: String) {
+    func play(name: String, times: Int? = nil) {
         if let animationController = self.animationController {
-            animationController.play(name)
+            animationController.play(name, times: times)
         }
     }
     
