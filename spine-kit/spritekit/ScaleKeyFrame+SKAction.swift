@@ -27,18 +27,20 @@ extension ScaleKeyFrame: SKActionKeyFrame  {
         
         if let x = self.x, let y = self.y {
             
+            var initialPoint: (x: Double, y: Double)? = nil
+            let finalPoint =  (x: x, y: y)
+            
             result = SKAction.customActionWithDuration(duration, actionBlock: { (node, elapsedTime) -> Void in
                 
-                let point = bezier.solve(Double(elapsedTime), curveSampleDataBlock: { () -> BezierCurveSampleData in
-                    
-                    let initialPoint = (x: Double(node.xScale), y: Double(node.yScale))
-                    let finalPoint =  (x: x, y: y)
-                    
-                    return BezierCurveSampleData(pointA: initialPoint, pointB: finalPoint, duration: duration)
-                })
+                if initialPoint == nil {
+                    initialPoint = (x: Double(node.xScale), y: Double(node.yScale))
+                }
                 
+                let point = bezier.solve(initialPoint ?? (x: 0, y: 0), pointB: finalPoint, duration: duration, elapsedTime: Double(elapsedTime))
+            
                 node.xScale = CGFloat(point.x)
                 node.yScale = CGFloat(point.y)
+
             })
         }
         return result

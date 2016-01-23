@@ -29,19 +29,18 @@ extension TranslateKeyFrame: SKActionKeyFrame  {
         
         if let x = self.x, let y = self.y, let bone = nodeToAnimate as? SKBoneNode {
             
+            let origin = bone.originCGPoint()
+            var initialPoint: (x: Double, y: Double)? = nil
+            let finalPoint =  (x: Double(origin.x) + x, y: Double(origin.y) + y)
+
             result = SKAction.customActionWithDuration(duration, actionBlock: { (node, elapsedTime) -> Void in
                 
-                let point = bezier.solve(Double(elapsedTime), curveSampleDataBlock: { () -> BezierCurveSampleData in
-                    
-                    let origin = bone.originCGPoint()
-                    let finalX = Double(origin.x) + x
-                    let finalY = Double(origin.y) + y
-                    
-                    let initialPoint = (x: Double(node.position.x), y: Double(node.position.y))
-                    let finalPoint =  (x: finalX, y: finalY)
-                    
-                    return BezierCurveSampleData(pointA: initialPoint, pointB: finalPoint, duration: duration)
-                })
+                if initialPoint == nil {
+                    initialPoint = (x: Double(node.position.x), y: Double(node.position.y))
+                }
+                
+                let point = bezier.solve(initialPoint ?? (x: 0, y: 0), pointB: finalPoint, duration: duration, elapsedTime: Double(elapsedTime))
+                
                 node.position = CGPoint(x: CGFloat(point.x), y: CGFloat(point.y))
             })
         }

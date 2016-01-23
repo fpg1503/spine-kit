@@ -26,11 +26,11 @@ class ViewController: UIViewController {
         let scene = SKScene(size: self.view.bounds.size)
         scene.scaleMode = SKSceneScaleMode.AspectFill
 
-        if let node = SpineBuilder().build("speedy") {
+        if let node = SpineBuilder().build("powerup") {
 
             node.position = self.view.center
             node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
-            node.play("run")
+            node.play("animation")
 
             scene.addChild(node)
         }

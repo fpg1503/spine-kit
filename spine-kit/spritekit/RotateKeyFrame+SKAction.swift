@@ -28,17 +28,19 @@ extension RotateKeyFrame: SKActionKeyFrame {
 
         if let angle = self.angle, bone = nodeToAnimate as? SKBoneNode {
             
+            let finalAngle = bone.rotation().degreesToRadians + angle.degreesToRadians
+            var initialAngle: CGFloat? = nil
+            var (origin, dest): (Double, Double) = (0, 0)
+            
             result = SKAction.customActionWithDuration(duration, actionBlock: { (node, elapsedTime) -> Void in
 
-                let point = bezier.solve(Double(elapsedTime), curveSampleDataBlock: { () -> BezierCurveSampleData in
+                if initialAngle == nil {
+                    initialAngle = node.zRotation
+                    (origin, dest) = MathUtils().shortestAngleBetweenInRadians(Double(initialAngle ?? 0), to: Double(finalAngle))
+                }
+                
+                let point = bezier.solve((x: 0, y: origin), pointB: (x: 0, dest), duration: duration, elapsedTime: Double(elapsedTime))
 
-                    let initialAngle = node.zRotation
-                    let finalAngle = bone.rotation().degreesToRadians + angle.degreesToRadians
-                    
-                    let (origin, dest) = MathUtils().shortestAngleBetween(Double(initialAngle), to: Double(finalAngle))
-                    
-                    return BezierCurveSampleData(pointA: (x: 0, y: origin), pointB: (x: duration, dest), duration: duration)
-                })
                 node.zRotation = CGFloat(point.y)
             })
         }
