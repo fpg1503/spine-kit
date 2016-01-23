@@ -26,17 +26,18 @@ class ViewController: UIViewController {
         let scene = SKScene(size: self.view.bounds.size)
         scene.scaleMode = SKSceneScaleMode.AspectFill
 
-        if let node = SpineBuilder().build("dragon") {
+        if let node = SpineBuilder().build("speedy") {
 
             node.position = self.view.center
-            node.runAction(SKAction.scaleTo(0.6, duration: 0.0))
-            node.play("flying")
+            node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
+            node.play("run")
 
             scene.addChild(node)
         }
 
         skView.presentScene(scene)
         skView.frameInterval = 2
+
         self.view.addSubview(skView)
     }
 

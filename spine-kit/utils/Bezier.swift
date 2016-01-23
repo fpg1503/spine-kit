@@ -17,7 +17,7 @@ struct BezierCurveSampleData {
 }
 
 class Bezier {
-    
+ 
     private var cx: Double
     private var bx: Double
     private var ax: Double
@@ -49,7 +49,6 @@ class Bezier {
             self.duration = data.duration
             self.hasCurveData = true
         }
-        
         return solve(elapsedTime)
     }
     
@@ -59,7 +58,8 @@ class Bezier {
         
         if let pointA = self.pointA, let pointB = self.pointB, let duration = self.duration {
         
-            let epsilon = (1000 / 60 / (duration * 1000)) / 4
+            //This way to calculate epsilon is empirically good enough! https://github.com/arian/cubic-bezier
+            let epsilon: Double = (1000 / 60 / duration) / 4
             let bezierPoint = self.solve(elapsedTime / duration, epsilon:epsilon)
             result = (x: pointA.x * (1 - bezierPoint) + (pointB.x * bezierPoint), y: pointA.y * (1 - bezierPoint) + (pointB.y * bezierPoint));
             

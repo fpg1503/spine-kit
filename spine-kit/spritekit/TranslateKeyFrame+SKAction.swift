@@ -22,7 +22,7 @@ extension TranslateKeyFrame: SKActionKeyFrame  {
         }
         return nil
     }
-   /*
+   
     func bezierAction(nodeToAnimate: SKNode, duration: Double, bezier: Bezier) -> SKAction? {
         
         var result: SKAction? = nil
@@ -42,13 +42,11 @@ extension TranslateKeyFrame: SKActionKeyFrame  {
                     
                     return BezierCurveSampleData(pointA: initialPoint, pointB: finalPoint, duration: duration)
                 })
-                
                 node.position = CGPoint(x: CGFloat(point.x), y: CGFloat(point.y))
             })
         }
         return result
-    }*/
-
+    }
     
     func animationData() -> (time: Double, curve: Curve) {
         return (self.time, self.curve)

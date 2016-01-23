@@ -37,10 +37,9 @@ extension RotateKeyFrame: SKActionKeyFrame {
                     
                     let (origin, dest) = MathUtils().shortestAngleBetween(Double(initialAngle), to: Double(finalAngle))
                     
-                    return BezierCurveSampleData(pointA: (x: origin, y: 0), pointB: (x: dest, 0), duration: duration)
+                    return BezierCurveSampleData(pointA: (x: 0, y: origin), pointB: (x: duration, dest), duration: duration)
                 })
-            
-                node.zRotation = point.x > M_PI * 2 ? CGFloat(point.x - M_PI * 2):  CGFloat(point.x)
+                node.zRotation = CGFloat(point.y)
             })
         }
         return result
