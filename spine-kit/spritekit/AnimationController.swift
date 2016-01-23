@@ -12,6 +12,7 @@ class AnimationController {
     let animationsDict: [String: Animation] = [:]
     var bonesDict: [String: SKBoneNode] = [:]
     var slotsDict: [String: SKSlotNode] = [:]
+    var playing = false
     
     init(animations: [Animation]?, bonesDict: [String: SKBoneNode]?, slotsDict: [String: SKSlotNode]?) {
 
@@ -28,6 +29,29 @@ class AnimationController {
         }
     }
     
+    func stop() {
+        self.bonesDict.forEach { (_, bone) in bone.removeAllActions() }
+        self.slotsDict.forEach { (_, slot) in slot.removeAllActions() }
+        self.bonesDict[SpineBuilder.rootNodeName]?.setupPose()
+        self.playing = false
+    }
+    
+    func play(animationName: String, times: Int?) {
+        
+        let animation: Animation? = self.animationsDict[animationName]
+
+        if  let animation = animation {
+        
+            if self.playing {
+                self.stop()
+            }
+            
+            self.addActionsToBones(animation, times: times)
+            self.addActionsToSlots(animation, times: times)
+            self.playing = true
+        }
+    }
+    
     func findAnimatedNode(name: String) -> SKNode? {
         var result: SKNode? = nil
         
@@ -36,18 +60,8 @@ class AnimationController {
         } else if let node = self.slotsDict[name] {
             result = node
         }
-    
+        
         return result
-    }
-    
-    func play(animationName: String, times: Int?) {
-        
-        let animation: Animation? = self.animationsDict[animationName]
-        
-        if  let animation = animation {
-            self.addActionsToBones(animation, times: times)
-            self.addActionsToSlots(animation, times: times)
-        }
     }
     
     private func addActionsToBones(animation: Animation, times: Int?) {

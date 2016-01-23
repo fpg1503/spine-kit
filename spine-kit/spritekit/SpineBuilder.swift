@@ -12,7 +12,9 @@ import SpriteKit
 
 class SpineBuilder {
     
-    let rootNodeName: String = "root"
+    private var maxZOrder: CGFloat = 0
+    
+    static let rootNodeName: String = "root"
     
     func build(name: String, skinName: String = "default") -> SKSpineNode? {
         
@@ -26,11 +28,14 @@ class SpineBuilder {
         if let spine = spine, let bones = spine.bones, let slots = spine.slots, let animations = spine.animations, let skin = currentSkin {
             
             let bonesDict = buildBonesDict(bones)
-            let slotsDict = buildSlotDict(slots, skin: skin, atlas: atlas, slotZIndexes: buildSlotZIndexDict(spine.slots))
+            let zOrderIndexes = buildSlotZIndexDict(spine.slots)
+            let slotsDict = buildSlotDict(slots, skin: skin, atlas: atlas, slotZIndexes: zOrderIndexes)
             let animationController = AnimationController(animations: animations, bonesDict: bonesDict, slotsDict: slotsDict)
             
             root = buildSpineRootNode(animationController, slots: slots, bonesDict:bonesDict, slotsDict: slotsDict)
             root?.setupPose()
+            
+            self.setupZOrderForRoot(root, zOrderIndexes: zOrderIndexes)
         }
         
         return root
@@ -40,7 +45,7 @@ class SpineBuilder {
         
         let spineNode: SKSpineNode? = SKSpineNode(animationController: animationController)
         
-        if let rootNode = bonesDict[self.rootNodeName] {
+        if let rootNode = bonesDict[SpineBuilder.rootNodeName] {
             
             spineNode?.addChild(rootNode)
             
@@ -66,8 +71,8 @@ class SpineBuilder {
         
         if let rootBoneNode = bones.first {
             
-            if rootBoneNode.name == self.rootNodeName {
-                boneDict[self.rootNodeName] = SKBoneNode(bone: rootBoneNode)
+            if rootBoneNode.name == SpineBuilder.rootNodeName {
+                boneDict[SpineBuilder.rootNodeName] = SKBoneNode(bone: rootBoneNode)
                 
                 for bone in bones {
 
@@ -116,6 +121,15 @@ class SpineBuilder {
             }
         }
         return result
+    }
+    
+    //Avoid z fighting and improve Draw Calls
+    private func setupZOrderForRoot(root: SKSpineNode?, zOrderIndexes: [String: Double]) {
+        root?.zPosition = self.maxZOrder
+        
+        if let maxZOrder = zOrderIndexes.values.maxElement() {
+            self.maxZOrder += CGFloat(maxZOrder) + 1
+        }
     }
     
     private func findSkinByName(skins: [Skin]?, name: String?) -> Skin? {

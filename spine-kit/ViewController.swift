@@ -14,6 +14,7 @@ import SpriteKit
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         let skView = SKView(frame: self.view.bounds)
@@ -26,33 +27,53 @@ class ViewController: UIViewController {
         let scene = SKScene(size: self.view.bounds.size)
         scene.scaleMode = SKSceneScaleMode.AspectFill
 
-        if let node = SpineBuilder().build("powerup") {
+        let spineBuilder = SpineBuilder()
+        
+        if let node = spineBuilder.build("powerup") {
             
             node.position = self.view.center
             node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
             node.play("animation")
             node.position = CGPoint(x: CGFloat(node.position.x), y:CGFloat(400))
-            node.zPosition = -400
             scene.addChild(node)
         }
         
-        if let node = SpineBuilder().build("speedy") {
+        if let node = spineBuilder.build("speedy") {
 
             node.position = self.view.center
             node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
             node.play("run")
             node.position = CGPoint(x: CGFloat(node.position.x), y:CGFloat(270))
             scene.addChild(node)
+            
+            var delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue()) {
+                node.stop()
+                
+                delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
+                dispatch_after(delayTime, dispatch_get_main_queue()) {
+                    node.play("run")
+                }
+            }
         }
 
-        if let node = SpineBuilder().build("dragon") {
+        if let node = spineBuilder.build("dragon") {
             
             node.position = self.view.center
             node.runAction(SKAction.scaleTo(0.3, duration: 0.0))
             node.play("flying")
             node.position = CGPoint(x: CGFloat(node.position.x), y:CGFloat(100))
-            node.zPosition = 100
             scene.addChild(node)
+            
+            var delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue()) {
+                node.pause()
+                
+                delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
+                dispatch_after(delayTime, dispatch_get_main_queue()) {
+                    node.resume()
+                }
+            }
         }
 
         skView.ignoresSiblingOrder = true

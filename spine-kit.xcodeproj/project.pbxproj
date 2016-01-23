@@ -42,8 +42,6 @@
 		AF4045AD1C35794600F7E3CE /* spinosaurus.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AF4045A11C35794600F7E3CE /* spinosaurus.atlas */; };
 		AF4045AE1C35794600F7E3CE /* spinosaurus.json in Resources */ = {isa = PBXBuildFile; fileRef = AF4045A21C35794600F7E3CE /* spinosaurus.json */; };
 		AF515CB61C4C4516006FED09 /* SKSlotNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF515CB51C4C4516006FED09 /* SKSlotNode.swift */; };
-		AF515CB71C4C54B9006FED09 /* SpineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594ACD1C34AEB000734C1C /* SpineBuilder.swift */; };
-		AF515CB81C4C54BA006FED09 /* SpineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594ACD1C34AEB000734C1C /* SpineBuilder.swift */; };
 		AF594A511C34ACAC00734C1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A501C34ACAC00734C1C /* AppDelegate.swift */; };
 		AF594A531C34ACAC00734C1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A521C34ACAC00734C1C /* ViewController.swift */; };
 		AF594A561C34ACAC00734C1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF594A541C34ACAC00734C1C /* Main.storyboard */; };
@@ -74,6 +72,7 @@
 		AF594AD91C34AF4500734C1C /* SpineParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AD71C34AF4500734C1C /* SpineParseTests.swift */; };
 		AF6A776B1C4590290032514F /* SKActionKeyFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A776A1C4590290032514F /* SKActionKeyFrame.swift */; };
 		AFA547E61C53EFFC0030B0C4 /* UIColorRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA547E51C53EFFC0030B0C4 /* UIColorRGB.swift */; };
+		AFA547E71C5425A80030B0C4 /* SpineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594ACD1C34AEB000734C1C /* SpineBuilder.swift */; };
 		AFFF4B651C44751900D7FD61 /* SKSpineNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B641C44751900D7FD61 /* SKSpineNode.swift */; };
 		AFFF4B6C1C45356400D7FD61 /* SKBoneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B6B1C45356400D7FD61 /* SKBoneNode.swift */; };
 		AFFF4B6F1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B6E1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift */; };
@@ -566,7 +565,6 @@
 				AF594ABB1C34AE5E00734C1C /* AttachmentKeyFrame.swift in Sources */,
 				AFFF4B6F1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift in Sources */,
 				AFFF4B7F1C45750900D7FD61 /* Bezier.swift in Sources */,
-				AF515CB71C4C54B9006FED09 /* SpineBuilder.swift in Sources */,
 				AFA547E61C53EFFC0030B0C4 /* UIColorRGB.swift in Sources */,
 				AFFF4B6C1C45356400D7FD61 /* SKBoneNode.swift in Sources */,
 				AF515CB61C4C4516006FED09 /* SKSlotNode.swift in Sources */,
@@ -585,6 +583,7 @@
 				AF6A776B1C4590290032514F /* SKActionKeyFrame.swift in Sources */,
 				AF594AA01C34AD8400734C1C /* Skeleton.swift in Sources */,
 				AF594A9D1C34AD8400734C1C /* Event.swift in Sources */,
+				AFA547E71C5425A80030B0C4 /* SpineBuilder.swift in Sources */,
 				AF594ABF1C34AE5E00734C1C /* ScaleKeyFrame.swift in Sources */,
 				AF594AA41C34AD8400734C1C /* SpineModel.swift in Sources */,
 				AF594ACB1C34AE9100734C1C /* UIColoFromHexString.swift in Sources */,
@@ -598,7 +597,6 @@
 				AF4045601C34B1F300F7E3CE /* DrawOrderKeyFrame.swift in Sources */,
 				AF4045721C34B1F300F7E3CE /* JSONDecodable.swift in Sources */,
 				AF4045611C34B1F300F7E3CE /* RotateKeyFrame.swift in Sources */,
-				AF515CB81C4C54BA006FED09 /* SpineBuilder.swift in Sources */,
 				AF40456C1C34B1F300F7E3CE /* Slot.swift in Sources */,
 				AF4045671C34B1F300F7E3CE /* Attachment.swift in Sources */,
 				AF4045661C34B1F300F7E3CE /* SlotTimeline.swift in Sources */,

@@ -27,6 +27,18 @@ class SKSpineNode: SKNode {
         }
     }
     
+    func pause() {
+        super.paused = true
+    }
+
+    func resume() {
+        super.paused = false
+    }
+
+    func stop() {
+        animationController?.stop()
+    }
+    
     func findAnimatedNode(name: String) -> SKNode? {
         return animationController?.findAnimatedNode(name)
     }
