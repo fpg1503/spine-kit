@@ -27,14 +27,35 @@ class ViewController: UIViewController {
         scene.scaleMode = SKSceneScaleMode.AspectFill
 
         if let node = SpineBuilder().build("powerup") {
-
+            
             node.position = self.view.center
             node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
             node.play("animation")
+            node.position = CGPoint(x: CGFloat(node.position.x), y:CGFloat(400))
+            node.zPosition = -400
+            scene.addChild(node)
+        }
+        
+        if let node = SpineBuilder().build("speedy") {
 
+            node.position = self.view.center
+            node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
+            node.play("run")
+            node.position = CGPoint(x: CGFloat(node.position.x), y:CGFloat(270))
             scene.addChild(node)
         }
 
+        if let node = SpineBuilder().build("dragon") {
+            
+            node.position = self.view.center
+            node.runAction(SKAction.scaleTo(0.3, duration: 0.0))
+            node.play("flying")
+            node.position = CGPoint(x: CGFloat(node.position.x), y:CGFloat(100))
+            node.zPosition = 100
+            scene.addChild(node)
+        }
+
+        skView.ignoresSiblingOrder = true
         skView.presentScene(scene)
         skView.frameInterval = 2
 
