@@ -10,12 +10,12 @@ import SpriteKit
 
 extension AttachmentKeyFrame: SKActionKeyFrame {
     
-    func linearAction(nodeToAnimate: SKNode, duration: Double) -> SKAction? {
+    func linearAction<Context>(context: Context, duration: Double) -> SKAction? {
     
         let attachmentName = self.name
         
         return SKAction.runBlock({ () -> Void in
-                if let slotNode = nodeToAnimate as? SKSlotNode, let attachmentName = attachmentName {
+                if let slotNode = context as? SKSlotNode, let attachmentName = attachmentName {
                     slotNode.showAttachment(attachmentName)
                 }
             })

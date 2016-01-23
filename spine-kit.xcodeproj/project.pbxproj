@@ -22,7 +22,7 @@
 		AF4045661C34B1F300F7E3CE /* SlotTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AB11C34AE4600734C1C /* SlotTimeline.swift */; };
 		AF4045671C34B1F300F7E3CE /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A831C34AD8400734C1C /* Attachment.swift */; };
 		AF4045681C34B1F300F7E3CE /* Bone.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A851C34AD8400734C1C /* Bone.swift */; };
-		AF4045691C34B1F300F7E3CE /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A8B1C34AD8400734C1C /* Event.swift */; };
+		AF4045691C34B1F300F7E3CE /* EventKeyFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A8B1C34AD8400734C1C /* EventKeyFrame.swift */; };
 		AF40456A1C34B1F300F7E3CE /* Skeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A8E1C34AD8400734C1C /* Skeleton.swift */; };
 		AF40456B1C34B1F300F7E3CE /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A8F1C34AD8400734C1C /* Skin.swift */; };
 		AF40456C1C34B1F300F7E3CE /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A901C34AD8400734C1C /* Slot.swift */; };
@@ -50,7 +50,7 @@
 		AF594A811C34AD5500734C1C /* SpineParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A801C34AD5500734C1C /* SpineParse.swift */; };
 		AF594A951C34AD8400734C1C /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A831C34AD8400734C1C /* Attachment.swift */; };
 		AF594A971C34AD8400734C1C /* Bone.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A851C34AD8400734C1C /* Bone.swift */; };
-		AF594A9D1C34AD8400734C1C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A8B1C34AD8400734C1C /* Event.swift */; };
+		AF594A9D1C34AD8400734C1C /* EventKeyFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A8B1C34AD8400734C1C /* EventKeyFrame.swift */; };
 		AF594AA01C34AD8400734C1C /* Skeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A8E1C34AD8400734C1C /* Skeleton.swift */; };
 		AF594AA11C34AD8400734C1C /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A8F1C34AD8400734C1C /* Skin.swift */; };
 		AF594AA21C34AD8400734C1C /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594A901C34AD8400734C1C /* Slot.swift */; };
@@ -73,6 +73,7 @@
 		AF6A776B1C4590290032514F /* SKActionKeyFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A776A1C4590290032514F /* SKActionKeyFrame.swift */; };
 		AFA547E61C53EFFC0030B0C4 /* UIColorRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA547E51C53EFFC0030B0C4 /* UIColorRGB.swift */; };
 		AFA547E71C5425A80030B0C4 /* SpineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594ACD1C34AEB000734C1C /* SpineBuilder.swift */; };
+		AFA547EA1C542E060030B0C4 /* EventKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA547E91C542E060030B0C4 /* EventKeyFrame+SKAction.swift */; };
 		AFFF4B651C44751900D7FD61 /* SKSpineNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B641C44751900D7FD61 /* SKSpineNode.swift */; };
 		AFFF4B6C1C45356400D7FD61 /* SKBoneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B6B1C45356400D7FD61 /* SKBoneNode.swift */; };
 		AFFF4B6F1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B6E1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift */; };
@@ -129,7 +130,7 @@
 		AF594A801C34AD5500734C1C /* SpineParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpineParse.swift; sourceTree = "<group>"; };
 		AF594A831C34AD8400734C1C /* Attachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
 		AF594A851C34AD8400734C1C /* Bone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bone.swift; sourceTree = "<group>"; };
-		AF594A8B1C34AD8400734C1C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = ../Event.swift; sourceTree = "<group>"; };
+		AF594A8B1C34AD8400734C1C /* EventKeyFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventKeyFrame.swift; path = ../../EventKeyFrame.swift; sourceTree = "<group>"; };
 		AF594A8E1C34AD8400734C1C /* Skeleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skeleton.swift; sourceTree = "<group>"; };
 		AF594A8F1C34AD8400734C1C /* Skin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
 		AF594A901C34AD8400734C1C /* Slot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
@@ -153,6 +154,7 @@
 		AF594AD71C34AF4500734C1C /* SpineParseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpineParseTests.swift; sourceTree = "<group>"; };
 		AF6A776A1C4590290032514F /* SKActionKeyFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKActionKeyFrame.swift; sourceTree = "<group>"; };
 		AFA547E51C53EFFC0030B0C4 /* UIColorRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorRGB.swift; sourceTree = "<group>"; };
+		AFA547E91C542E060030B0C4 /* EventKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
 		AFFF4B641C44751900D7FD61 /* SKSpineNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSpineNode.swift; sourceTree = "<group>"; };
 		AFFF4B6B1C45356400D7FD61 /* SKBoneNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKBoneNode.swift; sourceTree = "<group>"; };
 		AFFF4B6E1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttachmentKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
@@ -316,7 +318,6 @@
 			children = (
 				AF594AA71C34ADBF00734C1C /* keyframes */,
 				AF594AAF1C34AE4600734C1C /* Animation.swift */,
-				AF594A8B1C34AD8400734C1C /* Event.swift */,
 				AF594AB01C34AE4600734C1C /* BoneTimeline.swift */,
 				AF594AB11C34AE4600734C1C /* SlotTimeline.swift */,
 			);
@@ -329,6 +330,7 @@
 				AF594AA81C34ADC600734C1C /* values */,
 				AF594AB51C34AE5E00734C1C /* AttachmentKeyFrame.swift */,
 				AF594AB61C34AE5E00734C1C /* ColorTransitionKeyFrame.swift */,
+				AF594A8B1C34AD8400734C1C /* EventKeyFrame.swift */,
 				AF594AB71C34AE5E00734C1C /* DrawOrderKeyFrame.swift */,
 				AF594AB81C34AE5E00734C1C /* RotateKeyFrame.swift */,
 				AF594AB91C34AE5E00734C1C /* ScaleKeyFrame.swift */,
@@ -389,6 +391,7 @@
 			children = (
 				AF6A776A1C4590290032514F /* SKActionKeyFrame.swift */,
 				AFFF4B6E1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift */,
+				AFA547E91C542E060030B0C4 /* EventKeyFrame+SKAction.swift */,
 				AFFF4B701C4538F900D7FD61 /* ColorTransitionKeyFrame+ SKAction.swift */,
 				AFFF4B741C45392600D7FD61 /* RotateKeyFrame+SKAction.swift */,
 				AFFF4B761C45393700D7FD61 /* ScaleKeyFrame+SKAction.swift */,
@@ -582,8 +585,9 @@
 				AF594AC31C34AE6D00734C1C /* Curve.swift in Sources */,
 				AF6A776B1C4590290032514F /* SKActionKeyFrame.swift in Sources */,
 				AF594AA01C34AD8400734C1C /* Skeleton.swift in Sources */,
-				AF594A9D1C34AD8400734C1C /* Event.swift in Sources */,
+				AF594A9D1C34AD8400734C1C /* EventKeyFrame.swift in Sources */,
 				AFA547E71C5425A80030B0C4 /* SpineBuilder.swift in Sources */,
+				AFA547EA1C542E060030B0C4 /* EventKeyFrame+SKAction.swift in Sources */,
 				AF594ABF1C34AE5E00734C1C /* ScaleKeyFrame.swift in Sources */,
 				AF594AA41C34AD8400734C1C /* SpineModel.swift in Sources */,
 				AF594ACB1C34AE9100734C1C /* UIColoFromHexString.swift in Sources */,
@@ -603,7 +607,7 @@
 				AF4045621C34B1F300F7E3CE /* ScaleKeyFrame.swift in Sources */,
 				AF4045651C34B1F300F7E3CE /* BoneTimeline.swift in Sources */,
 				AF40456D1C34B1F300F7E3CE /* SpineModel.swift in Sources */,
-				AF4045691C34B1F300F7E3CE /* Event.swift in Sources */,
+				AF4045691C34B1F300F7E3CE /* EventKeyFrame.swift in Sources */,
 				AF4045711C34B1F300F7E3CE /* FileHelper.swift in Sources */,
 				AF40456E1C34B1F300F7E3CE /* SpineParse.swift in Sources */,
 				AF4045731C34B1F300F7E3CE /* UIColoFromHexString.swift in Sources */,

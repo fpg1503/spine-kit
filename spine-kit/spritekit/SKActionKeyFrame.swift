@@ -9,18 +9,18 @@ import SpriteKit
 
 protocol SKActionKeyFrame {
     
-    func toSKAction(nodeToAnimate: SKNode, timeOffset: Double, curve: Curve) -> SKAction?
+    func toSKAction<Context>(context: Context, timeOffset: Double, curve: Curve) -> SKAction?
     
     func animationData() -> (time: Double, curve: Curve)
     
-    func linearAction(nodeToAnimate: SKNode, duration: Double) -> SKAction?
+    func linearAction<Context>(context: Context, duration: Double) -> SKAction?
     
-    func bezierAction(nodeToAnimate: SKNode, duration: Double, bezier: Bezier) -> SKAction?
+    func bezierAction<Context>(context: Context, duration: Double, bezier: Bezier) -> SKAction?
 }
 
 extension SKActionKeyFrame {
     
-    func toSKAction(nodeToAnimate: SKNode, timeOffset: Double, curve: Curve) -> SKAction? {
+    func toSKAction<Context>(context: Context, timeOffset: Double, curve: Curve) -> SKAction? {
         let duration = animationData().time - timeOffset
 
         var result: SKAction? = nil
@@ -28,7 +28,7 @@ extension SKActionKeyFrame {
             
         case .Stepped:
             
-            if let linearAction = self.linearAction(nodeToAnimate, duration: duration) {
+            if let linearAction = self.linearAction(context, duration: duration) {
                 linearAction.duration = 0
                 result = SKAction.sequence([SKAction.waitForDuration(self.animationData().time - timeOffset), linearAction])
             }
@@ -38,23 +38,23 @@ extension SKActionKeyFrame {
 
             
             if let bezier = self.buildBezier() where duration != 0 {
-                result = bezierAction(nodeToAnimate, duration: duration, bezier: bezier)
+                result = bezierAction(context, duration: duration, bezier: bezier)
             } else {
-                result = linearAction(nodeToAnimate, duration: duration)
+                result = linearAction(context, duration: duration)
             }
             
             break
             
         default:
             
-            result = linearAction(nodeToAnimate, duration: duration)
+            result = linearAction(context, duration: duration)
             break
         }
         return result
     }
     
-    func bezierAction(nodeToAnimate: SKNode, duration: Double, bezier: Bezier) -> SKAction? {
-        return linearAction(nodeToAnimate, duration: duration)
+    func bezierAction<Context>(context: Context, duration: Double, bezier: Bezier) -> SKAction? {
+        return linearAction(context, duration: duration)
     }
     
     private func buildBezier() -> Bezier? {

@@ -10,13 +10,13 @@ import SpriteKit
 
 extension ColorTransitionKeyFrame: SKActionKeyFrame {
     
-    func linearAction(nodeToAnimate: SKNode, duration: Double) -> SKAction? {
+    func linearAction<Context>(context: Context, duration: Double) -> SKAction? {
         
         return SKAction.colorizeWithColor(self.color ?? UIColor.clearColor(), colorBlendFactor: 1, duration: duration)
         
     }
 
-    func bezierAction(nodeToAnimate: SKNode, duration: Double, bezier: Bezier) -> SKAction? {
+    func bezierAction<Context>(context: Context, duration: Double, bezier: Bezier) -> SKAction? {
         
         var result: SKAction? = nil
         
@@ -27,7 +27,7 @@ extension ColorTransitionKeyFrame: SKActionKeyFrame {
             
             result = SKAction.customActionWithDuration(duration, actionBlock: { (node, elapsedTime) -> Void in
             
-                if let spriteNode = node as? SKSpriteNode {
+                if let spriteNode = context as? SKSpriteNode {
                 
                     if deltaRGBA == nil {
                         

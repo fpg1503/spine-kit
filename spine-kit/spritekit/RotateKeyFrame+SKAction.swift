@@ -10,11 +10,11 @@ import SpriteKit
 
 extension RotateKeyFrame: SKActionKeyFrame {
     
-    func linearAction(nodeToAnimate: SKNode, duration: Double) -> SKAction? {
+    func linearAction<Context>(context: Context, duration: Double) -> SKAction? {
 
         var result: SKAction? = nil
 
-        if let angle = self.angle, bone = nodeToAnimate as? SKBoneNode {
+        if let angle = self.angle, bone = context as? SKBoneNode {
             
             let absoluteAngle: Double = bone.rotation() + angle
             result = SKAction.rotateToAngle(CGFloat(absoluteAngle.degreesToRadians), duration: duration, shortestUnitArc: true)
@@ -22,11 +22,11 @@ extension RotateKeyFrame: SKActionKeyFrame {
         return result
     }
 
-    func bezierAction(nodeToAnimate: SKNode, duration: Double, bezier: Bezier) -> SKAction? {
+    func bezierAction<Context>(context: Context, duration: Double, bezier: Bezier) -> SKAction? {
 
         var result: SKAction? = nil
 
-        if let angle = self.angle, bone = nodeToAnimate as? SKBoneNode {
+        if let angle = self.angle, bone = context as? SKBoneNode {
             
             let finalAngle = bone.rotation().degreesToRadians + angle.degreesToRadians
             var initialAngle: CGFloat? = nil

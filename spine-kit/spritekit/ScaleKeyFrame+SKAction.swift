@@ -10,7 +10,7 @@ import SpriteKit
 
 extension ScaleKeyFrame: SKActionKeyFrame  {
     
-    func linearAction(nodeToAnimate: SKNode, duration: Double) -> SKAction? {
+    func linearAction<Context>(context: Context, duration: Double) -> SKAction? {
 
         var result: SKAction? = nil
         
@@ -21,7 +21,7 @@ extension ScaleKeyFrame: SKActionKeyFrame  {
         return result
     }
     
-    func bezierAction(nodeToAnimate: SKNode, duration: Double, bezier: Bezier) -> SKAction? {
+    func bezierAction<Context>(context: Context, duration: Double, bezier: Bezier) -> SKAction? {
         
         var result: SKAction? = nil
         

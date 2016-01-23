@@ -36,12 +36,12 @@ class TimelineBuilder {
         return result
     }
     
-    func buildSKActionsTimeline<T: SKActionKeyFrame>(nodeToAnimate: SKNode, keyframes: [T]) -> [SKAction]? {
+    func buildSKActionsTimeline<T: SKActionKeyFrame, Data: AnyObject>(data: Data, keyframes: [T]) -> [SKAction]? {
         var lastFrameTime: Double = 0
         var actions: [SKAction] = []
         
         keyframes.forEach  { keyFrame in
-            if let action = keyFrame.toSKAction(nodeToAnimate, timeOffset: lastFrameTime, curve: keyFrame.animationData().curve) {
+            if let action = keyFrame.toSKAction(data, timeOffset: lastFrameTime, curve: keyFrame.animationData().curve) {
                 actions.append(action)
                 lastFrameTime = keyFrame.animationData().time
             }

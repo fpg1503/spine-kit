@@ -10,9 +10,9 @@ import SpriteKit
 
 extension TranslateKeyFrame: SKActionKeyFrame  {
     
-    func linearAction(nodeToAnimate: SKNode, duration: Double) -> SKAction? {
+    func linearAction<Context>(context: Context, duration: Double) -> SKAction? {
         
-        if let x = self.x, let y = self.y, let bone = nodeToAnimate as? SKBoneNode {
+        if let x = self.x, let y = self.y, let bone = context as? SKBoneNode {
             
             let origin = bone.originCGPoint()
             let absoluteX = origin.x + CGFloat(x)
@@ -23,11 +23,11 @@ extension TranslateKeyFrame: SKActionKeyFrame  {
         return nil
     }
    
-    func bezierAction(nodeToAnimate: SKNode, duration: Double, bezier: Bezier) -> SKAction? {
+    func bezierAction<Context>(context: Context, duration: Double, bezier: Bezier) -> SKAction? {
         
         var result: SKAction? = nil
         
-        if let x = self.x, let y = self.y, let bone = nodeToAnimate as? SKBoneNode {
+        if let x = self.x, let y = self.y, let bone = context as? SKBoneNode {
             
             let origin = bone.originCGPoint()
             var initialPoint: (x: Double, y: Double)? = nil
