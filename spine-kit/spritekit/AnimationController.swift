@@ -9,15 +9,23 @@ import SpriteKit
 
 class AnimationController {
     
-    let animationsDict: [String: Animation] = [:]
-    var bonesDict: [String: SKBoneNode] = [:]
-    var slotsDict: [String: SKSlotNode] = [:]
-    var playing = false
+    private let animationsDict: [String: Animation] = [:]
+    
+    private  var bonesDict: [String: SKBoneNode] = [:]
+    
+    private var slotsDict: [String: SKSlotNode] = [:]
+    
+    private var rootNode: SKBoneNode? = nil
+    
+    private var playing = false
+    
+    private(set) var eventHandler: EventHandler = EventHandler()
     
     init(animations: [Animation]?, bonesDict: [String: SKBoneNode]?, slotsDict: [String: SKSlotNode]?) {
 
         if let bonesDict = bonesDict {
             self.bonesDict = bonesDict
+            self.rootNode = self.bonesDict[SpineBuilder.rootNodeName]
         }
         
         if let slotsDict = slotsDict {
@@ -26,13 +34,17 @@ class AnimationController {
         
         if let animations = animations {
             animations.forEach{ animation in self.animationsDict[animation.name] = animation }
-        }
+       }
+    }
+    
+    func findAnimatedNode(name: String) -> SKNode? {
+        return (self.bonesDict[name] ?? self.slotsDict[name]) ?? nil
     }
     
     func stop() {
         self.bonesDict.forEach { (_, bone) in bone.removeAllActions() }
         self.slotsDict.forEach { (_, slot) in slot.removeAllActions() }
-        self.bonesDict[SpineBuilder.rootNodeName]?.setupPose()
+        self.rootNode?.setupPose()
         self.playing = false
     }
     
@@ -48,20 +60,19 @@ class AnimationController {
             
             self.addActionsToBones(animation, times: times)
             self.addActionsToSlots(animation, times: times)
+            self.addEventsToEventNode(animation, times: times)
             self.playing = true
         }
     }
     
-    func findAnimatedNode(name: String) -> SKNode? {
-        var result: SKNode? = nil
+    private func addEventsToEventNode(animation: Animation, times: Int?) {
         
-        if let node = self.bonesDict[name] {
-            result = node
-        } else if let node = self.slotsDict[name] {
-            result = node
+        let timelineBuilder = TimelineBuilder()
+        let eventActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(self.eventHandler, keyframes: animation.eventsTimeline)
+        
+        if let action = timelineBuilder.buildTimelineSKAction(eventActions, times: times) {
+            self.rootNode?.runAction(action)
         }
-        
-        return result
     }
     
     private func addActionsToBones(animation: Animation, times: Int?) {
@@ -97,4 +108,9 @@ class AnimationController {
                 }
             }
         }
-    }}
+    }
+    
+    deinit {
+        self.stop()
+    }
+}

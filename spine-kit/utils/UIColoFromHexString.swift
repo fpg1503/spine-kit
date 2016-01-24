@@ -11,6 +11,7 @@ import UIKit
 struct Text2ColorComponents {
     
     static func parse(hex: String) -> (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)? {
+        
         let clearHex = removeHashIfNeeded(hex)
         let textSize = clearHex.characters.count
         let hasAlpha = (textSize == 8)

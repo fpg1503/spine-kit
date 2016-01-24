@@ -59,8 +59,16 @@ extension SKActionKeyFrame {
         var result: SKAction? = nil
         
         if let linearAction = self.linearAction(context, duration: duration) {
-            linearAction.duration = 0
-            result = SKAction.sequence([SKAction.waitForDuration(duration), linearAction])
+            
+            if duration > 0 {
+            
+                linearAction.duration = 0
+                result = SKAction.sequence([SKAction.waitForDuration(duration), linearAction])
+                
+            } else {
+                
+                result = linearAction
+            }
         }
         
         return result

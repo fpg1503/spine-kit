@@ -9,6 +9,10 @@
 import SpriteKit
 
 class TimelineBuilder {
+
+    func buildTimelineSKAction(timelineSequences: [SKAction]?..., times: Int?) -> SKAction? {
+        return nil
+    }
     
     func buildTimelinesSKActionGroup(timelineSequences: [SKAction]?..., times: Int?) -> SKAction? {
         

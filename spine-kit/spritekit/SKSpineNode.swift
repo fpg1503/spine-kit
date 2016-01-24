@@ -38,13 +38,25 @@ class SKSpineNode: SKNode {
     func stop() {
         animationController?.stop()
     }
-    
+
+    func registerToEvent(eventName: String, functionId: String? = nil, function: SpineKitEventFunction) -> Bool {
+        return animationController?.eventHandler.registerToEvent(eventName, functionId: functionId, function: function) ?? false
+    }
+
+    func unregisterToEvent(eventName: String, functionId: String? = nil) -> Bool {
+        return animationController?.eventHandler.unregisterToEvent(eventName, functionId: functionId) ?? false
+    }
+
+    func removeEventFunctions(eventName: String) -> Bool {
+        return animationController?.eventHandler.removeEventFunctions(eventName) ?? false
+    }
+
     func findAnimatedNode(name: String) -> SKNode? {
         return animationController?.findAnimatedNode(name)
     }
     
     func setupPose() {
-        for child in self.children {
+        self.children.forEach { child in
             if let boneChild = child as? SKBoneNode {
                 boneChild.setupPose()
             }
