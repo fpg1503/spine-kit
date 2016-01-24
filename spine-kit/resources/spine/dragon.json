@@ -182,6 +182,10 @@
 },
 "animations": {
 	"flying": {
+        "events": [
+                   { "time": 0.9, "name": "sound" },
+                   { "time": 1, "name": "empty" }
+                   ],
 		"slots": {
 			"L_wing": {
 				"attachment": [

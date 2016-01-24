@@ -67,11 +67,13 @@ class AnimationController {
     
     private func addEventsToEventNode(animation: Animation, times: Int?) {
         
-        let timelineBuilder = TimelineBuilder()
-        let eventActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(self.eventHandler, keyframes: animation.eventsTimeline)
-        
-        if let action = timelineBuilder.buildTimelineSKAction(eventActions, times: times) {
-            self.rootNode?.runAction(action)
+        if !animation.eventsTimeline.isEmpty {
+            let timelineBuilder = TimelineBuilder()
+            let eventActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(self.eventHandler, keyframes: animation.eventsTimeline)
+            
+            if let action = timelineBuilder.buildTimelineSKActions(eventActions, times: times) {
+                self.rootNode?.runAction(action)
+            }
         }
     }
     

@@ -39,8 +39,8 @@ class SKSpineNode: SKNode {
         animationController?.stop()
     }
 
-    func registerToEvent(eventName: String, functionId: String? = nil, function: SpineKitEventFunction) -> Bool {
-        return animationController?.eventHandler.registerToEvent(eventName, functionId: functionId, function: function) ?? false
+    func registerToEvent(eventName: String, functionId: String? = nil, function: SpineKitEventFunction) {
+        animationController?.eventHandler.registerToEvent(eventName, functionId: functionId, function: function)
     }
 
     func unregisterToEvent(eventName: String, functionId: String? = nil) -> Bool {

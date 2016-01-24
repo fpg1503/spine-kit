@@ -8,7 +8,7 @@
 
 import UIKit
 import SpriteKit
-
+import AVFoundation
 
 
 class ViewController: UIViewController {
@@ -63,6 +63,14 @@ class ViewController: UIViewController {
             node.runAction(SKAction.scaleTo(0.3, duration: 0.0))
             node.play("flying")
             node.position = CGPoint(x: CGFloat(node.position.x), y:CGFloat(100))
+
+            let audioPlayer = self.getDragonSoundPlayer()
+            node.registerToEvent("sound", function: { (text, decimalNumber, integerNumber) -> Void in
+                audioPlayer?.stop()
+                audioPlayer?.currentTime = 0
+                audioPlayer?.play()
+            })
+            
             scene.addChild(node)
             
             var delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
@@ -85,6 +93,21 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    private func getDragonSoundPlayer() -> AVAudioPlayer? {
+        // Grab the path, make sure to add it to your project!
+        let sound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("dragon-bite", ofType: "mp3") ?? "")
+        var audioPlayer: AVAudioPlayer? = nil
+        
+        // Initial setup
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOfURL: sound, fileTypeHint: nil) as AVAudioPlayer
+            audioPlayer?.prepareToPlay()
+        } catch {
+            print("Fail to load sound file: \(error)")
+        }
+        return audioPlayer
     }
 
 

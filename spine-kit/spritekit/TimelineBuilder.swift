@@ -10,8 +10,19 @@ import SpriteKit
 
 class TimelineBuilder {
 
-    func buildTimelineSKAction(timelineSequences: [SKAction]?..., times: Int?) -> SKAction? {
-        return nil
+    func buildTimelineSKActions(sequence: [SKAction]?, times: Int?) -> SKAction? {
+        var result: SKAction? = nil
+        if let sequence = sequence {
+            
+            let isDurationTimeZero = (sequence.first?.duration ==  0 && sequence.count == 1)
+            
+            if isDurationTimeZero {
+                result = SKAction.sequence(sequence)
+            } else {
+                result = SKAction.repeatAction(SKAction.sequence(sequence), count: times ?? Int.max)
+            }
+        }
+        return result
     }
     
     func buildTimelinesSKActionGroup(timelineSequences: [SKAction]?..., times: Int?) -> SKAction? {
@@ -19,17 +30,12 @@ class TimelineBuilder {
         var result: SKAction? = nil
         var sequences: [SKAction] = []
         
-        for sequence in timelineSequences {
+        timelineSequences.forEach { sequence in
             
-            if let sequence = sequence {
-                if !sequence.isEmpty {
-                    
-                    let isDurationTimeZero = (sequence.first?.duration ==  0 && sequence.count == 1)
-                    if isDurationTimeZero {
-                        sequences.append(SKAction.sequence(sequence))
-                    } else {
-                        sequences.append(SKAction.repeatAction(SKAction.sequence(sequence), count: times ?? Int.max))
-                    }
+            if let sequence = sequence where !sequence.isEmpty {
+                
+                if let action =  self.buildTimelineSKActions(sequence, times: times) {
+                    sequences.append(action)
                 }
             }
         }

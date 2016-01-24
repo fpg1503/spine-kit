@@ -75,6 +75,7 @@
 		AFA547E71C5425A80030B0C4 /* SpineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594ACD1C34AEB000734C1C /* SpineBuilder.swift */; };
 		AFA547EA1C542E060030B0C4 /* EventKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA547E91C542E060030B0C4 /* EventKeyFrame+SKAction.swift */; };
 		AFA547EC1C54DE100030B0C4 /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA547EB1C54DE100030B0C4 /* EventHandler.swift */; };
+		AFA547F21C5542580030B0C4 /* dragon-bite.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AFA547F11C5542580030B0C4 /* dragon-bite.mp3 */; };
 		AFFF4B651C44751900D7FD61 /* SKSpineNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B641C44751900D7FD61 /* SKSpineNode.swift */; };
 		AFFF4B6C1C45356400D7FD61 /* SKBoneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B6B1C45356400D7FD61 /* SKBoneNode.swift */; };
 		AFFF4B6F1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B6E1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift */; };
@@ -157,6 +158,7 @@
 		AFA547E51C53EFFC0030B0C4 /* UIColorRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorRGB.swift; sourceTree = "<group>"; };
 		AFA547E91C542E060030B0C4 /* EventKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
 		AFA547EB1C54DE100030B0C4 /* EventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
+		AFA547F11C5542580030B0C4 /* dragon-bite.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "dragon-bite.mp3"; sourceTree = "<group>"; };
 		AFFF4B641C44751900D7FD61 /* SKSpineNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSpineNode.swift; sourceTree = "<group>"; };
 		AFFF4B6B1C45356400D7FD61 /* SKBoneNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKBoneNode.swift; sourceTree = "<group>"; };
 		AFFF4B6E1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttachmentKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
@@ -375,9 +377,18 @@
 		AF594ACF1C34AEB900734C1C /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				AFA547ED1C55372C0030B0C4 /* sounds */,
 				AF4045961C35791600F7E3CE /* spine */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		AFA547ED1C55372C0030B0C4 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				AFA547F11C5542580030B0C4 /* dragon-bite.mp3 */,
+			);
+			name = sounds;
 			sourceTree = "<group>";
 		};
 		AFFF4B681C45352500D7FD61 /* extensions */ = {
@@ -528,6 +539,7 @@
 				AF594A561C34ACAC00734C1C /* Main.storyboard in Resources */,
 				AF4045AC1C35794600F7E3CE /* speedy.json in Resources */,
 				AF4045AB1C35794600F7E3CE /* speedy.atlas in Resources */,
+				AFA547F21C5542580030B0C4 /* dragon-bite.mp3 in Resources */,
 				AF4045A31C35794600F7E3CE /* alien.atlas in Resources */,
 				AF4045A41C35794600F7E3CE /* alien.json in Resources */,
 			);

@@ -10,7 +10,15 @@ import SpriteKit
 extension EventKeyFrame: SKActionKeyFrame {
     
     func linearAction<Context>(context: Context, duration: Double) -> SKAction? {
-        return nil
+
+        var result: SKAction? = nil
+        
+        if let eventHandler = context as? EventHandler {
+            result = SKAction.runBlock({ () -> Void in
+                eventHandler.fire(self.name, text: self.string, decimalNumber: self.double, integerNumber: self.int)
+            })
+        }
+        return result
     }
     func animationData() -> (time: Double, curve: Curve) {
         return (self.time,  Curve.Stepped)
