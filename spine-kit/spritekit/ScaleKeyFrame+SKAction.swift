@@ -14,8 +14,9 @@ extension ScaleKeyFrame: SKActionKeyFrame  {
 
         var result: SKAction? = nil
         
-        if let x = self.x, let y = self.y {
-            result = SKAction.group([SKAction.scaleXTo(CGFloat(x), duration: duration), SKAction.scaleYTo(CGFloat(y), duration: duration)])
+        if let x = self.x, let y = self.y, let bone = context as? SKBoneNode  {
+            let origin = bone.originCGScale()
+            result = SKAction.group([SKAction.scaleXTo(CGFloat(x) * origin.xScale, duration: duration), SKAction.scaleYTo(CGFloat(y) * origin.yScale, duration: duration)])
         }
         
         return result
@@ -25,10 +26,11 @@ extension ScaleKeyFrame: SKActionKeyFrame  {
         
         var result: SKAction? = nil
         
-        if let x = self.x, let y = self.y {
+        if let x = self.x, let y = self.y, let bone = context as? SKBoneNode {
             
+            let origin = bone.originCGScale()
             var initialPoint: (x: Double, y: Double)? = nil
-            let finalPoint =  (x: x, y: y)
+            let finalPoint =  (x: x * Double(origin.xScale), y: y * Double(origin.yScale))
             
             result = SKAction.customActionWithDuration(duration, actionBlock: { (node, elapsedTime) -> Void in
                 
@@ -37,7 +39,7 @@ extension ScaleKeyFrame: SKActionKeyFrame  {
                 }
                 
                 let point = bezier.solve(initialPoint ?? (x: 0, y: 0), pointB: finalPoint, duration: duration, elapsedTime: Double(elapsedTime))
-            
+                
                 node.xScale = CGFloat(point.x)
                 node.yScale = CGFloat(point.y)
 

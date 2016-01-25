@@ -38,6 +38,14 @@ class SKBoneNode: SKNode {
         return point
     }
 
+    func originCGScale() -> (xScale: CGFloat, yScale: CGFloat) {
+        var point = (xScale: CGFloat(0), yScale: CGFloat(0))
+        if let bone = self.bone {
+            point = (xScale: CGFloat(bone.scaleX), yScale: CGFloat(bone.scaleY))
+        }
+        return point
+    }
+    
     func rotation() -> Double {
         var rotation: Double = 0
         if let bone = self.bone {
@@ -63,13 +71,16 @@ class SKBoneNode: SKNode {
             }
             
             if bone.inheritScale {
-                
+
                 if let parentXScale = parent?.xScale, let parentYScale = parent?.yScale {
-                    self.xScale = parentXScale + CGFloat(bone.scaleX)
-                    self.yScale = parentYScale + CGFloat(bone.scaleY)
+                    self.xScale = parentXScale * CGFloat(bone.scaleX)
+                    self.yScale = parentYScale * CGFloat(bone.scaleY)
                 }
                 
             } else {
+                if bone.scaleX == 20 {
+                    print("1")
+                }
                 self.xScale = CGFloat(bone.scaleX)
                 self.yScale = CGFloat(bone.scaleY)
             }
