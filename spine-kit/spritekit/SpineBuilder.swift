@@ -16,16 +16,17 @@ class SpineBuilder {
     
     static let rootNodeName: String = "root"
     
-    func build(name: String, skinName: String = "default") -> SKSpineNode? {
+    func build(name: String, skinName: String = "default", atlas: SKTextureAtlas? = nil) -> SKSpineNode? {
         
         var root: SKSpineNode? = nil
-
+        
+        let atlas: SKTextureAtlas? = atlas ?? AtlasBuilder().build(name)
+        
         let json = FileHelper.loadTextFile(name, type: "json")
         let spine = SpineParse().parse(name, data: json)
-        let atlas = SKTextureAtlas(named: name)
         let currentSkin = findSkinByName(spine?.skins, name: spine?.defaultSkin)
         
-        if let spine = spine, let bones = spine.bones, let slots = spine.slots, let animations = spine.animations, let skin = currentSkin {
+        if let spine = spine, let bones = spine.bones, let slots = spine.slots, let animations = spine.animations, let skin = currentSkin, let atlas = atlas {
             
             let bonesDict = buildBonesDict(bones)
             let zOrderIndexes = buildSlotZIndexDict(spine.slots)

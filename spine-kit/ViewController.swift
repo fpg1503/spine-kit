@@ -29,20 +29,20 @@ class ViewController: UIViewController {
 
         let spineBuilder = SpineBuilder()
         
-        if let node = spineBuilder.build("powerup") {
+     /*   if let node = spineBuilder.build("powerup") {
             
             node.position = self.view.center
             node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
             node.play("animation")
             node.position = CGPoint(x: CGFloat(node.position.x), y:CGFloat(400))
             scene.addChild(node)
-        }
+        }*/
         
-        if let node = spineBuilder.build("speedy") {
+        if let node = spineBuilder.build("movile") {
 
             node.position = self.view.center
             node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
-            node.play("run")
+            node.play("idle")
             node.position = CGPoint(x: CGFloat(node.position.x), y:CGFloat(270))
             scene.addChild(node)
             
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
                 
                 delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
                 dispatch_after(delayTime, dispatch_get_main_queue()) {
-                    node.play("run")
+                    node.play("idle")
                 }
             }
         }

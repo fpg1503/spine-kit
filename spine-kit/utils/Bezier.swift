@@ -35,7 +35,7 @@ class Bezier {
     func solve(pointA: (x: Double, y: Double), pointB: (x: Double, y: Double), duration: Double, elapsedTime: Double) -> (x: Double, y: Double) {
         
         //This way to calculate epsilon is empirically good enough! https://github.com/arian/cubic-bezier
-        let epsilon: Double = (1000 / 60 / duration) / 4
+        let epsilon: Double = (1000 / 60 / duration) / 4 
         let bezierPoint = self.solve(elapsedTime / duration, epsilon:epsilon)
         return (x: pointA.x * (1 - bezierPoint) + (pointB.x * bezierPoint), y: pointA.y * (1 - bezierPoint) + (pointB.y * bezierPoint));
     }
