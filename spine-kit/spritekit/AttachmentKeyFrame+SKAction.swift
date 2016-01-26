@@ -10,7 +10,7 @@ import SpriteKit
 
 extension AttachmentKeyFrame: SKActionKeyFrame {
     
-    func linearAction<Context>(context: Context, duration: Double) -> SKAction? {
+    func basicAction<Context>(context: Context, duration: Double) -> SKAction? {
     
         let attachmentName = self.name
         
@@ -21,7 +21,7 @@ extension AttachmentKeyFrame: SKActionKeyFrame {
             })
     }
     
-    func animationData() -> (time: Double, curve: Curve) {
-        return (self.time,  Curve.Stepped)
+    func animationTime() -> Double {
+        return self.time
     }
 }

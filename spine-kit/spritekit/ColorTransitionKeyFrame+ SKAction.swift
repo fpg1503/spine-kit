@@ -10,7 +10,7 @@ import SpriteKit
 
 extension ColorTransitionKeyFrame: SKActionKeyFrame {
     
-    func linearAction<Context>(context: Context, duration: Double) -> SKAction? {
+    func basicAction<Context>(context: Context, duration: Double) -> SKAction? {
         
         return SKAction.colorizeWithColor(self.color ?? UIColor.clearColor(), colorBlendFactor: 1, duration: duration)
         
@@ -60,8 +60,12 @@ extension ColorTransitionKeyFrame: SKActionKeyFrame {
         return result
     }
     
-    func animationData() -> (time: Double, curve: Curve) {
-        return (self.time, self.curve)
+    func curveToApply() -> Curve {
+        return self.curve
+    }
+    
+    func animationTime() -> Double {
+        return self.time
     }
     
     private func calcNewBezierColor(currentColorComponent: CGFloat, deltaColorComponent: CGFloat, bezierResult: CGFloat) -> CGFloat {

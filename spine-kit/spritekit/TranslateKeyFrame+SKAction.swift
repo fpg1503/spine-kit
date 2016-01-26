@@ -10,7 +10,7 @@ import SpriteKit
 
 extension TranslateKeyFrame: SKActionKeyFrame  {
     
-    func linearAction<Context>(context: Context, duration: Double) -> SKAction? {
+    func basicAction<Context>(context: Context, duration: Double) -> SKAction? {
         
         if let x = self.x, let y = self.y, let bone = context as? SKBoneNode {
             
@@ -47,7 +47,11 @@ extension TranslateKeyFrame: SKActionKeyFrame  {
         return result
     }
     
-    func animationData() -> (time: Double, curve: Curve) {
-        return (self.time, self.curve)
+    func animationTime() -> Double {
+        return self.time
+    }
+    
+    func curveToApply() -> Curve {
+        return self.curve
     }
 }

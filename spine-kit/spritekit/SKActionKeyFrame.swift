@@ -9,11 +9,13 @@ import SpriteKit
 
 protocol SKActionKeyFrame {
     
-    func toSKAction<Context>(context: Context, timeOffset: Double, curve: Curve) -> SKAction?
+    func toSKAction<Context>(context: Context, duration: Double, curve: Curve) -> SKAction?
     
-    func animationData() -> (time: Double, curve: Curve)
+    func curveToApply() -> Curve
     
-    func linearAction<Context>(context: Context, duration: Double) -> SKAction?
+    func animationTime() -> Double
+    
+    func basicAction<Context>(context: Context, duration: Double) -> SKAction?
  
     func steppedAction<Context>(context: Context, duration: Double) -> SKAction?
     
@@ -22,8 +24,7 @@ protocol SKActionKeyFrame {
 
 extension SKActionKeyFrame {
     
-    func toSKAction<Context>(context: Context, timeOffset: Double, curve: Curve) -> SKAction? {
-        let duration = animationData().time - timeOffset
+    func toSKAction<Context>(context: Context, duration: Double, curve: Curve) -> SKAction? {
 
         var result: SKAction? = nil
         switch curve {
@@ -34,31 +35,31 @@ extension SKActionKeyFrame {
             
         case .Bezier:
             
-            if let bezier = self.buildBezier() where duration != 0 {
+            if let bezier = self.buildBezier(curve) where duration != 0 {
                 result = bezierAction(context, duration: duration, bezier: bezier)
             } else {
-                result = linearAction(context, duration: duration)
+                result = basicAction(context, duration: duration)
             }
             
             break
             
         default:
             
-            result = linearAction(context, duration: duration)
+            result = basicAction(context, duration: duration)
             break
         }
         return result
     }
     
     func bezierAction<Context>(context: Context, duration: Double, bezier: Bezier) -> SKAction? {
-        return linearAction(context, duration: duration)
+        return basicAction(context, duration: duration)
     }
 
     func steppedAction<Context>(context: Context, duration: Double) -> SKAction? {
 
         var result: SKAction? = nil
         
-        if let linearAction = self.linearAction(context, duration: duration) {
+        if let linearAction = self.basicAction(context, duration: duration) {
             
             if duration > 0 {
             
@@ -74,11 +75,15 @@ extension SKActionKeyFrame {
         return result
     }
     
-    private func buildBezier() -> Bezier? {
+    func curveToApply() -> Curve {
+        return Curve.Stepped
+    }
+
+    private func buildBezier(curve: Curve) -> Bezier? {
     
         var result: Bezier? = nil
         
-        switch animationData().curve  {
+        switch curve {
         
         case let .Bezier(points):
         

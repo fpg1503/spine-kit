@@ -9,7 +9,7 @@ import SpriteKit
 
 extension EventKeyFrame: SKActionKeyFrame {
     
-    func linearAction<Context>(context: Context, duration: Double) -> SKAction? {
+    func basicAction<Context>(context: Context, duration: Double) -> SKAction? {
 
         var result: SKAction? = nil
         
@@ -20,7 +20,8 @@ extension EventKeyFrame: SKActionKeyFrame {
         }
         return result
     }
-    func animationData() -> (time: Double, curve: Curve) {
-        return (self.time,  Curve.Stepped)
+    
+    func animationTime() -> Double {
+        return self.time
     }
 }

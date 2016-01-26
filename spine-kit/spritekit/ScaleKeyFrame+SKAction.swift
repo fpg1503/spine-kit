@@ -10,7 +10,7 @@ import SpriteKit
 
 extension ScaleKeyFrame: SKActionKeyFrame  {
     
-    func linearAction<Context>(context: Context, duration: Double) -> SKAction? {
+    func basicAction<Context>(context: Context, duration: Double) -> SKAction? {
 
         var result: SKAction? = nil
         
@@ -47,8 +47,12 @@ extension ScaleKeyFrame: SKActionKeyFrame  {
         }
         return result
     }
+    
+    func animationTime() -> Double {
+        return self.time
+    }
 
-    func animationData() -> (time: Double, curve: Curve) {
-        return (self.time, self.curve)
+    func curveToApply() -> Curve {
+        return self.curve
     }
 }

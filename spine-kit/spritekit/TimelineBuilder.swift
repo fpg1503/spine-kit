@@ -47,15 +47,31 @@ class TimelineBuilder {
     }
     
     func buildSKActionsTimeline<T: SKActionKeyFrame, Data: AnyObject>(data: Data, keyframes: [T]) -> [SKAction]? {
-        var lastFrameTime: Double = 0
-        var actions: [SKAction] = []
         
-        keyframes.forEach  { keyFrame in
-            if let action = keyFrame.toSKAction(data, timeOffset: lastFrameTime, curve: keyFrame.animationData().curve) {
+        var actions: [SKAction] = []
+        var previousElement: SKActionKeyFrame?
+        var duration: Double = 0
+        
+        previousElement = keyframes.first
+        
+        if var previousElement = previousElement {
+
+            if let action = previousElement.toSKAction(data, duration: 0, curve: previousElement.curveToApply()) {
                 actions.append(action)
-                lastFrameTime = keyFrame.animationData().time
             }
+
+            keyframes.dropFirst().forEach  { keyframe in
+                
+                duration = keyframe.animationTime() - previousElement.animationTime()
+                
+                if let action = keyframe.toSKAction(data, duration: duration, curve: previousElement.curveToApply()) {
+                    actions.append(action)
+                    previousElement = keyframe
+                }
+            }
+            
         }
         return actions.isEmpty ? nil : actions
     }
+    
 }
