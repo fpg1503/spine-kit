@@ -12,7 +12,7 @@ class SKBoneNode: SKNode {
     
     private var bone: Bone?
     
-    private var slotNode: SKSlotNode?
+    private var slotNodes: [SKSlotNode] = []
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -26,7 +26,7 @@ class SKBoneNode: SKNode {
     }
     
     func addSlot(slotNode: SKSlotNode) {
-        self.slotNode = slotNode
+        self.slotNodes.append(slotNode)
         self.addChild(slotNode)
     }
     
@@ -82,7 +82,7 @@ class SKBoneNode: SKNode {
                 self.yScale = CGFloat(bone.scaleY)
             }
             
-            self.slotNode?.setupPose()
+            self.slotNodes.forEach { slot in slot.setupPose() }
             
             for child in self.children {
                 if let boneChild = child as? SKBoneNode {
