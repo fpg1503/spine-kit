@@ -48,13 +48,13 @@ class AnimationController {
         self.playing = false
     }
     
-    func play(animationName: String, times: Int?) {
+    func play(animationName: String, times: Int?, merge: Bool? = false) {
         
         let animation: Animation? = self.animationsDict[animationName]
 
-        if  let animation = animation {
+        if  let animation = animation, let merge = merge {
         
-            if self.playing {
+            if self.playing && !merge {
                 self.stop()
             }
             

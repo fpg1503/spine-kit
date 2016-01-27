@@ -29,60 +29,15 @@ class ViewController: UIViewController {
 
         let spineBuilder = SpineBuilder()
         
-     /*   if let node = spineBuilder.build("bezier") {
-            
-            node.position = self.view.center
-            node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
-            node.play("animation")
-            scene.addChild(node)
-        }
-        */
-        if let node = spineBuilder.build("movile") {
+        if let node = spineBuilder.build("draw_order") {
 
             node.position = self.view.center
             node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
-            node.play("idle")
+            node.play("switching")
             node.position = CGPoint(x: CGFloat(node.position.x), y:CGFloat(270))
             scene.addChild(node)
-            
-            var delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
-            dispatch_after(delayTime, dispatch_get_main_queue()) {
-                node.stop()
-                
-                delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
-                dispatch_after(delayTime, dispatch_get_main_queue()) {
-                    node.play("idle")
-                }
-            }
         }
-/*
-        if let node = spineBuilder.build("dragon") {
-            
-            node.position = self.view.center
-            node.runAction(SKAction.scaleTo(0.3, duration: 0.0))
-            node.play("flying")
-            node.position = CGPoint(x: CGFloat(node.position.x), y:CGFloat(100))
-
-            let audioPlayer = self.getDragonSoundPlayer()
-            node.registerToEvent("sound", function: { (text, decimalNumber, integerNumber) -> Void in
-                audioPlayer?.stop()
-                audioPlayer?.currentTime = 0
-                audioPlayer?.play()
-            })
-            
-            scene.addChild(node)
-            
-            var delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
-            dispatch_after(delayTime, dispatch_get_main_queue()) {
-                node.pause()
-                
-                delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
-                dispatch_after(delayTime, dispatch_get_main_queue()) {
-                    node.resume()
-                }
-            }
-        }
-*/
+        
         skView.ignoresSiblingOrder = true
         skView.presentScene(scene)
         skView.frameInterval = 2

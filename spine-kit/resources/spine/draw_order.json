@@ -1,0 +1,156 @@
+{
+"skeleton": { "hash": "H+Jb4zCQFe6eW8G5cC/14LlTVN0", "spine": "3.0.08", "width": 523.88, "height": 92.35 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "number_02", "parent": "root", "x": -169.67, "y": 2.67 },
+	{ "name": "number_01", "parent": "root", "x": -220.43, "y": 4, "scaleX": 1.344, "scaleY": 1.344 },
+	{ "name": "group_02", "parent": "root" },
+	{ "name": "group_01", "parent": "root" }
+],
+"slots": [
+	{ "name": "number_01", "bone": "number_01", "attachment": "number_key_01" },
+	{ "name": "number_02", "bone": "number_02", "attachment": "number_key_02" },
+	{ "name": "number_key_03", "bone": "group_01", "attachment": "number_key_03" },
+	{ "name": "number_key_04", "bone": "group_02", "attachment": "number_key_04" },
+	{ "name": "number_key_05", "bone": "group_01", "attachment": "number_key_05" },
+	{ "name": "number_key_06", "bone": "group_02", "attachment": "number_key_06" },
+	{ "name": "number_key_07", "bone": "group_01", "attachment": "number_key_07" },
+	{ "name": "number_key_08", "bone": "group_02", "attachment": "number_key_08" },
+	{ "name": "number_key_09", "bone": "group_01", "attachment": "number_key_09" },
+	{ "name": "number_key_10", "bone": "group_02", "attachment": "number_key_10" }
+],
+"skins": {
+	"default": {
+		"number_01": {
+			"number_key_01": { "width": 61, "height": 61 }
+		},
+		"number_02": {
+			"number_key_02": { "width": 80, "height": 80 }
+		},
+		"number_key_03": {
+			"number_key_03": { "x": -124.24, "y": 2.67, "width": 69, "height": 69 }
+		},
+		"number_key_04": {
+			"number_key_04": { "x": -78.82, "y": 1.33, "width": 69, "height": 69 }
+		},
+		"number_key_05": {
+			"number_key_05": { "x": -25.38, "y": 2.67, "width": 84, "height": 84 }
+		},
+		"number_key_06": {
+			"number_key_06": { "x": 20.03, "y": 1.33, "width": 74, "height": 74 }
+		},
+		"number_key_07": {
+			"number_key_07": { "x": 69.47, "y": 1.33, "width": 70, "height": 70 }
+		},
+		"number_key_08": {
+			"number_key_08": { "x": 110.88, "y": 2.67, "width": 67, "height": 67 }
+		},
+		"number_key_09": {
+			"number_key_09": { "x": 158.98, "y": -1.33, "width": 70, "height": 70 }
+		},
+		"number_key_10": {
+			"number_key_10": { "x": 216.43, "y": -1.33, "width": 92, "height": 92 }
+		}
+	}
+},
+"animations": {
+	"idle": {
+		"bones": {
+			"group_01": {
+				"translate": [
+					{ "time": 1, "x": 0, "y": 0 }
+				]
+			}
+		}
+	},
+	"switching": {
+		"bones": {
+			"number_01": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 134.41,
+						"y": 197.46,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{
+						"time": 1,
+						"x": 309.27,
+						"y": 196.27,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{ "time": 2, "x": 134.41, "y": 197.46 }
+				],
+				"scale": [
+					{
+						"time": 0,
+						"x": 1.003,
+						"y": 1.003,
+						"curve": [ 0.375, 0.5, 0.75, 1 ]
+					},
+					{
+						"time": 0.5,
+						"x": 0.52,
+						"y": 0.52,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{
+						"time": 1.5,
+						"x": 1.487,
+						"y": 1.487,
+						"curve": [ 0.25, 0, 0.625, 0.5 ]
+					},
+					{ "time": 2, "x": 1.003, "y": 1.003 }
+				]
+			},
+			"number_02": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 233.14,
+						"y": 198.65,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{
+						"time": 1,
+						"x": 83.26,
+						"y": 199.83,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{ "time": 2, "x": 233.14, "y": 198.65 }
+				],
+				"scale": [
+					{
+						"time": 0,
+						"x": 1.125,
+						"y": 1.125,
+						"curve": [ 0.375, 0.5, 0.75, 1 ]
+					},
+					{
+						"time": 0.5,
+						"x": 1.5,
+						"y": 1.5,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{
+						"time": 1.5,
+						"x": 0.75,
+						"y": 0.75,
+						"curve": [ 0.25, 0, 0.625, 0.5 ]
+					},
+					{ "time": 2, "x": 1.125, "y": 1.125 }
+				]
+			}
+		},
+		"drawOrder": [
+			{
+				"time": 1,
+				"offsets": [
+					{ "slot": "number_01", "offset": 1 }
+				]
+			},
+			{ "time": 2 }
+		]
+	}
+}
+}

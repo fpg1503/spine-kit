@@ -80,6 +80,10 @@
 		AFAF3FE11C5801210072F393 /* bezier.json in Resources */ = {isa = PBXBuildFile; fileRef = AFAF3FDF1C5801210072F393 /* bezier.json */; };
 		AFAF3FE41C5823B80072F393 /* movile.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AFAF3FE21C5823B80072F393 /* movile.atlas */; };
 		AFAF3FE51C5823B80072F393 /* movile.json in Resources */ = {isa = PBXBuildFile; fileRef = AFAF3FE31C5823B80072F393 /* movile.json */; };
+		AFAF3FE81C5844540072F393 /* merging.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AFAF3FE61C5844540072F393 /* merging.atlas */; };
+		AFAF3FE91C5844540072F393 /* merging.json in Resources */ = {isa = PBXBuildFile; fileRef = AFAF3FE71C5844540072F393 /* merging.json */; };
+		AFAF3FEC1C5846740072F393 /* draw_order.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AFAF3FEA1C5846740072F393 /* draw_order.atlas */; };
+		AFAF3FED1C5846740072F393 /* draw_order.json in Resources */ = {isa = PBXBuildFile; fileRef = AFAF3FEB1C5846740072F393 /* draw_order.json */; };
 		AFFF4B651C44751900D7FD61 /* SKSpineNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B641C44751900D7FD61 /* SKSpineNode.swift */; };
 		AFFF4B6C1C45356400D7FD61 /* SKBoneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B6B1C45356400D7FD61 /* SKBoneNode.swift */; };
 		AFFF4B6F1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF4B6E1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift */; };
@@ -167,6 +171,10 @@
 		AFAF3FDF1C5801210072F393 /* bezier.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bezier.json; sourceTree = "<group>"; };
 		AFAF3FE21C5823B80072F393 /* movile.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = movile.atlas; sourceTree = "<group>"; };
 		AFAF3FE31C5823B80072F393 /* movile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movile.json; sourceTree = "<group>"; };
+		AFAF3FE61C5844540072F393 /* merging.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = merging.atlas; sourceTree = "<group>"; };
+		AFAF3FE71C5844540072F393 /* merging.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = merging.json; sourceTree = "<group>"; };
+		AFAF3FEA1C5846740072F393 /* draw_order.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = draw_order.atlas; sourceTree = "<group>"; };
+		AFAF3FEB1C5846740072F393 /* draw_order.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = draw_order.json; sourceTree = "<group>"; };
 		AFFF4B641C44751900D7FD61 /* SKSpineNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSpineNode.swift; sourceTree = "<group>"; };
 		AFFF4B6B1C45356400D7FD61 /* SKBoneNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKBoneNode.swift; sourceTree = "<group>"; };
 		AFFF4B6E1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttachmentKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
@@ -233,8 +241,12 @@
 		AF4045961C35791600F7E3CE /* spine */ = {
 			isa = PBXGroup;
 			children = (
+				AFAF3FEA1C5846740072F393 /* draw_order.atlas */,
+				AFAF3FEB1C5846740072F393 /* draw_order.json */,
 				AFAF3FE21C5823B80072F393 /* movile.atlas */,
 				AFAF3FE31C5823B80072F393 /* movile.json */,
+				AFAF3FE61C5844540072F393 /* merging.atlas */,
+				AFAF3FE71C5844540072F393 /* merging.json */,
 				AFAF3FDE1C5801210072F393 /* bezier.atlas */,
 				AFAF3FDF1C5801210072F393 /* bezier.json */,
 				AF4045971C35794600F7E3CE /* alien.atlas */,
@@ -545,19 +557,23 @@
 				AF4045AE1C35794600F7E3CE /* spinosaurus.json in Resources */,
 				AFAF3FE51C5823B80072F393 /* movile.json in Resources */,
 				AFAF3FE01C5801210072F393 /* bezier.atlas in Resources */,
+				AFAF3FE91C5844540072F393 /* merging.json in Resources */,
 				AF594A581C34ACAC00734C1C /* Assets.xcassets in Resources */,
 				AFAF3FE41C5823B80072F393 /* movile.atlas in Resources */,
 				AF4045A71C35794600F7E3CE /* powerup.atlas in Resources */,
 				AF4045A61C35794600F7E3CE /* dragon.json in Resources */,
+				AFAF3FED1C5846740072F393 /* draw_order.json in Resources */,
 				AF4045A51C35794600F7E3CE /* dragon.atlas in Resources */,
 				AF4045A81C35794600F7E3CE /* powerup.json in Resources */,
 				AF594A561C34ACAC00734C1C /* Main.storyboard in Resources */,
+				AFAF3FEC1C5846740072F393 /* draw_order.atlas in Resources */,
 				AF4045AC1C35794600F7E3CE /* speedy.json in Resources */,
 				AF4045AB1C35794600F7E3CE /* speedy.atlas in Resources */,
 				AFA547F21C5542580030B0C4 /* dragon-bite.mp3 in Resources */,
 				AF4045A31C35794600F7E3CE /* alien.atlas in Resources */,
 				AF4045A41C35794600F7E3CE /* alien.json in Resources */,
 				AFAF3FE11C5801210072F393 /* bezier.json in Resources */,
+				AFAF3FE81C5844540072F393 /* merging.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
