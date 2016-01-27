@@ -143,6 +143,7 @@
 			}
 		},
 		"drawOrder": [
+            { "time": 0 },
 			{
 				"time": 1,
 				"offsets": [

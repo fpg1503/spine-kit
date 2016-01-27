@@ -16,7 +16,7 @@ class SKSlotNode: SKSpriteNode {
 
     private var currentAttachmentName: String? = ""
     
-    private var initialZIndex: Double?
+    private(set) var initialZIndex: Double?
     
     init(slot: Slot, zIndex: Double) {
         super.init(texture: SKTexture(), color: UIColor.clearColor(), size: CGSize.zero)

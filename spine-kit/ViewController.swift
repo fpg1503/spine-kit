@@ -29,11 +29,11 @@ class ViewController: UIViewController {
 
         let spineBuilder = SpineBuilder()
         
-        if let node = spineBuilder.build("bezier") {
+        if let node = spineBuilder.build("draw_order") {
 
             node.position = self.view.center
             node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
-            node.play("animation")
+            node.play("switching")
             scene.addChild(node)
         }
         
