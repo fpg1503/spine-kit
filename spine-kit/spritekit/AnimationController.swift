@@ -124,8 +124,8 @@ class AnimationController {
         if !animation.drawOrderTimeline.isEmpty {
             
             let timelineBuilder = TimelineBuilder()
-            let eventActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(self.drawOrderController, keyframes: animation.drawOrderTimeline)
-            let timeline = timelineBuilder.buildTimelineSKActions(eventActions, times: times)
+            let drawOrderActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(self.drawOrderController, keyframes: animation.drawOrderTimeline)
+            let timeline = timelineBuilder.buildTimelineSKActions(drawOrderActions, times: times)
             
             if let  action = timeline.action {
                 self.rootNode?.runAction(action)

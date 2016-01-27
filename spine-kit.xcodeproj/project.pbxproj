@@ -75,6 +75,8 @@
 		AF89CE941C58604000DF5377 /* DrawOrderKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF89CE931C58604000DF5377 /* DrawOrderKeyFrame+SKAction.swift */; };
 		AF945E891C593C8C0062FC79 /* skin.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AF945E871C593C8C0062FC79 /* skin.atlas */; };
 		AF945E8A1C593C8C0062FC79 /* skin.json in Resources */ = {isa = PBXBuildFile; fileRef = AF945E881C593C8C0062FC79 /* skin.json */; };
+		AF945E8D1C5971430062FC79 /* slots.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AF945E8B1C5971430062FC79 /* slots.atlas */; };
+		AF945E8E1C5971430062FC79 /* slots.json in Resources */ = {isa = PBXBuildFile; fileRef = AF945E8C1C5971430062FC79 /* slots.json */; };
 		AFA547E61C53EFFC0030B0C4 /* UIColorRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA547E51C53EFFC0030B0C4 /* UIColorRGB.swift */; };
 		AFA547E71C5425A80030B0C4 /* SpineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594ACD1C34AEB000734C1C /* SpineBuilder.swift */; };
 		AFA547EA1C542E060030B0C4 /* EventKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA547E91C542E060030B0C4 /* EventKeyFrame+SKAction.swift */; };
@@ -171,6 +173,8 @@
 		AF89CE931C58604000DF5377 /* DrawOrderKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DrawOrderKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
 		AF945E871C593C8C0062FC79 /* skin.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = skin.atlas; sourceTree = "<group>"; };
 		AF945E881C593C8C0062FC79 /* skin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = skin.json; sourceTree = "<group>"; };
+		AF945E8B1C5971430062FC79 /* slots.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = slots.atlas; sourceTree = "<group>"; };
+		AF945E8C1C5971430062FC79 /* slots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = slots.json; sourceTree = "<group>"; };
 		AFA547E51C53EFFC0030B0C4 /* UIColorRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorRGB.swift; sourceTree = "<group>"; };
 		AFA547E91C542E060030B0C4 /* EventKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
 		AFA547EB1C54DE100030B0C4 /* EventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
@@ -249,6 +253,8 @@
 		AF4045961C35791600F7E3CE /* spine */ = {
 			isa = PBXGroup;
 			children = (
+				AF945E8B1C5971430062FC79 /* slots.atlas */,
+				AF945E8C1C5971430062FC79 /* slots.json */,
 				AF945E871C593C8C0062FC79 /* skin.atlas */,
 				AF945E881C593C8C0062FC79 /* skin.json */,
 				AFAF3FEA1C5846740072F393 /* draw_order.atlas */,
@@ -574,12 +580,14 @@
 				AFAF3FE41C5823B80072F393 /* movile.atlas in Resources */,
 				AF4045A71C35794600F7E3CE /* powerup.atlas in Resources */,
 				AF4045A61C35794600F7E3CE /* dragon.json in Resources */,
+				AF945E8D1C5971430062FC79 /* slots.atlas in Resources */,
 				AFAF3FED1C5846740072F393 /* draw_order.json in Resources */,
 				AF4045A51C35794600F7E3CE /* dragon.atlas in Resources */,
 				AF4045A81C35794600F7E3CE /* powerup.json in Resources */,
 				AF594A561C34ACAC00734C1C /* Main.storyboard in Resources */,
 				AFAF3FEC1C5846740072F393 /* draw_order.atlas in Resources */,
 				AF945E891C593C8C0062FC79 /* skin.atlas in Resources */,
+				AF945E8E1C5971430062FC79 /* slots.json in Resources */,
 				AF4045AC1C35794600F7E3CE /* speedy.json in Resources */,
 				AF4045AB1C35794600F7E3CE /* speedy.atlas in Resources */,
 				AFA547F21C5542580030B0C4 /* dragon-bite.mp3 in Resources */,

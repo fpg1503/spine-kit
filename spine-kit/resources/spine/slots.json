@@ -1,0 +1,162 @@
+{
+"skeleton": { "hash": "dLdxOnFP27jLidcSfQpgeJTOj9E", "spine": "3.0.08", "width": 70, "height": 70 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "pointer", "parent": "root" }
+],
+"slots": [
+	{ "name": "numbers", "bone": "pointer", "attachment": "number_key_12" }
+],
+"skins": {
+	"default": {
+		"numbers": {
+			"number_key_01": { "y": 160, "rotation": 30, "width": 61, "height": 61 },
+			"number_key_02": { "y": 160, "rotation": 60, "width": 80, "height": 80 },
+			"number_key_03": { "y": 160, "rotation": 90, "width": 69, "height": 69 },
+			"number_key_04": { "y": 160, "rotation": 120, "width": 69, "height": 69 },
+			"number_key_05": { "y": 160, "rotation": 150, "width": 84, "height": 84 },
+			"number_key_06": { "y": 160, "rotation": 180, "width": 74, "height": 74 },
+			"number_key_07": { "y": 160, "rotation": -150, "width": 70, "height": 70 },
+			"number_key_08": { "y": 160, "rotation": -120, "width": 67, "height": 67 },
+			"number_key_09": { "y": 160, "rotation": -90, "width": 70, "height": 70 },
+			"number_key_10": { "y": 160, "rotation": -60, "width": 92, "height": 92 },
+			"number_key_11": { "y": 160, "rotation": -30, "width": 84, "height": 84 },
+			"number_key_12": { "y": 160, "width": 70, "height": 70 }
+		}
+	}
+},
+"animations": {
+	"speed_01": {
+		"slots": {
+			"numbers": {
+				"attachment": [
+					{ "time": 0, "name": "number_key_12" },
+					{ "time": 0.3333, "name": "number_key_01" },
+					{ "time": 0.6666, "name": "number_key_02" },
+					{ "time": 1, "name": "number_key_03" },
+					{ "time": 1.3333, "name": "number_key_04" },
+					{ "time": 1.6666, "name": "number_key_05" },
+					{ "time": 2, "name": "number_key_06" },
+					{ "time": 2.3333, "name": "number_key_07" },
+					{ "time": 2.6666, "name": "number_key_08" },
+					{ "time": 3, "name": "number_key_09" },
+					{ "time": 3.3333, "name": "number_key_10" },
+					{ "time": 3.6666, "name": "number_key_11" },
+					{ "time": 4, "name": "number_key_12" }
+				]
+			}
+		},
+		"bones": {
+			"pointer": {
+				"rotate": [
+					{ "time": 0, "angle": 0 },
+					{ "time": 1, "angle": -90 },
+					{ "time": 2, "angle": 180 },
+					{ "time": 3, "angle": 90 },
+					{ "time": 4, "angle": 0, "curve": "stepped" },
+					{ "time": 5, "angle": 0 }
+				]
+			}
+		}
+	},
+	"speed_02": {
+		"slots": {
+			"numbers": {
+				"attachment": [
+					{ "time": 0, "name": "number_key_12" },
+					{ "time": 0.1666, "name": "number_key_01" },
+					{ "time": 0.3333, "name": "number_key_02" },
+					{ "time": 0.5, "name": "number_key_03" },
+					{ "time": 0.6666, "name": "number_key_04" },
+					{ "time": 0.8333, "name": "number_key_05" },
+					{ "time": 1, "name": "number_key_06" },
+					{ "time": 1.1666, "name": "number_key_07" },
+					{ "time": 1.3333, "name": "number_key_08" },
+					{ "time": 1.5, "name": "number_key_09" },
+					{ "time": 1.6666, "name": "number_key_10" },
+					{ "time": 1.8333, "name": "number_key_11" },
+					{ "time": 2, "name": "number_key_12" }
+				]
+			}
+		},
+		"bones": {
+			"pointer": {
+				"rotate": [
+					{ "time": 0, "angle": 0 },
+					{ "time": 0.5, "angle": -90 },
+					{ "time": 1, "angle": 180 },
+					{ "time": 1.5, "angle": 90 },
+					{ "time": 2, "angle": 0, "curve": "stepped" },
+					{ "time": 3, "angle": 0 }
+				]
+			}
+		}
+	},
+	"speed_03": {
+		"slots": {
+			"numbers": {
+				"attachment": [
+					{ "time": 0, "name": "number_key_12" },
+					{ "time": 0.1, "name": "number_key_01" },
+					{ "time": 0.2, "name": "number_key_02" },
+					{ "time": 0.3, "name": "number_key_03" },
+					{ "time": 0.4, "name": "number_key_04" },
+					{ "time": 0.5, "name": "number_key_05" },
+					{ "time": 0.6, "name": "number_key_06" },
+					{ "time": 0.7, "name": "number_key_07" },
+					{ "time": 0.8, "name": "number_key_08" },
+					{ "time": 0.9, "name": "number_key_09" },
+					{ "time": 1, "name": "number_key_10" },
+					{ "time": 1.1, "name": "number_key_11" },
+					{ "time": 1.2, "name": "number_key_12" }
+				]
+			}
+		},
+		"bones": {
+			"pointer": {
+				"rotate": [
+					{ "time": 0, "angle": 0 },
+					{ "time": 0.3, "angle": -90 },
+					{ "time": 0.6, "angle": 180 },
+					{ "time": 0.9, "angle": 90 },
+					{ "time": 1.2, "angle": 0, "curve": "stepped" },
+					{ "time": 2.2, "angle": 0 }
+				]
+			}
+		}
+	},
+	"speed_04": {
+		"slots": {
+			"numbers": {
+				"attachment": [
+					{ "time": 0, "name": "number_key_12" },
+					{ "time": 0.0333, "name": "number_key_01" },
+					{ "time": 0.0666, "name": "number_key_02" },
+					{ "time": 0.1, "name": "number_key_03" },
+					{ "time": 0.1333, "name": "number_key_04" },
+					{ "time": 0.1666, "name": "number_key_05" },
+					{ "time": 0.2, "name": "number_key_06" },
+					{ "time": 0.2333, "name": "number_key_07" },
+					{ "time": 0.2666, "name": "number_key_08" },
+					{ "time": 0.3, "name": "number_key_09" },
+					{ "time": 0.3333, "name": "number_key_10" },
+					{ "time": 0.3666, "name": "number_key_11" },
+					{ "time": 0.4, "name": "number_key_12" }
+				]
+			}
+		},
+		"bones": {
+			"pointer": {
+				"rotate": [
+					{ "time": 0, "angle": 0 },
+					{ "time": 0.1, "angle": -90 },
+					{ "time": 0.2, "angle": 180 },
+					{ "time": 0.3, "angle": 90 },
+					{ "time": 0.4, "angle": 0, "curve": "stepped" },
+					{ "time": 1.4, "angle": 0 }
+				]
+			}
+		}
+	}
+}
+}

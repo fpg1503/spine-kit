@@ -29,11 +29,11 @@ class ViewController: UIViewController {
 
         let spineBuilder = SpineBuilder()
         
-        if let node = spineBuilder.build("draw_order") {
+        if let node = spineBuilder.build("slots") {
 
             node.position = self.view.center
             node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
-            node.play("switching")
+            node.play("speed_02")
             scene.addChild(node)
         }
         
