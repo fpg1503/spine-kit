@@ -49,11 +49,11 @@ class SKSlotNode: SKSpriteNode {
                 
                 self.texture = texture
                 self.position = CGPoint(x: CGFloat(attachment.x), y: CGFloat(attachment.y))
-                self.xScale = CGFloat(attachment.scaleX)
-                self.yScale = CGFloat(attachment.scaleY)
                 self.zRotation = CGFloat(attachment.rotation.degreesToRadians)
                 self.zPosition = CGFloat(self.initialZIndex ?? 0)
                 self.size = CGSize(width: CGFloat(attachment.width), height: CGFloat(attachment.height))
+                //Dicover why simply set doesnt work
+                self.runAction(SKAction.scaleXBy(CGFloat(attachment.scaleX), y: CGFloat(attachment.scaleY), duration: 0))
 
                 self.currentAttachmentName = attachmentName
             }
