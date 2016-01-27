@@ -30,7 +30,14 @@ class SpineBuilder {
             let bonesDict = buildBonesDict(bones)
             let zOrderIndexes = buildSlotZIndexDict(spine.slots)
             let slotsDict = buildSlotDict(slots, skin: skin, atlas: atlas, slotZIndexes: zOrderIndexes)
-            let animationController = AnimationController(animations: animations, bonesDict: bonesDict, slotsDict: slotsDict, rootNode: bonesDict[self.rootNodeName])
+            let drawOrderController = DrawOrderController(indexMap: zOrderIndexes, slotsDict: slotsDict)
+            
+            let animationController = AnimationController(
+                animations: animations,
+                bonesDict: bonesDict,
+                slotsDict: slotsDict,
+                drawOrderController: drawOrderController,
+                rootNode: bonesDict[self.rootNodeName])
             
             root = buildSpineRootNode(animationController, slots: slots, bonesDict:bonesDict, slotsDict: slotsDict)
             root?.setupPose()

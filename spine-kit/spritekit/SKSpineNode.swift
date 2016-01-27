@@ -53,10 +53,14 @@ class SKSpineNode: SKNode {
         return animationController?.eventHandler.removeEventFunctions(eventName) ?? false
     }
 
-    func findAnimatedNode(name: String) -> SKNode? {
-        return animationController?.findAnimatedNode(name)
+    func findBoneNode(name: String) -> SKNode? {
+        return animationController?.findBoneNode(name)
     }
-    
+
+    func findSlotNode(name: String) -> SKNode? {
+        return animationController?.findSlotNode(name)
+    }
+
     func setupPose() {
         self.children.forEach { child in
             if let boneChild = child as? SKBoneNode {

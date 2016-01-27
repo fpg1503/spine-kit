@@ -17,13 +17,18 @@ class AnimationController {
     
     private var slotsDict: [String: SKSlotNode] = [:]
     
+    private var drawOrderController: DrawOrderController
+    
     private var rootNode: SKBoneNode? = nil
     
     private var playing = false
     
     private(set) var eventHandler: EventHandler = EventHandler()
     
-    init(animations: [Animation]?, bonesDict: [String: SKBoneNode]?, slotsDict: [String: SKSlotNode]?, rootNode: SKBoneNode?) {
+    init(animations: [Animation]?, bonesDict: [String: SKBoneNode]?, slotsDict: [String: SKSlotNode]?, drawOrderController: DrawOrderController, rootNode: SKBoneNode?) {
+
+        self.drawOrderController = drawOrderController
+        self.rootNode = rootNode
 
         if let bonesDict = bonesDict {
             self.bonesDict = bonesDict
@@ -37,14 +42,16 @@ class AnimationController {
         if let animations = animations {
             animations.forEach{ animation in self.animationsDict[animation.name] = animation }
         }
-        
-        self.rootNode = rootNode
     }
     
-    func findAnimatedNode(name: String) -> SKNode? {
-        return (self.bonesDict[name] ?? self.slotsDict[name]) ?? nil
+    func findBoneNode(name: String) -> SKNode? {
+        return self.bonesDict[name] ?? nil
     }
-    
+
+    func findSlotNode(name: String) -> SKNode? {
+        return self.slotsDict[name] ?? nil
+    }
+
     func stop() {
         self.bonesDict.forEach { (_, bone) in bone.removeAllActions() }
         self.slotsDict.forEach { (_, slot) in slot.removeAllActions() }
@@ -65,7 +72,8 @@ class AnimationController {
             self.addCompletionTimeline(
                 self.addActionsToBones(animation, times: times),
                 self.addActionsToSlots(animation, times: times),
-                self.addEventsToEventNode(animation, times: times),
+                self.addEventsToRootNode(animation, times: times),
+                self.addDrawOrderToRootNode(animation, times: times),
                 times: times,
                 completion: completion)
             
@@ -92,7 +100,7 @@ class AnimationController {
         }
     }
     
-    private func addEventsToEventNode(animation: Animation, times: Int?) -> Double {
+    private func addEventsToRootNode(animation: Animation, times: Int?) -> Double {
         var duration: Double = 0
         
         if !animation.eventsTimeline.isEmpty {
@@ -109,6 +117,25 @@ class AnimationController {
         }
         return duration
     }
+    
+    private func addDrawOrderToRootNode(animation: Animation, times: Int?) -> Double {
+        var duration: Double = 0
+        
+        if !animation.drawOrderTimeline.isEmpty {
+            
+            let timelineBuilder = TimelineBuilder()
+            let eventActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(self.drawOrderController, keyframes: animation.drawOrderTimeline)
+            let timeline = timelineBuilder.buildTimelineSKActions(eventActions, times: times)
+            
+            if let  action = timeline.action {
+                self.rootNode?.runAction(action)
+            }
+            
+            duration = timeline.duration
+        }
+        return duration
+    }
+    
     
     private func addActionsToBones(animation: Animation, times: Int?) -> Double {
         var duration: Double = 0
