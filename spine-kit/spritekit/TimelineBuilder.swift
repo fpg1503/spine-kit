@@ -9,7 +9,23 @@
 import SpriteKit
 
 class TimelineBuilder {
-
+    
+    private(set) var maxDuration: Double = 0
+    
+    init(animation: Animation) {
+        
+        animation.slotTimelines.forEach { timeline in
+            self.maxDuration = self.maxKeyFramesDuration(timeline.attachment.last, timeline.color.last, currentMax: maxDuration)
+        }
+        
+        animation.boneTimelines.forEach { timeline in
+            self.maxDuration = self.maxKeyFramesDuration(timeline.translate.last, timeline.rotate.last, timeline.scale.last, currentMax: maxDuration)
+        }
+        
+        self.maxDuration =  self.maxKeyFramesDuration(animation.drawOrderTimeline.last, animation.eventsTimeline.last, currentMax: maxDuration)
+    }
+    
+    
     func buildTimelineSKActions(sequence: [SKAction]?, times: Int?) -> (duration: Double, action: SKAction?) {
         
         var action: SKAction? = nil
@@ -18,12 +34,13 @@ class TimelineBuilder {
         if let sequence = sequence {
             
             let isDurationTimeZero = (sequence.first?.duration ==  0 && sequence.count == 1)
+            
             let sequenceAction = SKAction.sequence(sequence)
             
             if isDurationTimeZero {
                 action = sequenceAction
             } else {
-                action = SKAction.repeatAction(sequenceAction, count: times ?? Int.max)
+                action = self.buildRepeatAction(sequenceAction, times: times)
             }
             
             duration = sequenceAction.duration
@@ -60,7 +77,7 @@ class TimelineBuilder {
         return (duration: maxDuration, action: result)
     }
     
-    func buildSKActionsTimeline<T: SKActionKeyFrame, Data: AnyObject>(data: Data, keyframes: [T]) -> [SKAction]? {
+    func buildSKActionsTimeline<T: SKActionKeyFrame, Data>(data: Data, keyframes: [T]) -> [SKAction]? {
         
         var actions: [SKAction] = []
         var previousElement: SKActionKeyFrame?
@@ -88,6 +105,32 @@ class TimelineBuilder {
         return actions.isEmpty ? nil : actions
     }
     
+    private func buildRepeatAction(sequenceToRepeat: SKAction, times: Int?) -> SKAction? {
+
+        var action: SKAction? = nil
+        
+        if sequenceToRepeat.duration < self.maxDuration {
+
+            let durationOffset =  self.maxDuration - sequenceToRepeat.duration
+            action = SKAction.repeatAction(SKAction.sequence([sequenceToRepeat, SKAction.waitForDuration(durationOffset)]), count: times ?? Int.max)
+            
+        } else {
+            
+            action = SKAction.repeatAction(sequenceToRepeat, count: times ?? Int.max)
+        }
+        return action
+    }
     
-    
+    private func maxKeyFramesDuration(lastKeyFrames: SKActionKeyFrame?..., currentMax: Double) -> Double {
+        
+        var maxDuration = currentMax
+        
+        lastKeyFrames.forEach { keyframe in
+            let keyFrameDuration: Double = keyframe?.animationTime() ?? 0
+            if maxDuration < keyFrameDuration {
+                maxDuration = keyFrameDuration
+            }
+        }
+        return maxDuration
+    }
 }

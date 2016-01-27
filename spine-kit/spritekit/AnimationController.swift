@@ -19,6 +19,8 @@ class AnimationController {
     
     private var drawOrderController: DrawOrderController
     
+    private var timelineBuilder: TimelineBuilder? = nil
+    
     private var rootNode: SKBoneNode? = nil
     
     private var playing = false
@@ -29,7 +31,7 @@ class AnimationController {
 
         self.drawOrderController = drawOrderController
         self.rootNode = rootNode
-
+        
         if let bonesDict = bonesDict {
             self.bonesDict = bonesDict
          
@@ -68,25 +70,25 @@ class AnimationController {
             if self.playing && !merge {
                 self.stop()
             }
+
+            self.timelineBuilder = TimelineBuilder(animation: animation)
             
-            self.addCompletionTimeline(
-                self.addActionsToBones(animation, times: times),
-                self.addActionsToSlots(animation, times: times),
-                self.addEventsToRootNode(animation, times: times),
-                self.addDrawOrderToRootNode(animation, times: times),
-                times: times,
-                completion: completion)
+            self.addActionsToBones(animation, times: times)
+            self.addActionsToSlots(animation, times: times)
+            self.addEventsToRootNode(animation, times: times)
+            self.addDrawOrderToRootNode(animation, times: times)
+            self.addCompletionTimeline(times: times, completion: completion)
             
             self.playing = true
         }
     }
     
-    private func addCompletionTimeline(durations: Double..., times: Int?, completion: AnimationCallback?) {
+    private func addCompletionTimeline(times times: Int?, completion: AnimationCallback?) {
         
-        if let block = completion, let duration = durations.maxElement() {
+        if let block = completion, let timelineBuilder = self.timelineBuilder {
 
-            let completionTimeline = TimelineBuilder().buildTimelineSKActions([
-                    SKAction.waitForDuration(duration),
+            let completionTimeline = timelineBuilder.buildTimelineSKActions([
+                    SKAction.waitForDuration(timelineBuilder.maxDuration),
                     SKAction.runBlock({
                         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                             block()
@@ -100,51 +102,38 @@ class AnimationController {
         }
     }
     
-    private func addEventsToRootNode(animation: Animation, times: Int?) -> Double {
-        var duration: Double = 0
+    private func addEventsToRootNode(animation: Animation, times: Int?) {
         
-        if !animation.eventsTimeline.isEmpty {
+        if let timelineBuilder = self.timelineBuilder where !animation.eventsTimeline.isEmpty {
         
-            let timelineBuilder = TimelineBuilder()
             let eventActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(self.eventHandler, keyframes: animation.eventsTimeline)
             let timeline = timelineBuilder.buildTimelineSKActions(eventActions, times: times)
         
             if let  action = timeline.action {
                 self.rootNode?.runAction(action)
             }
-            
-            duration = timeline.duration
         }
-        return duration
     }
     
-    private func addDrawOrderToRootNode(animation: Animation, times: Int?) -> Double {
-        var duration: Double = 0
+    private func addDrawOrderToRootNode(animation: Animation, times: Int?) {
         
-        if !animation.drawOrderTimeline.isEmpty {
+        if let timelineBuilder = self.timelineBuilder where !animation.drawOrderTimeline.isEmpty {
             
-            let timelineBuilder = TimelineBuilder()
             let drawOrderActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(self.drawOrderController, keyframes: animation.drawOrderTimeline)
             let timeline = timelineBuilder.buildTimelineSKActions(drawOrderActions, times: times)
             
             if let  action = timeline.action {
                 self.rootNode?.runAction(action)
             }
-            
-            duration = timeline.duration
         }
-        return duration
     }
     
-    
-    private func addActionsToBones(animation: Animation, times: Int?) -> Double {
-        var duration: Double = 0
+    private func addActionsToBones(animation: Animation, times: Int?) {
         
         for boneTimeline in animation.boneTimelines {
             
-            if let boneName = boneTimeline.name, let bone = self.bonesDict[boneName] {
+            if let boneName = boneTimeline.name, let bone = self.bonesDict[boneName], let timelineBuilder = self.timelineBuilder {
                 
-                let timelineBuilder = TimelineBuilder()
                 let translateActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(bone, keyframes: boneTimeline.translate)
                 let scaleActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(bone, keyframes: boneTimeline.scale)
                 let rotateActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(bone, keyframes: boneTimeline.rotate)
@@ -153,21 +142,17 @@ class AnimationController {
                 
                 if let action = group.action {
                     bone.runAction(action)
-                    duration = group.duration
                 }
             }
         }
-        return duration
     }
     
-    private func addActionsToSlots(animation: Animation, times: Int?) -> Double {
-        var duration: Double = 0
+    private func addActionsToSlots(animation: Animation, times: Int?) {
         
         for slotTimeline in animation.slotTimelines {
             
-            if let slotName = slotTimeline.name, let slot = self.slotsDict[slotName] {
+            if let slotName = slotTimeline.name, let slot = self.slotsDict[slotName], let timelineBuilder = self.timelineBuilder {
                 
-                let timelineBuilder = TimelineBuilder()
                 let colorActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(slot, keyframes: slotTimeline.color)
                 let attachmentActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(slot, keyframes: slotTimeline.attachment)
 
@@ -175,11 +160,9 @@ class AnimationController {
                 
                 if let action = group.action {
                     slot.runAction(action)
-                    duration = group.duration
                 }
             }
         }
-        return duration
     }
     
     deinit {
