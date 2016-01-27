@@ -44,7 +44,9 @@ class SKSlotNode: SKSpriteNode {
     func showAttachment(attachmentName: String) {
 
         if self.currentAttachmentName != attachmentName {
+            
             if let (attachment, texture) = region[attachmentName] {
+                
                 self.texture = texture
                 self.position = CGPoint(x: CGFloat(attachment.x), y: CGFloat(attachment.y))
                 self.xScale = CGFloat(attachment.scaleX)

@@ -78,9 +78,6 @@ class SKBoneNode: SKNode {
                 }
                 
             } else {
-                if bone.scaleX == 20 {
-                    print("1")
-                }
                 self.xScale = CGFloat(bone.scaleX)
                 self.yScale = CGFloat(bone.scaleY)
             }
