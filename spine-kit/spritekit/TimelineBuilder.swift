@@ -10,31 +10,44 @@ import SpriteKit
 
 class TimelineBuilder {
 
-    func buildTimelineSKActions(sequence: [SKAction]?, times: Int?) -> SKAction? {
-        var result: SKAction? = nil
+    func buildTimelineSKActions(sequence: [SKAction]?, times: Int?) -> (duration: Double, action: SKAction?) {
+        
+        var action: SKAction? = nil
+        var duration: Double = 0
+        
         if let sequence = sequence {
             
             let isDurationTimeZero = (sequence.first?.duration ==  0 && sequence.count == 1)
+            let sequenceAction = SKAction.sequence(sequence)
             
             if isDurationTimeZero {
-                result = SKAction.sequence(sequence)
+                action = sequenceAction
             } else {
-                result = SKAction.repeatAction(SKAction.sequence(sequence), count: times ?? Int.max)
+                action = SKAction.repeatAction(sequenceAction, count: times ?? Int.max)
             }
+            
+            duration = sequenceAction.duration
         }
-        return result
+        return (duration: duration, action: action)
     }
     
-    func buildTimelinesSKActionGroup(timelineSequences: [SKAction]?..., times: Int?) -> SKAction? {
+    func buildTimelinesSKActionGroup(timelineSequences: [SKAction]?..., times: Int?) -> (duration: Double, action: SKAction?) {
         
         var result: SKAction? = nil
         var sequences: [SKAction] = []
+        var maxDuration: Double = 0
         
         timelineSequences.forEach { sequence in
             
             if let sequence = sequence where !sequence.isEmpty {
                 
-                if let action =  self.buildTimelineSKActions(sequence, times: times) {
+                let timeline = self.buildTimelineSKActions(sequence, times: times)
+                
+                if let action =  timeline.action {
+
+                    if timeline.duration > maxDuration {
+                        maxDuration = timeline.duration
+                    }
                     sequences.append(action)
                 }
             }
@@ -43,7 +56,8 @@ class TimelineBuilder {
         if !sequences.isEmpty {
             result = SKAction.group(sequences)
         }
-        return result
+        
+        return (duration: maxDuration, action: result)
     }
     
     func buildSKActionsTimeline<T: SKActionKeyFrame, Data: AnyObject>(data: Data, keyframes: [T]) -> [SKAction]? {
@@ -73,5 +87,7 @@ class TimelineBuilder {
         }
         return actions.isEmpty ? nil : actions
     }
+    
+    
     
 }

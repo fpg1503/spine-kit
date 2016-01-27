@@ -8,6 +8,8 @@
 
 import SpriteKit
 
+
+
 class SKSpineNode: SKNode {
     
     private var animationController: AnimationController?
@@ -21,9 +23,9 @@ class SKSpineNode: SKNode {
         super.init(coder: aDecoder)
     }
     
-    func play(name: String, times: Int? = nil, merge: Bool? = false) {
+    func play(name: String, times: Int? = nil, merge: Bool? = false, completion: AnimationCallback? = nil) {
         if let animationController = self.animationController {
-            animationController.play(name, times: times, merge: merge)
+            animationController.play(name, times: times, merge: merge, completion: completion)
         }
     }
     

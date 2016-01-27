@@ -14,7 +14,7 @@ class SpineBuilder {
     
     private var maxZOrder: CGFloat = 0
     
-    static let rootNodeName: String = "root"
+    private let rootNodeName: String = "root"
     
     func build(name: String, skinName: String = "default") -> SKSpineNode? {
         
@@ -30,7 +30,7 @@ class SpineBuilder {
             let bonesDict = buildBonesDict(bones)
             let zOrderIndexes = buildSlotZIndexDict(spine.slots)
             let slotsDict = buildSlotDict(slots, skin: skin, atlas: atlas, slotZIndexes: zOrderIndexes)
-            let animationController = AnimationController(animations: animations, bonesDict: bonesDict, slotsDict: slotsDict)
+            let animationController = AnimationController(animations: animations, bonesDict: bonesDict, slotsDict: slotsDict, rootNode: bonesDict[self.rootNodeName])
             
             root = buildSpineRootNode(animationController, slots: slots, bonesDict:bonesDict, slotsDict: slotsDict)
             root?.setupPose()
@@ -45,7 +45,7 @@ class SpineBuilder {
         
         let spineNode: SKSpineNode? = SKSpineNode(animationController: animationController)
         
-        if let rootNode = bonesDict[SpineBuilder.rootNodeName] {
+        if let rootNode = bonesDict[self.rootNodeName] {
             
             spineNode?.addChild(rootNode)
             
@@ -71,8 +71,8 @@ class SpineBuilder {
         
         if let rootBoneNode = bones.first {
             
-            if rootBoneNode.name == SpineBuilder.rootNodeName {
-                boneDict[SpineBuilder.rootNodeName] = SKBoneNode(bone: rootBoneNode)
+            if rootBoneNode.name == self.rootNodeName {
+                boneDict[self.rootNodeName] = SKBoneNode(bone: rootBoneNode)
                 
                 for bone in bones {
 

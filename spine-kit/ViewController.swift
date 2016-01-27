@@ -33,7 +33,7 @@ class ViewController: UIViewController {
 
             node.position = self.view.center
             node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
-            node.play("switching")
+            node.play("switching", completion: { print("completed") })
             node.position = CGPoint(x: CGFloat(node.position.x), y:CGFloat(270))
             scene.addChild(node)
         }
