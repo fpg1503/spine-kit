@@ -9,21 +9,12 @@ import SpriteKit
 
 class DrawOrderController {
     
-    private var maxZOrder: CGFloat = 0
-    
-    private var slotsDict: [String: SKSlotNode] = [:]
-
-    private var indexMap: [String: Double]
-
-    init(indexMap: [String: Double], slotsDict: [String: SKSlotNode]) {
-        self.slotsDict = slotsDict
-        self.indexMap = indexMap
+    init(slotsDict: [String: SKSlotNode]) {
     }
     
     func applyOffsets(offsets: [DrawOrderOffset]) {
 
         offsets.forEach { offset in
-            // TODO change order
         }
     }
 }

@@ -29,12 +29,13 @@ class ViewController: UIViewController {
 
         let spineBuilder = SpineBuilder()
         
-        if let node = spineBuilder.build("draw_order") {
+        if let node = spineBuilder.build("dragon") {
 
             node.position = self.view.center
             node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
-            node.play("switching", completion: { print("completed") })
-            node.position = CGPoint(x: CGFloat(node.position.x), y:CGFloat(270))
+            node.play("flying")
+            
+            node.position = CGPoint(x: CGFloat(node.position.x), y:CGFloat(60))
             scene.addChild(node)
         }
         
@@ -48,22 +49,6 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    private func getDragonSoundPlayer() -> AVAudioPlayer? {
-        // Grab the path, make sure to add it to your project!
-        let sound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("dragon-bite", ofType: "mp3") ?? "")
-        var audioPlayer: AVAudioPlayer? = nil
-        
-        // Initial setup
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOfURL: sound, fileTypeHint: nil) as AVAudioPlayer
-            audioPlayer?.prepareToPlay()
-        } catch {
-            print("Fail to load sound file: \(error)")
-        }
-        return audioPlayer
-    }
-
 
 }
 
