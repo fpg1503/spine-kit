@@ -10,6 +10,7 @@ import SpriteKit
 
 class DrawOrderController {
     
+    private var pose: [String: CGFloat] = [:]
     private var slotsDict: [String: SKSlotNode]
 
     init(slotsDict: [String: SKSlotNode]) {
@@ -18,28 +19,54 @@ class DrawOrderController {
     
     func applyOffsets(offsets: [DrawOrderOffset]) {
 
+        self.createPoseVectorIfNeeded()
+        
         if offsets.isEmpty {
             
-            //Save pose and apply again (Don't use initial index)
-            self.slotsDict.values.forEach { slotOfDict in slotOfDict.zPosition = CGFloat(slotOfDict.initialZIndex ?? 0) }
+          self.setupPose()
             
         } else {
-            offsets.forEach { offset in
+            
+           self.setupWithOffsets(offsets)
+        }
+    }
+    
+    private func setupWithOffsets(offsets: [DrawOrderOffset]) {
+        offsets.forEach { offset in
+            
+            if let slot = self.slotsDict[offset.slot]  {
                 
-                if let slot = self.slotsDict[offset.slot]  {
-
-                    let beginIndex = slot.zPosition
-                    let endIndex = CGFloat(slot.zPosition) + CGFloat(offset.offset)
+                let beginIndex = slot.zPosition
+                let endIndex = CGFloat(slot.zPosition) + CGFloat(offset.offset)
+                
+                self.slotsDict.values.forEach { slotOfDict in
                     
-                    self.slotsDict.values.forEach { slotOfDict in
-                        
-                        if slotOfDict.zPosition >= beginIndex && slotOfDict.zPosition <= endIndex {
-                            slotOfDict.zPosition += (beginIndex < endIndex ? -1 : 1)
-                        }
+                    if slotOfDict.zPosition >= beginIndex && slotOfDict.zPosition <= endIndex {
+                        slotOfDict.zPosition += (beginIndex < endIndex ? -1 : 1)
                     }
-                    slot.zPosition += CGFloat(offset.offset) + (beginIndex < endIndex ? 1 : -1)
+                }
+                slot.zPosition += CGFloat(offset.offset) + (beginIndex < endIndex ? 1 : -1)
+            }
+        }
+    }
+    
+    private func setupPose() {
+        self.slotsDict.forEach { (key, value) in
+            if let zIndex = self.pose[key] {
+                value.zPosition = zIndex
+            }
+        }
+    }
+    
+    private func createPoseVectorIfNeeded() {
+
+        if self.pose.isEmpty || self.pose.count != slotsDict.count {
+            self.slotsDict.forEach{(_, value) in
+                if let nodeName = value.name {
+                    self.pose[nodeName] = value.zPosition
                 }
             }
         }
+
     }
 }

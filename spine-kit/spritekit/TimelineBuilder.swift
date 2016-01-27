@@ -70,7 +70,7 @@ class TimelineBuilder {
         
         if var previousElement = previousElement {
 
-            if let action = previousElement.toSKAction(data, duration: 0, curve: previousElement.curveToApply()) {
+            if let action = previousElement.toSKAction(data, duration: previousElement.animationTime(), curve: previousElement.curveToApply()) {
                 actions.append(action)
             }
 
