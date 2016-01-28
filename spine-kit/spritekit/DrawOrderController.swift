@@ -8,6 +8,12 @@
 
 import SpriteKit
 
+// Design considerations:
+//
+// 1- Possible double resposability. Consider separate between animation and regular draw order.
+// 2- Think how to remove slotsDict from here just. Will be helpfull maintain this state in just one class.
+//
+
 class DrawOrderController {
     
     private static var maxZPosition: CGFloat = 0
@@ -15,7 +21,7 @@ class DrawOrderController {
     private var animationInitialPose: [String: CGFloat] = [:]
     
     private var drawOrderIndex: [String: Double] = [:]
-    
+
     private var slotsDict: [String: SKSlotNode]
 
     init(slots: [Slot]?, slotsDict: [String: SKSlotNode]) {
@@ -24,13 +30,8 @@ class DrawOrderController {
     }
     
     func setupSlotsDrawOrder() {
-        
-        slotsDict.forEach { (_, slotNode) in
-            
-            if let slotName = slotNode.name {
-                let position: CGFloat = CGFloat(self.drawOrderIndex[slotName] ?? 0)
-                slotNode.zPosition = position
-            }
+        slotsDict.forEach { (slotName, slotNode) in
+            slotNode.zPosition = CGFloat(self.drawOrderIndex[slotName] ?? 0)
         }
     }
     
@@ -53,7 +54,6 @@ class DrawOrderController {
         return result
     }
 
-    
     func applyAnimationOffsets(offsets: [DrawOrderOffset]) {
         
         self.createAnimationInitialPoseVectorIfNeeded()

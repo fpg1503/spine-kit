@@ -71,7 +71,7 @@ class AnimationController {
                 self.stop()
             }
 
-            self.timelineBuilder = TimelineBuilder(animation: animation)
+            self.timelineBuilder = self.createTimelineBuilder(animation)
             
             self.addActionsToBones(animation, times: times)
             self.addActionsToSlots(animation, times: times)
@@ -163,6 +163,26 @@ class AnimationController {
                 }
             }
         }
+    }
+    
+    private func createTimelineBuilder(animation: Animation) -> TimelineBuilder {
+        
+        var keyframes: [SKActionKeyFrame] = []
+        animation.slotTimelines.forEach { timeline in
+            timeline.attachment.forEach { keyframe in keyframes.append(keyframe)}
+            timeline.color.forEach { keyframe in keyframes.append(keyframe)}
+        }
+        
+        animation.boneTimelines.forEach { timeline in
+            timeline.translate.forEach { keyframe in keyframes.append(keyframe)}
+            timeline.rotate.forEach { keyframe in keyframes.append(keyframe)}
+            timeline.scale.forEach { keyframe in keyframes.append(keyframe)}
+        }
+        
+        animation.eventsTimeline.forEach { keyframe in keyframes.append(keyframe)}
+        animation.drawOrderTimeline.forEach { keyframe in keyframes.append(keyframe)}
+        
+        return TimelineBuilder(keyframes: keyframes)
     }
     
     deinit {

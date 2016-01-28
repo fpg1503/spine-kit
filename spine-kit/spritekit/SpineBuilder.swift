@@ -41,10 +41,10 @@ class SpineBuilder {
             
             root = buildSpineRootNode(animationController: animationController, skinController: skinController, spine: spine, bonesDict:bonesDict, slotsDict: slotsDict)
             
-            root?.setupPose()
-            
             drawOrderController.setupRootDrawOrder(root)
             drawOrderController.setupSlotsDrawOrder()
+            
+            root?.setupPose()
         }
         
         return root

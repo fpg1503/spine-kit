@@ -12,19 +12,9 @@ class TimelineBuilder {
     
     private(set) var maxDuration: Double = 0
     
-    init(animation: Animation) {
-        //Think how to remove animation from here
-        animation.slotTimelines.forEach { timeline in
-            self.maxDuration = self.maxKeyFramesDuration(timeline.attachment.last, timeline.color.last, currentMax: maxDuration)
-        }
-        
-        animation.boneTimelines.forEach { timeline in
-            self.maxDuration = self.maxKeyFramesDuration(timeline.translate.last, timeline.rotate.last, timeline.scale.last, currentMax: maxDuration)
-        }
-        
-        self.maxDuration =  self.maxKeyFramesDuration(animation.drawOrderTimeline.last, animation.eventsTimeline.last, currentMax: maxDuration)
+    init(keyframes: [SKActionKeyFrame]) {
+        self.setupMaxDuration(keyframes)
     }
-    
     
     func buildTimelineSKActions(sequence: [SKAction]?, times: Int?) -> (duration: Double, action: SKAction?) {
         
@@ -105,6 +95,18 @@ class TimelineBuilder {
         return actions.isEmpty ? nil : actions
     }
     
+    private func setupMaxDuration(keyFrames: [SKActionKeyFrame]) {
+        
+        keyFrames.forEach { keyframe in
+            
+            let keyFrameDuration: Double = keyframe.animationTime() ?? 0
+            
+            if self.maxDuration < keyFrameDuration {
+                self.maxDuration = keyFrameDuration
+            }
+        }
+    }
+    
     private func buildRepeatAction(sequenceToRepeat: SKAction, times: Int?) -> SKAction? {
 
         var action: SKAction? = nil
@@ -119,18 +121,5 @@ class TimelineBuilder {
             action = SKAction.repeatAction(sequenceToRepeat, count: times ?? Int.max)
         }
         return action
-    }
-    
-    private func maxKeyFramesDuration(lastKeyFrames: SKActionKeyFrame?..., currentMax: Double) -> Double {
-        
-        var maxDuration = currentMax
-        
-        lastKeyFrames.forEach { keyframe in
-            let keyFrameDuration: Double = keyframe?.animationTime() ?? 0
-            if maxDuration < keyFrameDuration {
-                maxDuration = keyFrameDuration
-            }
-        }
-        return maxDuration
     }
 }
