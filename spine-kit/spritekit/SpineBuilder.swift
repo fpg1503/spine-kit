@@ -23,28 +23,29 @@ class SpineBuilder {
         let atlas = SKTextureAtlas(named: name)
         let drawOrderController = DrawOrderController()
 
-        let skinController = SkinController(skins: spine?.skins)
-        
-        let currentSkin = skinController.findSkinByName(spine?.defaultSkin)
-        
-        if let spine = spine, let bones = spine.bones, let slots = spine.slots, let animations = spine.animations, let skin = currentSkin {
+        if let spine = spine, let bones = spine.bones, let slots = spine.slots, let skins = spine.skins, let animations = spine.animations {
             
-            let bonesDict = buildBonesDict(bones)
-            let slotsDict = buildSlotDict(slots, skin: skin, atlas: atlas)
-
-            let animationController = AnimationController(rootNode: bonesDict[self.rootNodeName], animations: animations)
+            let skinController = SkinController(skins: skins, atlas: atlas)
             
-            root = buildSpineRootNode(
-                animationController: animationController,
-                skinController: skinController,
-                drawOrderController: drawOrderController,
-                spine: spine,
-                bonesDict:bonesDict,
-                slotsDict: slotsDict)
-            
-            drawOrderController.setupDrawOrder(spine.slots, slotsDict: slotsDict, root: root)
-            
-            root?.setupPose()
+            if let skin = skinController.findSkinByName(spine.defaultSkin) {
+                
+                let bonesDict = buildBonesDict(bones)
+                let slotsDict = buildSlotDict(slots, skin: skin, atlas: atlas)
+                
+                let animationController = AnimationController(rootNode: bonesDict[self.rootNodeName], animations: animations)
+                
+                root = buildSpineRootNode(
+                    animationController: animationController,
+                    skinController: skinController,
+                    drawOrderController: drawOrderController,
+                    spine: spine,
+                    bonesDict:bonesDict,
+                    slotsDict: slotsDict)
+                
+                drawOrderController.setupDrawOrder(spine.slots, slotsDict: slotsDict, root: root)
+                
+                root?.setupPose()
+            }
         }
         
         return root

@@ -49,7 +49,7 @@ class SKSpineNode: SKNode {
     }
     
     func changeSkin(name: String) {
-        //TODO
+        skinController?.changeSkin(name, slotsDict: self.slotsDict)
     }
     
     func addSpineNodeToBone(name: String, node: SKSpineNode) -> Bool {

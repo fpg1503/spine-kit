@@ -5,17 +5,33 @@
 //  Created by Thiago Medeiros dos Santos on 1/27/16.
 //  Copyright © 2016 Thiago Medeiros dos Santos. All rights reserved.
 //
+import SpriteKit
 
 class SkinController {
     
-    private let skins: [Skin]?
+    private let atlas: SKTextureAtlas
+    private let skinsDict: [String: Skin] = [:]
     
-    init(skins: [Skin]?) {
-       self.skins = skins
+    init(skins: [Skin], atlas: SKTextureAtlas) {
+        self.atlas = atlas
+        skins.forEach { skin in self.skinsDict[skin.name] = skin }
     }
     
-    func findSkinByName(name: String?) -> Skin? {
-        let skins = self.skins?.filter{ (skin) in skin.name == name }
-        return skins?.count > 0 ? skins?.first : nil
+    func changeSkin(name: String, slotsDict: [String: SKSlotNode]) {
+        if let skin = self.skinsDict[name] {
+            
+            slotsDict.forEach { (slotName, slot) in
+                if let attachmentsOfSlot = skin.attachments[slotName] {
+                    
+                    for (attachmentName, attachment) in attachmentsOfSlot {
+                        slot.addAttachmentWithTexture(attachmentName, attachment: attachment, texture: atlas.textureNamed(attachmentName))
+                    }
+                }
+            }
+        }
+    }
+    
+    func findSkinByName(name: String) -> Skin? {
+        return self.skinsDict[name]
     }
 }
