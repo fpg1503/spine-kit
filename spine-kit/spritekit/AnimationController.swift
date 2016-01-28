@@ -69,11 +69,11 @@ class AnimationController {
 
             let completionTimeline = timelineBuilder.buildTimelineSKActions([
                     SKAction.waitForDuration(timelineBuilder.maxDuration),
-                    SKAction.runBlock({
+                    SKAction.runBlock {
                         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                             block()
                         }
-                    })
+                    }
                 ], times: times)
             
             if let completionAction = completionTimeline.action {
@@ -148,20 +148,28 @@ class AnimationController {
     private func createTimelineBuilder(animation: Animation) -> TimelineBuilder {
         
         var keyframes: [SKActionKeyFrame] = []
+        
         animation.slotTimelines.forEach { timeline in
-            timeline.attachment.forEach { keyframe in keyframes.append(keyframe)}
-            timeline.color.forEach { keyframe in keyframes.append(keyframe)}
+            
+            if let lastAttachment = timeline.attachment.last, let lastColor = timeline.color.last {
+                keyframes.append(lastAttachment)
+                keyframes.append(lastColor)
+            }
         }
         
         animation.boneTimelines.forEach { timeline in
-            timeline.translate.forEach { keyframe in keyframes.append(keyframe)}
-            timeline.rotate.forEach { keyframe in keyframes.append(keyframe)}
-            timeline.scale.forEach { keyframe in keyframes.append(keyframe)}
+            if let lastTranslation = timeline.translate.last, let lastScale = timeline.scale.last, let lastRotation = timeline.rotate.last {
+                keyframes.append(lastTranslation)
+                keyframes.append(lastScale)
+                keyframes.append(lastRotation)
+            }
         }
         
-        animation.eventsTimeline.forEach { keyframe in keyframes.append(keyframe)}
-        animation.drawOrderTimeline.forEach { keyframe in keyframes.append(keyframe)}
+        if let lastEvent = animation.eventsTimeline.last, let lastDrawCall = animation.drawOrderTimeline.last {
+            keyframes.append(lastDrawCall)
+            keyframes.append(lastEvent)
+        }
         
-        return TimelineBuilder(keyframes: keyframes)
+        return TimelineBuilder(finalKeyframes: keyframes)
     }
 }

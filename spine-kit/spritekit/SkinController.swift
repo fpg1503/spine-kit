@@ -24,11 +24,20 @@ class SkinController {
                 if let attachmentsOfSlot = skin.attachments[slotName] {
                     
                     for (attachmentName, attachment) in attachmentsOfSlot {
-                        slot.addAttachmentWithTexture(attachmentName, attachment: attachment, texture: atlas.textureNamed(attachmentName))
+                        slot.addAttachmentWithTexture(attachmentName, attachment: attachment, texture: atlas.textureNamed(attachment.name))
+                        slot.setupPose()
                     }
                 }
             }
         }
+    }
+    
+    func skinExists(name: String?) -> Bool {
+        var result: Bool = true
+        if let name = name {
+            result = self.skinsDict[name] != nil
+        }
+        return result
     }
     
     func findSkinByName(name: String) -> Skin? {

@@ -53,12 +53,16 @@ class SKSlotNode: SKSpriteNode {
     func setupPose() {
         let node = SKNode()
         node.name = self.name
-        self.showAttachment(slot?.attachment ?? "")
+        self.showAttachment(self.slot?.attachment ?? "", force: true)
     }
     
     func showAttachment(attachmentName: String) {
+        self.showAttachment(attachmentName, force: false)
+    }
+    
+    private func showAttachment(attachmentName: String, force: Bool) {
 
-        if self.currentAttachmentName != attachmentName {
+        if force || self.currentAttachmentName != attachmentName {
             
             if let (attachment, texture) = region[attachmentName] {
                 

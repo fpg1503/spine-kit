@@ -12,7 +12,7 @@ class TimelineBuilder {
     
     private(set) var maxDuration: Double = 0
     
-    init(keyframes: [SKActionKeyFrame]) {
+    init(finalKeyframes keyframes: [SKActionKeyFrame]) {
         self.setupMaxDuration(keyframes)
     }
     
@@ -115,7 +115,7 @@ class TimelineBuilder {
 
             let durationOffset =  self.maxDuration - sequenceToRepeat.duration
             action = SKAction.repeatAction(SKAction.sequence([sequenceToRepeat, SKAction.waitForDuration(durationOffset)]), count: times ?? Int.max)
-            
+            action?.speed = 0.2
         } else {
             
             action = SKAction.repeatAction(sequenceToRepeat, count: times ?? Int.max)

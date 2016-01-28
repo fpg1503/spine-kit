@@ -29,7 +29,7 @@ class ViewController: UIViewController {
 
         let spineBuilder = SpineBuilder()
 
-        if let node = spineBuilder.build("skin") {
+        if let node = spineBuilder.build("skin", skin: "green") {
 
             node.position = self.view.center
             node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
@@ -38,7 +38,12 @@ class ViewController: UIViewController {
             
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(4 * Double(NSEC_PER_SEC)))
             dispatch_after(delayTime, dispatch_get_main_queue()) {
-                node.changeSkin("green")
+                node.changeSkin("blue")
+                
+                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(4 * Double(NSEC_PER_SEC)))
+                dispatch_after(delayTime, dispatch_get_main_queue()) {
+                    node.changeSkin("red")
+                }
             }
         }
         

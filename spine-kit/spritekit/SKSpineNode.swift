@@ -16,16 +16,18 @@ class SKSpineNode: SKNode {
     private var skinController: SkinController?
     private var drawOrderController: DrawOrderController?
     
+    private var canChangeSkin: Bool = false
     private var bonesDict: [String: SKBoneNode] = [:]
     private var slotsDict: [String: SKSlotNode] = [:]
     
-    init(animationController: AnimationController, skinController: SkinController, drawOrderController: DrawOrderController, bonesDict: [String: SKBoneNode], slotsDict: [String: SKSlotNode]) {
+    init(animationController: AnimationController, skinController: SkinController, drawOrderController: DrawOrderController, bonesDict: [String: SKBoneNode], slotsDict: [String: SKSlotNode], canChangeSkin: Bool) {
         super.init()
         self.animationController = animationController
         self.drawOrderController = drawOrderController
         self.skinController = skinController
         self.slotsDict = slotsDict
         self.bonesDict = bonesDict
+        self.canChangeSkin = canChangeSkin
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,8 +50,14 @@ class SKSpineNode: SKNode {
         animationController?.stop(bonesDict: self.bonesDict, slotsDict: self.slotsDict)
     }
     
-    func changeSkin(name: String) {
-        skinController?.changeSkin(name, slotsDict: self.slotsDict)
+    func changeSkin(name: String) -> Bool {
+
+        if self.canChangeSkin {
+            skinController?.changeSkin(name, slotsDict: self.slotsDict)
+        } else {
+            print("Warning: If you want to use skin you must create the spine node with a initial skin")
+        }
+        return canChangeSkin
     }
     
     func addSpineNodeToBone(name: String, node: SKSpineNode) -> Bool {

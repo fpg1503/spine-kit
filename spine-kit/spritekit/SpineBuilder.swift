@@ -14,7 +14,7 @@ class SpineBuilder {
     
     private let rootNodeName: String = "root"
     
-    func build(name: String, skinName: String = "default") -> SKSpineNode? {
+    func build(name: String, skin skinName: String? = nil) -> SKSpineNode? {
         
         var root: SKSpineNode? = nil
 
@@ -26,38 +26,39 @@ class SpineBuilder {
         if let spine = spine, let bones = spine.bones, let slots = spine.slots, let skins = spine.skins, let animations = spine.animations {
             
             let skinController = SkinController(skins: skins, atlas: atlas)
+            let bonesDict = buildBonesDict(bones)
+            let slotsDict = buildSlotDict(slots, skinController: skinController, skinName: skinName, atlas: atlas)
             
-            if let skin = skinController.findSkinByName(spine.defaultSkin) {
-                
-                let bonesDict = buildBonesDict(bones)
-                let slotsDict = buildSlotDict(slots, skin: skin, atlas: atlas)
-                
-                let animationController = AnimationController(rootNode: bonesDict[self.rootNodeName], animations: animations)
-                
-                root = buildSpineRootNode(
-                    animationController: animationController,
-                    skinController: skinController,
-                    drawOrderController: drawOrderController,
-                    spine: spine,
-                    bonesDict:bonesDict,
-                    slotsDict: slotsDict)
-                
-                drawOrderController.setupDrawOrder(spine.slots, slotsDict: slotsDict, root: root)
-                
-                root?.setupPose()
-            }
+            let animationController = AnimationController(rootNode: bonesDict[self.rootNodeName], animations: animations)
+            
+            //In this version you must provide a initial skin if you want to be able to change skins
+            let canChangeSkin = skinController.skinExists(skinName)
+            
+            root = buildSpineRootNode(
+                animationController: animationController,
+                skinController: skinController,
+                drawOrderController: drawOrderController,
+                spine: spine,
+                bonesDict:bonesDict,
+                slotsDict: slotsDict,
+                canChangeSkin: canChangeSkin)
+            
+            drawOrderController.setupDrawOrder(spine.slots, slotsDict: slotsDict, root: root)
+            
+            root?.setupPose()
         }
         
         return root
     }
     
-    private func buildSpineRootNode(animationController animationController: AnimationController, skinController: SkinController, drawOrderController: DrawOrderController, spine: SpineModel, bonesDict: [String: SKBoneNode], slotsDict: [String: SKSlotNode]) -> SKSpineNode? {
+    private func buildSpineRootNode(animationController animationController: AnimationController, skinController: SkinController, drawOrderController: DrawOrderController, spine: SpineModel, bonesDict: [String: SKBoneNode], slotsDict: [String: SKSlotNode], canChangeSkin: Bool) -> SKSpineNode? {
         
         let spineNode = SKSpineNode(
             animationController: animationController,
             skinController: skinController,
             drawOrderController: drawOrderController,
-            bonesDict: bonesDict, slotsDict: slotsDict)
+            bonesDict: bonesDict, slotsDict: slotsDict,
+            canChangeSkin: canChangeSkin)
         
         if let rootNode = bonesDict[self.rootNodeName], slots = spine.slots {
             
@@ -106,22 +107,38 @@ class SpineBuilder {
         return boneDict
     }
     
-    private func buildSlotDict(slots: [Slot], skin: Skin, atlas: SKTextureAtlas) -> [String: SKSlotNode] {
+    private func buildSlotDict(slots: [Slot], skinController: SkinController, skinName: String?, atlas: SKTextureAtlas) -> [String: SKSlotNode] {
         
+        let defaultSkinName = "default"
         var slotNodes:  [String: SKSlotNode] = [:]
+        var skinDefault: Skin?
         
+        if let skin = skinController.findSkinByName(defaultSkinName) {
+            skinDefault = skin
+        }
+
         for slot in slots {
-            
-            if let attachmentsOfSlot = skin.attachments[slot.name] {
-                
-                let slotNode = SKSlotNode(slot: slot)
-                for (attachmentName, attachment) in attachmentsOfSlot {
-                    slotNode.addAttachmentWithTexture(attachmentName, attachment: attachment, texture: atlas.textureNamed(attachmentName))
-                }
-                
-                slotNodes[slot.name] = slotNode
+            let slotNode = SKSlotNode(slot: slot)
+
+            if let skinDefault = skinDefault {
+                self.addAttachmentsToSlotNode(attachments: skinDefault.attachments[slot.name], slotNode: slotNode, atlas: atlas)
+            }
+            slotNodes[slot.name] = slotNode
+        }
+        
+        if let skinName = skinName {
+            skinController.changeSkin(skinName, slotsDict: slotNodes)
+        }
+        
+        return slotNodes
+    }
+    
+    private func addAttachmentsToSlotNode(attachments attachmentsOfSlot: [String: Attachment]?, slotNode: SKSlotNode, atlas: SKTextureAtlas) -> SKSlotNode {
+        if let attachments = attachmentsOfSlot {
+            for (attachmentName, attachment) in attachments {
+                slotNode.addAttachmentWithTexture(attachmentName, attachment: attachment, texture: atlas.textureNamed(attachmentName))
             }
         }
-        return slotNodes
+        return slotNode
     }
 }
