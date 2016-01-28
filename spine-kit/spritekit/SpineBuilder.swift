@@ -12,8 +12,6 @@ import SpriteKit
 
 class SpineBuilder {
     
-    private var maxZOrder: CGFloat = 0
-    
     private let rootNodeName: String = "root"
     
     func build(name: String, skinName: String = "default") -> SKSpineNode? {
@@ -23,36 +21,40 @@ class SpineBuilder {
         let json = FileHelper.loadTextFile(name, type: "json")
         let spine = SpineParse().parse(name, data: json)
         let atlas = SKTextureAtlas(named: name)
-        let currentSkin = findSkinByName(spine?.skins, name: spine?.defaultSkin)
+        
+        let skinController = SkinController(skins: spine?.skins)
+        
+        let currentSkin = skinController.findSkinByName(spine?.defaultSkin)
         
         if let spine = spine, let bones = spine.bones, let slots = spine.slots, let animations = spine.animations, let skin = currentSkin {
             
             let bonesDict = buildBonesDict(bones)
-            let zOrderIndexes = buildSlotZIndexDict(spine.slots)
-            let slotsDict = buildSlotDict(slots, skin: skin, atlas: atlas, slotZIndexes: zOrderIndexes)
-            let drawOrderController = DrawOrderController(slotsDict: slotsDict)
-            
+            let slotsDict = buildSlotDict(slots, skin: skin, atlas: atlas)
+
+            let drawOrderController = DrawOrderController(slots: spine.slots, slotsDict: slotsDict)
             let animationController = AnimationController(
+                rootNode: bonesDict[self.rootNodeName],
                 animations: animations,
                 bonesDict: bonesDict,
                 slotsDict: slotsDict,
-                drawOrderController: drawOrderController,
-                rootNode: bonesDict[self.rootNodeName])
+                drawOrderController: drawOrderController)
             
-            root = buildSpineRootNode(animationController, slots: slots, bonesDict:bonesDict, slotsDict: slotsDict)
+            root = buildSpineRootNode(animationController: animationController, skinController: skinController, spine: spine, bonesDict:bonesDict, slotsDict: slotsDict)
+            
             root?.setupPose()
             
-            self.setupZOrderForRoot(root, zOrderIndexes: zOrderIndexes)
+            drawOrderController.setupRootDrawOrder(root)
+            drawOrderController.setupSlotsDrawOrder()
         }
         
         return root
     }
     
-    private func buildSpineRootNode(animationController: AnimationController, slots: [Slot], bonesDict: [String: SKBoneNode], slotsDict: [String: SKSlotNode]) -> SKSpineNode? {
+    private func buildSpineRootNode(animationController animationController: AnimationController, skinController: SkinController, spine: SpineModel, bonesDict: [String: SKBoneNode], slotsDict: [String: SKSlotNode]) -> SKSpineNode? {
         
-        let spineNode: SKSpineNode? = SKSpineNode(animationController: animationController)
+        let spineNode: SKSpineNode? = SKSpineNode(animationController: animationController, skinController: skinController)
         
-        if let rootNode = bonesDict[self.rootNodeName] {
+        if let rootNode = bonesDict[self.rootNodeName], slots = spine.slots {
             
             spineNode?.addChild(rootNode)
             
@@ -100,15 +102,15 @@ class SpineBuilder {
         return boneDict
     }
     
-    private func buildSlotDict(slots: [Slot], skin: Skin, atlas: SKTextureAtlas, slotZIndexes: [String: Double]) -> [String: SKSlotNode] {
+    private func buildSlotDict(slots: [Slot], skin: Skin, atlas: SKTextureAtlas) -> [String: SKSlotNode] {
         
         var slotNodes:  [String: SKSlotNode] = [:]
         
         for slot in slots {
             
-            if let attachmentsOfSlot = skin.attachments[slot.name], let slotZIndex = slotZIndexes[slot.name] {
+            if let attachmentsOfSlot = skin.attachments[slot.name] {
                 
-                let slotNode = SKSlotNode(slot: slot, zIndex: slotZIndex)
+                let slotNode = SKSlotNode(slot: slot)
                 for (attachmentName, attachment) in attachmentsOfSlot {
                     slotNode.addAttachmentWithTexture(attachmentName, attachment: attachment, texture: atlas.textureNamed(attachmentName))
                 }
@@ -117,30 +119,5 @@ class SpineBuilder {
             }
         }
         return slotNodes
-    }
-
-    private func buildSlotZIndexDict(slots: [Slot]?) -> [String: Double] {
-        
-        var result: [String: Double] = [:]
-        if let slots = slots {
-            for (index, slot) in slots.enumerate() {
-                result[slot.name] = Double(index)
-            }
-        }
-        return result
-    }
-    
-    //Avoid z fighting and improve Draw Calls
-    private func setupZOrderForRoot(root: SKSpineNode?, zOrderIndexes: [String: Double]) {
-        root?.zPosition = self.maxZOrder
-        
-        if let maxZOrder = zOrderIndexes.values.maxElement() {
-            self.maxZOrder += CGFloat(maxZOrder) + 1
-        }
-    }
-    
-    private func findSkinByName(skins: [Skin]?, name: String?) -> Skin? {
-        let skins = skins?.filter{ (skin) in skin.name == name }
-        return skins?.count > 0 ? skins?.first : nil
     }
 }

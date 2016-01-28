@@ -18,12 +18,11 @@ class SKSlotNode: SKSpriteNode {
     
     private(set) var initialZIndex: Double?
     
-    init(slot: Slot, zIndex: Double) {
+    init(slot: Slot) {
         super.init(texture: SKTexture(), color: UIColor.clearColor(), size: CGSize.zero)
         
         self.name = slot.name
         self.slot = slot
-        self.initialZIndex = zIndex
     }
 
     required init?(coder aDecoder: NSCoder) {

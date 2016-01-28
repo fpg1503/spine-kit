@@ -13,10 +13,12 @@ import SpriteKit
 class SKSpineNode: SKNode {
     
     private var animationController: AnimationController?
+    private var skinController: SkinController?
 
-    init(animationController: AnimationController?) {
+    init(animationController: AnimationController?, skinController: SkinController) {
         super.init()
         self.animationController = animationController
+        self.skinController = skinController
     }
     
     required init?(coder aDecoder: NSCoder) {

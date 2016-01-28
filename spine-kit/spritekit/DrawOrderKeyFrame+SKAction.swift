@@ -15,7 +15,7 @@ extension DrawOrderKeyFrame: SKActionKeyFrame {
         
         if let drawOrderController = context as? DrawOrderController {
             result = SKAction.runBlock({ () -> Void in
-                drawOrderController.applyOffsets(self.offsets)
+                drawOrderController.applyAnimationOffsets(self.offsets)
             })
         }
         return result

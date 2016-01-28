@@ -27,7 +27,7 @@ class AnimationController {
     
     private(set) var eventHandler: EventHandler = EventHandler()
     
-    init(animations: [Animation]?, bonesDict: [String: SKBoneNode]?, slotsDict: [String: SKSlotNode]?, drawOrderController: DrawOrderController, rootNode: SKBoneNode?) {
+    init(rootNode: SKBoneNode?, animations: [Animation]?, bonesDict: [String: SKBoneNode]?, slotsDict: [String: SKSlotNode]?, drawOrderController: DrawOrderController) {
 
         self.drawOrderController = drawOrderController
         self.rootNode = rootNode

@@ -10,63 +10,106 @@ import SpriteKit
 
 class DrawOrderController {
     
-    private var pose: [String: CGFloat] = [:]
+    private static var maxZPosition: CGFloat = 0
+    
+    private var animationInitialPose: [String: CGFloat] = [:]
+    
+    private var drawOrderIndex: [String: Double] = [:]
+    
     private var slotsDict: [String: SKSlotNode]
 
-    init(slotsDict: [String: SKSlotNode]) {
+    init(slots: [Slot]?, slotsDict: [String: SKSlotNode]) {
         self.slotsDict = slotsDict
+        self.drawOrderIndex = self.buildDrawOrderIndex(slots)
     }
     
-    func applyOffsets(offsets: [DrawOrderOffset]) {
-
-        self.createPoseVectorIfNeeded()
+    func setupSlotsDrawOrder() {
         
-        if offsets.isEmpty {
+        slotsDict.forEach { (_, slotNode) in
             
-          self.setupPose()
-            
-        } else {
-            
-           self.setupWithOffsets(offsets)
-        }
-    }
-    
-    private func setupWithOffsets(offsets: [DrawOrderOffset]) {
-        offsets.forEach { offset in
-            
-            if let slot = self.slotsDict[offset.slot]  {
-                
-                let beginIndex = slot.zPosition
-                let endIndex = CGFloat(slot.zPosition) + CGFloat(offset.offset)
-                
-                self.slotsDict.values.forEach { slotOfDict in
-                    
-                    if slotOfDict.zPosition >= beginIndex && slotOfDict.zPosition <= endIndex {
-                        slotOfDict.zPosition += (beginIndex < endIndex ? -1 : 1)
-                    }
-                }
-                slot.zPosition += CGFloat(offset.offset) + (beginIndex < endIndex ? 1 : -1)
+            if let slotName = slotNode.name {
+                let position: CGFloat = CGFloat(self.drawOrderIndex[slotName] ?? 0)
+                slotNode.zPosition = position
             }
         }
     }
     
-    private func setupPose() {
+    func setupRootDrawOrder(root: SKSpineNode?) {
+        root?.zPosition = DrawOrderController.maxZPosition
+        
+        if let zPosition = self.drawOrderIndex.values.maxElement() {
+            DrawOrderController.maxZPosition += CGFloat(zPosition) + 1
+        }
+    }
+    
+    private func buildDrawOrderIndex(slots: [Slot]?) -> [String: Double] {
+        
+        var result: [String: Double] = [:]
+        if let slots = slots {
+            for (index, slot) in slots.enumerate() {
+                result[slot.name] = Double(index)
+            }
+        }
+        return result
+    }
+
+    
+    func applyAnimationOffsets(offsets: [DrawOrderOffset]) {
+        
+        self.createAnimationInitialPoseVectorIfNeeded()
+        
+        if offsets.isEmpty {
+            
+            self.setupAnimationInitialPose()
+            
+        } else {
+            
+            self.setupAnimationOffset(offsets)
+        }
+    }
+    
+    private func setupAnimationOffset(offsets: [DrawOrderOffset]) {
+        
+        offsets.forEach { offset in
+            
+            if let slotToMove = self.slotsDict[offset.slot]  {
+                
+                let beginIndex = slotToMove.zPosition
+                let endIndex = CGFloat(slotToMove.zPosition) + CGFloat(offset.offset)
+                
+                self.slotsDict.forEach { (_, slot) in
+                    
+                    //shift zPositions between begin index and end index
+                    if slot.zPosition >= beginIndex && slot.zPosition <= endIndex {
+                        slot.zPosition += (beginIndex < endIndex ? -1 : 1)
+                    }
+                }
+                
+                slotToMove.zPosition += CGFloat(offset.offset) + (beginIndex < endIndex ? 1 : -1)
+            }
+        }
+    }
+    
+    private func setupAnimationInitialPose() {
+        
         self.slotsDict.forEach { (key, value) in
-            if let zIndex = self.pose[key] {
+
+            if let zIndex = self.animationInitialPose[key] {
                 value.zPosition = zIndex
             }
         }
     }
     
-    private func createPoseVectorIfNeeded() {
+    private func createAnimationInitialPoseVectorIfNeeded() {
 
-        if self.pose.isEmpty || self.pose.count != slotsDict.count {
+        if self.animationInitialPose.isEmpty || self.animationInitialPose.count != slotsDict.count {
+            
             self.slotsDict.forEach{(_, value) in
+                
                 if let nodeName = value.name {
-                    self.pose[nodeName] = value.zPosition
+                    self.animationInitialPose[nodeName] = value.zPosition
                 }
             }
         }
-
     }
 }

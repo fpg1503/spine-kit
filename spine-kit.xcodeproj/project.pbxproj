@@ -77,6 +77,7 @@
 		AF945E8A1C593C8C0062FC79 /* skin.json in Resources */ = {isa = PBXBuildFile; fileRef = AF945E881C593C8C0062FC79 /* skin.json */; };
 		AF945E8D1C5971430062FC79 /* slots.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AF945E8B1C5971430062FC79 /* slots.atlas */; };
 		AF945E8E1C5971430062FC79 /* slots.json in Resources */ = {isa = PBXBuildFile; fileRef = AF945E8C1C5971430062FC79 /* slots.json */; };
+		AF945E901C5988CB0062FC79 /* SkinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF945E8F1C5988CB0062FC79 /* SkinController.swift */; };
 		AFA547E61C53EFFC0030B0C4 /* UIColorRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA547E51C53EFFC0030B0C4 /* UIColorRGB.swift */; };
 		AFA547E71C5425A80030B0C4 /* SpineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594ACD1C34AEB000734C1C /* SpineBuilder.swift */; };
 		AFA547EA1C542E060030B0C4 /* EventKeyFrame+SKAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA547E91C542E060030B0C4 /* EventKeyFrame+SKAction.swift */; };
@@ -175,6 +176,7 @@
 		AF945E881C593C8C0062FC79 /* skin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = skin.json; sourceTree = "<group>"; };
 		AF945E8B1C5971430062FC79 /* slots.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = slots.atlas; sourceTree = "<group>"; };
 		AF945E8C1C5971430062FC79 /* slots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = slots.json; sourceTree = "<group>"; };
+		AF945E8F1C5988CB0062FC79 /* SkinController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkinController.swift; sourceTree = "<group>"; };
 		AFA547E51C53EFFC0030B0C4 /* UIColorRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorRGB.swift; sourceTree = "<group>"; };
 		AFA547E91C542E060030B0C4 /* EventKeyFrame+SKAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventKeyFrame+SKAction.swift"; sourceTree = "<group>"; };
 		AFA547EB1C54DE100030B0C4 /* EventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 				AFA547EB1C54DE100030B0C4 /* EventHandler.swift */,
 				AF3100A91C5146F70076F440 /* TimelineBuilder.swift */,
 				AF89CE911C58601300DF5377 /* DrawOrderController.swift */,
+				AF945E8F1C5988CB0062FC79 /* SkinController.swift */,
 			);
 			path = spritekit;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				AF89CE921C58601300DF5377 /* DrawOrderController.swift in Sources */,
 				AFA547EC1C54DE100030B0C4 /* EventHandler.swift in Sources */,
 				AFA547EA1C542E060030B0C4 /* EventKeyFrame+SKAction.swift in Sources */,
+				AF945E901C5988CB0062FC79 /* SkinController.swift in Sources */,
 				AF594ABF1C34AE5E00734C1C /* ScaleKeyFrame.swift in Sources */,
 				AF594AA41C34AD8400734C1C /* SpineModel.swift in Sources */,
 				AF594ACB1C34AE9100734C1C /* UIColoFromHexString.swift in Sources */,

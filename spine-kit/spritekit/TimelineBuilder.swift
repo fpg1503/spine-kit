@@ -13,7 +13,7 @@ class TimelineBuilder {
     private(set) var maxDuration: Double = 0
     
     init(animation: Animation) {
-        
+        //Think how to remove animation from here
         animation.slotTimelines.forEach { timeline in
             self.maxDuration = self.maxKeyFramesDuration(timeline.attachment.last, timeline.color.last, currentMax: maxDuration)
         }

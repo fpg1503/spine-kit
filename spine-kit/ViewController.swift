@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         scene.scaleMode = SKSceneScaleMode.AspectFill
 
         let spineBuilder = SpineBuilder()
-        
+
         if let node = spineBuilder.build("dragon") {
 
             node.position = self.view.center
@@ -36,7 +36,8 @@ class ViewController: UIViewController {
             node.play("flying")
             scene.addChild(node)
         }
-        
+
+
         skView.ignoresSiblingOrder = true
         skView.presentScene(scene)
         skView.frameInterval = 2
