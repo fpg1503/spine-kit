@@ -29,15 +29,14 @@ class ViewController: UIViewController {
 
         let spineBuilder = SpineBuilder()
 
-        if let node = spineBuilder.build("dragon") {
+        if let node = spineBuilder.build("draw_order") {
 
             node.position = self.view.center
             node.runAction(SKAction.scaleTo(0.4, duration: 0.0))
-            node.play("flying")
+            node.play("switching")
             scene.addChild(node)
         }
-
-
+        
         skView.ignoresSiblingOrder = true
         skView.presentScene(scene)
         skView.frameInterval = 2

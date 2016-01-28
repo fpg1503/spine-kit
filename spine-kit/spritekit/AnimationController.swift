@@ -12,13 +12,7 @@ typealias AnimationCallback = () -> Void
 class AnimationController {
     
     private let animationsDict: [String: Animation] = [:]
-    
-    private  var bonesDict: [String: SKBoneNode] = [:]
-    
-    private var slotsDict: [String: SKSlotNode] = [:]
-    
-    private var drawOrderController: DrawOrderController
-    
+
     private var timelineBuilder: TimelineBuilder? = nil
     
     private var rootNode: SKBoneNode? = nil
@@ -27,56 +21,42 @@ class AnimationController {
     
     private(set) var eventHandler: EventHandler = EventHandler()
     
-    init(rootNode: SKBoneNode?, animations: [Animation]?, bonesDict: [String: SKBoneNode]?, slotsDict: [String: SKSlotNode]?, drawOrderController: DrawOrderController) {
+    init(rootNode: SKBoneNode?, animations: [Animation]?) {
 
-        self.drawOrderController = drawOrderController
         self.rootNode = rootNode
-        
-        if let bonesDict = bonesDict {
-            self.bonesDict = bonesDict
-         
-        }
-
-        if let slotsDict = slotsDict {
-            self.slotsDict = slotsDict
-        }
         
         if let animations = animations {
             animations.forEach{ animation in self.animationsDict[animation.name] = animation }
         }
     }
-    
-    func findBoneNode(name: String) -> SKNode? {
-        return self.bonesDict[name] ?? nil
-    }
 
-    func findSlotNode(name: String) -> SKNode? {
-        return self.slotsDict[name] ?? nil
-    }
-
-    func stop() {
-        self.bonesDict.forEach { (_, bone) in bone.removeAllActions() }
-        self.slotsDict.forEach { (_, slot) in slot.removeAllActions() }
+    func stop(bonesDict bonesDict: [String: SKBoneNode]?, slotsDict: [String: SKSlotNode]?) {
+        bonesDict?.forEach { (_, bone) in bone.removeAllActions() }
+        slotsDict?.forEach { (_, slot) in slot.removeAllActions() }
         self.rootNode?.setupPose()
         self.playing = false
     }
     
-    func play(animationName: String, times: Int?, merge: Bool? = false, completion: AnimationCallback? = nil) {
+    func setupPose(bonesDict: [String: SKBoneNode]?) {
+        bonesDict?.forEach { (_, bone) in bone.setupPose() }
+    }
+    
+    func animate(animationName: String, bonesDict: [String: SKBoneNode]?, slotsDict: [String: SKSlotNode]?, times: Int?, merge: Bool? = false, completion: AnimationCallback? = nil) {
         
         let animation: Animation? = self.animationsDict[animationName]
 
         if  let animation = animation, let merge = merge {
         
             if self.playing && !merge {
-                self.stop()
+                self.stop(bonesDict: bonesDict, slotsDict: slotsDict)
             }
 
             self.timelineBuilder = self.createTimelineBuilder(animation)
             
-            self.addActionsToBones(animation, times: times)
-            self.addActionsToSlots(animation, times: times)
+            self.addActionsToBones(animation, bonesDict: bonesDict, times: times)
+            self.addActionsToSlots(animation, slotsDict: slotsDict, times: times)
             self.addEventsToRootNode(animation, times: times)
-            self.addDrawOrderToRootNode(animation, times: times)
+            self.addDrawOrderToRootNode(animation, slotsDict: slotsDict, times: times)
             self.addCompletionTimeline(times: times, completion: completion)
             
             self.playing = true
@@ -115,11 +95,11 @@ class AnimationController {
         }
     }
     
-    private func addDrawOrderToRootNode(animation: Animation, times: Int?) {
+    private func addDrawOrderToRootNode(animation: Animation, slotsDict: [String: SKSlotNode]?, times: Int?) {
         
-        if let timelineBuilder = self.timelineBuilder where !animation.drawOrderTimeline.isEmpty {
+        if let timelineBuilder = self.timelineBuilder, let slotsDict = slotsDict where !animation.drawOrderTimeline.isEmpty {
             
-            let drawOrderActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(self.drawOrderController, keyframes: animation.drawOrderTimeline)
+            let drawOrderActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(slotsDict, keyframes: animation.drawOrderTimeline)
             let timeline = timelineBuilder.buildTimelineSKActions(drawOrderActions, times: times)
             
             if let  action = timeline.action {
@@ -128,11 +108,11 @@ class AnimationController {
         }
     }
     
-    private func addActionsToBones(animation: Animation, times: Int?) {
+    private func addActionsToBones(animation: Animation, bonesDict: [String: SKBoneNode]?, times: Int?) {
         
         for boneTimeline in animation.boneTimelines {
             
-            if let boneName = boneTimeline.name, let bone = self.bonesDict[boneName], let timelineBuilder = self.timelineBuilder {
+            if let boneName = boneTimeline.name, let bone = bonesDict?[boneName], let timelineBuilder = self.timelineBuilder {
                 
                 let translateActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(bone, keyframes: boneTimeline.translate)
                 let scaleActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(bone, keyframes: boneTimeline.scale)
@@ -147,11 +127,11 @@ class AnimationController {
         }
     }
     
-    private func addActionsToSlots(animation: Animation, times: Int?) {
+    private func addActionsToSlots(animation: Animation, slotsDict: [String: SKSlotNode]?, times: Int?) {
         
         for slotTimeline in animation.slotTimelines {
             
-            if let slotName = slotTimeline.name, let slot = self.slotsDict[slotName], let timelineBuilder = self.timelineBuilder {
+            if let slotName = slotTimeline.name, let slot = slotsDict?[slotName], let timelineBuilder = self.timelineBuilder {
                 
                 let colorActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(slot, keyframes: slotTimeline.color)
                 let attachmentActions: [SKAction]? = timelineBuilder.buildSKActionsTimeline(slot, keyframes: slotTimeline.attachment)
@@ -183,9 +163,5 @@ class AnimationController {
         animation.drawOrderTimeline.forEach { keyframe in keyframes.append(keyframe)}
         
         return TimelineBuilder(keyframes: keyframes)
-    }
-    
-    deinit {
-        self.stop()
     }
 }

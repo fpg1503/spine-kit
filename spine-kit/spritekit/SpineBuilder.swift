@@ -21,7 +21,8 @@ class SpineBuilder {
         let json = FileHelper.loadTextFile(name, type: "json")
         let spine = SpineParse().parse(name, data: json)
         let atlas = SKTextureAtlas(named: name)
-        
+        let drawOrderController = DrawOrderController()
+
         let skinController = SkinController(skins: spine?.skins)
         
         let currentSkin = skinController.findSkinByName(spine?.defaultSkin)
@@ -31,18 +32,17 @@ class SpineBuilder {
             let bonesDict = buildBonesDict(bones)
             let slotsDict = buildSlotDict(slots, skin: skin, atlas: atlas)
 
-            let drawOrderController = DrawOrderController(slots: spine.slots, slotsDict: slotsDict)
-            let animationController = AnimationController(
-                rootNode: bonesDict[self.rootNodeName],
-                animations: animations,
-                bonesDict: bonesDict,
-                slotsDict: slotsDict,
-                drawOrderController: drawOrderController)
+            let animationController = AnimationController(rootNode: bonesDict[self.rootNodeName], animations: animations)
             
-            root = buildSpineRootNode(animationController: animationController, skinController: skinController, spine: spine, bonesDict:bonesDict, slotsDict: slotsDict)
+            root = buildSpineRootNode(
+                animationController: animationController,
+                skinController: skinController,
+                drawOrderController: drawOrderController,
+                spine: spine,
+                bonesDict:bonesDict,
+                slotsDict: slotsDict)
             
-            drawOrderController.setupRootDrawOrder(root)
-            drawOrderController.setupSlotsDrawOrder()
+            drawOrderController.setupDrawOrder(spine.slots, slotsDict: slotsDict, root: root)
             
             root?.setupPose()
         }
@@ -50,13 +50,17 @@ class SpineBuilder {
         return root
     }
     
-    private func buildSpineRootNode(animationController animationController: AnimationController, skinController: SkinController, spine: SpineModel, bonesDict: [String: SKBoneNode], slotsDict: [String: SKSlotNode]) -> SKSpineNode? {
+    private func buildSpineRootNode(animationController animationController: AnimationController, skinController: SkinController, drawOrderController: DrawOrderController, spine: SpineModel, bonesDict: [String: SKBoneNode], slotsDict: [String: SKSlotNode]) -> SKSpineNode? {
         
-        let spineNode: SKSpineNode? = SKSpineNode(animationController: animationController, skinController: skinController)
+        let spineNode = SKSpineNode(
+            animationController: animationController,
+            skinController: skinController,
+            drawOrderController: drawOrderController,
+            bonesDict: bonesDict, slotsDict: slotsDict)
         
         if let rootNode = bonesDict[self.rootNodeName], slots = spine.slots {
             
-            spineNode?.addChild(rootNode)
+            spineNode.addChild(rootNode)
             
             for slot in slots {
 
@@ -72,7 +76,6 @@ class SpineBuilder {
         
         return spineNode
     }
-    
     
     private func buildBonesDict(bones: [Bone]) -> [String: SKBoneNode] {
 

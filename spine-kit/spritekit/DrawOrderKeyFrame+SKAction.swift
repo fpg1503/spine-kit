@@ -13,12 +13,46 @@ extension DrawOrderKeyFrame: SKActionKeyFrame {
         
         var result: SKAction? = nil
         
-        if let drawOrderController = context as? DrawOrderController {
+        if let slotsDict = context as? [String: SKSlotNode] {
+            
             result = SKAction.runBlock({ () -> Void in
-                drawOrderController.applyAnimationOffsets(self.offsets)
-            })
+                
+                    if self.offsets.isEmpty {
+                        
+                        slotsDict.forEach { (_, slot) in slot.revertDrawOrderModifications() }
+                        
+                    } else {
+                        
+                        self.setupAnimationOffset(self.offsets, slotsDict: slotsDict)
+                    }
+                }
+            )
         }
         return result
+    }
+    
+    private func setupAnimationOffset(offsets: [DrawOrderOffset], slotsDict: [String: SKSlotNode]) {
+        
+        offsets.forEach { offset in
+            
+            if let slotToMove = slotsDict[offset.slot], let _ = slotToMove.drawOrder  {
+                
+                let beginIndex = slotToMove.zPosition
+                let endIndex = CGFloat(slotToMove.zPosition) + CGFloat(offset.offset)
+                
+                slotsDict.forEach { (_, slot) in
+                    
+                    //shift zPositions between begin index and end index
+                    if let _ = slot.drawOrder where slot.zPosition >= beginIndex && slot.zPosition <= endIndex {
+                        let offset = (beginIndex < endIndex ? -1 : 1)
+                        slot.addDrawOrderModification(offset)
+                    }
+                }
+                
+                let offset = offset.offset + (beginIndex < endIndex ? 1 : -1)
+                slotToMove.addDrawOrderModification(offset)
+            }
+        }
     }
     
     func animationTime() -> Double {

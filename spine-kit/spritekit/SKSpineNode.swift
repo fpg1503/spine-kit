@@ -14,11 +14,18 @@ class SKSpineNode: SKNode {
     
     private var animationController: AnimationController?
     private var skinController: SkinController?
-
-    init(animationController: AnimationController?, skinController: SkinController) {
+    private var drawOrderController: DrawOrderController?
+    
+    private var bonesDict: [String: SKBoneNode] = [:]
+    private var slotsDict: [String: SKSlotNode] = [:]
+    
+    init(animationController: AnimationController, skinController: SkinController, drawOrderController: DrawOrderController, bonesDict: [String: SKBoneNode], slotsDict: [String: SKSlotNode]) {
         super.init()
         self.animationController = animationController
+        self.drawOrderController = drawOrderController
         self.skinController = skinController
+        self.slotsDict = slotsDict
+        self.bonesDict = bonesDict
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,9 +33,7 @@ class SKSpineNode: SKNode {
     }
     
     func play(name: String, times: Int? = nil, merge: Bool? = false, completion: AnimationCallback? = nil) {
-        if let animationController = self.animationController {
-            animationController.play(name, times: times, merge: merge, completion: completion)
-        }
+        animationController?.animate(name, bonesDict: self.bonesDict, slotsDict: self.slotsDict, times: times, merge: merge, completion: completion)
     }
     
     func pause() {
@@ -40,7 +45,7 @@ class SKSpineNode: SKNode {
     }
 
     func stop() {
-        animationController?.stop()
+        animationController?.stop(bonesDict: self.bonesDict, slotsDict: self.slotsDict)
     }
     
     func changeSkin(name: String) {
@@ -68,20 +73,20 @@ class SKSpineNode: SKNode {
     func removeEventFunctions(eventName: String) -> Bool {
         return animationController?.eventHandler.removeEventFunctions(eventName) ?? false
     }
-
+    
     func findBoneNode(name: String) -> SKNode? {
-        return animationController?.findBoneNode(name)
+        return self.bonesDict[name] ?? nil
     }
-
+    
     func findSlotNode(name: String) -> SKNode? {
-        return animationController?.findSlotNode(name)
+        return self.slotsDict[name] ?? nil
     }
-
+    
     func setupPose() {
-        self.children.forEach { child in
-            if let boneChild = child as? SKBoneNode {
-                boneChild.setupPose()
-            }
-        }
+        animationController?.setupPose(self.bonesDict)
+    }
+    
+    deinit {
+        self.stop()
     }
 }
