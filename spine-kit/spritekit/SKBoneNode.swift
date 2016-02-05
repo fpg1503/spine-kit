@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class SKBoneNode: SKNode {
+class SKBoneNode: SKNode, BoneNodeType {
     
     private var bone: Bone?
     
@@ -18,7 +18,7 @@ class SKBoneNode: SKNode {
         super.init(coder: aDecoder)
     }
     
-    init(bone: Bone) {
+    required init(bone: Bone) {
         super.init()
         
         self.name = bone.name

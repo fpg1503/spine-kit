@@ -12,6 +12,9 @@
 		A36A222D1C64F9960099156B /* ActionPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A222C1C64F9960099156B /* ActionPerformer.swift */; };
 		A36A222F1C64F9CD0099156B /* SKNode+NodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A222E1C64F9CD0099156B /* SKNode+NodeType.swift */; };
 		A36A22311C64F9F10099156B /* SKAction+ActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A22301C64F9F10099156B /* SKAction+ActionType.swift */; };
+		A36A22331C64FC260099156B /* BoneNodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A22321C64FC260099156B /* BoneNodeType.swift */; };
+		A36A22351C6524800099156B /* SlotNodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A22341C6524800099156B /* SlotNodeType.swift */; };
+		A36A22371C6526270099156B /* SpineNodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A22361C6526270099156B /* SpineNodeType.swift */; };
 		AF3100AA1C5146F70076F440 /* TimelineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3100A91C5146F70076F440 /* TimelineBuilder.swift */; };
 		AF3100AD1C5149980076F440 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3100AC1C5149980076F440 /* MathUtils.swift */; };
 		AF40455C1C34B1F300F7E3CE /* Curve.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AC11C34AE6D00734C1C /* Curve.swift */; };
@@ -128,6 +131,9 @@
 		A36A222C1C64F9960099156B /* ActionPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionPerformer.swift; sourceTree = "<group>"; };
 		A36A222E1C64F9CD0099156B /* SKNode+NodeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+NodeType.swift"; sourceTree = "<group>"; };
 		A36A22301C64F9F10099156B /* SKAction+ActionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKAction+ActionType.swift"; sourceTree = "<group>"; };
+		A36A22321C64FC260099156B /* BoneNodeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoneNodeType.swift; sourceTree = "<group>"; };
+		A36A22341C6524800099156B /* SlotNodeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlotNodeType.swift; sourceTree = "<group>"; };
+		A36A22361C6526270099156B /* SpineNodeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpineNodeType.swift; sourceTree = "<group>"; };
 		AF3100A91C5146F70076F440 /* TimelineBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineBuilder.swift; sourceTree = "<group>"; };
 		AF3100AC1C5149980076F440 /* MathUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
 		AF4045971C35794600F7E3CE /* alien.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = alien.atlas; sourceTree = "<group>"; };
@@ -253,6 +259,9 @@
 			isa = PBXGroup;
 			children = (
 				A36A22281C64F9160099156B /* NodeType.swift */,
+				A36A22321C64FC260099156B /* BoneNodeType.swift */,
+				A36A22341C6524800099156B /* SlotNodeType.swift */,
+				A36A22361C6526270099156B /* SpineNodeType.swift */,
 			);
 			path = nodes;
 			sourceTree = "<group>";
@@ -671,6 +680,7 @@
 				AF594A811C34AD5500734C1C /* SpineParse.swift in Sources */,
 				AF594ABB1C34AE5E00734C1C /* AttachmentKeyFrame.swift in Sources */,
 				AFFF4B6F1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift in Sources */,
+				A36A22371C6526270099156B /* SpineNodeType.swift in Sources */,
 				AFFF4B7F1C45750900D7FD61 /* Bezier.swift in Sources */,
 				AFA547E61C53EFFC0030B0C4 /* UIColorRGB.swift in Sources */,
 				A36A22311C64F9F10099156B /* SKAction+ActionType.swift in Sources */,
@@ -678,6 +688,7 @@
 				AF515CB61C4C4516006FED09 /* SKSlotNode.swift in Sources */,
 				AF594A531C34ACAC00734C1C /* ViewController.swift in Sources */,
 				AF594AC01C34AE5E00734C1C /* TranslateKeyFrame.swift in Sources */,
+				A36A22351C6524800099156B /* SlotNodeType.swift in Sources */,
 				A36A222F1C64F9CD0099156B /* SKNode+NodeType.swift in Sources */,
 				AF594A511C34ACAC00734C1C /* AppDelegate.swift in Sources */,
 				AF594AB41C34AE4600734C1C /* SlotTimeline.swift in Sources */,
@@ -685,6 +696,7 @@
 				A36A22291C64F9160099156B /* NodeType.swift in Sources */,
 				AF594AC91C34AE9100734C1C /* FileHelper.swift in Sources */,
 				AFFF4B7D1C453E4100D7FD61 /* AnimationController.swift in Sources */,
+				A36A22331C64FC260099156B /* BoneNodeType.swift in Sources */,
 				AF3100AD1C5149980076F440 /* MathUtils.swift in Sources */,
 				AFFF4B771C45393700D7FD61 /* ScaleKeyFrame+SKAction.swift in Sources */,
 				AF594ACA1C34AE9100734C1C /* JSONDecodable.swift in Sources */,

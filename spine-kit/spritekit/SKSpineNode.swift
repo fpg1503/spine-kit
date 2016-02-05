@@ -10,7 +10,10 @@ import SpriteKit
 
 
 
-class SKSpineNode: SKNode {
+class SKSpineNode: SKNode, SpineNodeType {
+    
+    typealias BoneType = SKBoneNode
+    typealias SlotType = SKSlotNode
     
     private var animationController: AnimationController?
     private var skinController: SkinController?
@@ -20,7 +23,7 @@ class SKSpineNode: SKNode {
     private var bonesDict: [String: SKBoneNode] = [:]
     private var slotsDict: [String: SKSlotNode] = [:]
     
-    init(animationController: AnimationController, skinController: SkinController, drawOrderController: DrawOrderController, bonesDict: [String: SKBoneNode], slotsDict: [String: SKSlotNode], canChangeSkin: Bool) {
+    required init(animationController: AnimationController, skinController: SkinController, drawOrderController: DrawOrderController, bonesDict: [String: SKBoneNode], slotsDict: [String: SKSlotNode], canChangeSkin: Bool) {
         super.init()
         self.animationController = animationController
         self.drawOrderController = drawOrderController
@@ -82,11 +85,11 @@ class SKSpineNode: SKNode {
         return animationController?.eventHandler.removeEventFunctions(eventName) ?? false
     }
     
-    func findBoneNode(name: String) -> SKNode? {
+    func findBoneNode(name: String) -> SKBoneNode? {
         return self.bonesDict[name] ?? nil
     }
     
-    func findSlotNode(name: String) -> SKNode? {
+    func findSlotNode(name: String) -> SKSlotNode? {
         return self.slotsDict[name] ?? nil
     }
     

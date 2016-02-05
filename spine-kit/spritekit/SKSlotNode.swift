@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class SKSlotNode: SKSpriteNode {
+class SKSlotNode: SKSpriteNode, SlotNodeType {
     
     private var slot: Slot?
     
@@ -20,7 +20,7 @@ class SKSlotNode: SKSpriteNode {
     
     private var drawOrderModifications: Int = 0
     
-    init(slot: Slot) {
+    required init(slot: Slot) {
         super.init(texture: SKTexture(), color: UIColor.clearColor(), size: CGSize.zero)
         
         self.name = slot.name
