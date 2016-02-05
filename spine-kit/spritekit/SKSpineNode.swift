@@ -62,16 +62,6 @@ class SKSpineNode: SKNode, SpineNodeType {
         }
         return canChangeSkin
     }
-    
-    func addSpineNodeToBone(name: String, node: SKSpineNode) -> Bool {
-        //TODO
-        return true
-    }
-    
-    func removeSpineNodeFromBone(name: String, node: SKSpineNode) -> Bool {
-        //TODO
-        return true
-    }
 
     func registerToEvent(eventName: String, functionId: String? = nil, function: SpineKitEventFunction) {
         animationController?.eventHandler.registerToEvent(eventName, functionId: functionId, function: function)

@@ -23,20 +23,12 @@ protocol SpineNodeType: NodeType {
     func stop()
     
     func changeSkin(name: String) -> Bool
-    func addSpineNodeToBone(name: String, node: Self) -> Bool
-    
-    func removeSpineNodeFromBone(name: String, node: Self) -> Bool
-    
     func registerToEvent(eventName: String, functionId: String?, function: SpineKitEventFunction)
     
     func unregisterToEvent(eventName: String, functionId: String?) -> Bool
-    
     func removeEventFunctions(eventName: String) -> Bool
-    
     func findBoneNode(name: String) -> BoneNode?
-    
     func findSlotNode(name: String) -> SlotNode?
-    
     func setupPose()
 
 }
