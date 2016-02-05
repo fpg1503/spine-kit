@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A36A22291C64F9160099156B /* NodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A22281C64F9160099156B /* NodeType.swift */; };
+		A36A222B1C64F9660099156B /* ActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A222A1C64F9660099156B /* ActionType.swift */; };
+		A36A222D1C64F9960099156B /* ActionPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A222C1C64F9960099156B /* ActionPerformer.swift */; };
+		A36A222F1C64F9CD0099156B /* SKNode+NodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A222E1C64F9CD0099156B /* SKNode+NodeType.swift */; };
+		A36A22311C64F9F10099156B /* SKAction+ActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A22301C64F9F10099156B /* SKAction+ActionType.swift */; };
 		AF3100AA1C5146F70076F440 /* TimelineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3100A91C5146F70076F440 /* TimelineBuilder.swift */; };
 		AF3100AD1C5149980076F440 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3100AC1C5149980076F440 /* MathUtils.swift */; };
 		AF40455C1C34B1F300F7E3CE /* Curve.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AC11C34AE6D00734C1C /* Curve.swift */; };
@@ -85,8 +90,6 @@
 		AFA547F21C5542580030B0C4 /* dragon-bite.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AFA547F11C5542580030B0C4 /* dragon-bite.mp3 */; };
 		AFAF3FE01C5801210072F393 /* bezier.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AFAF3FDE1C5801210072F393 /* bezier.atlas */; };
 		AFAF3FE11C5801210072F393 /* bezier.json in Resources */ = {isa = PBXBuildFile; fileRef = AFAF3FDF1C5801210072F393 /* bezier.json */; };
-		AFAF3FE41C5823B80072F393 /* movile.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AFAF3FE21C5823B80072F393 /* movile.atlas */; };
-		AFAF3FE51C5823B80072F393 /* movile.json in Resources */ = {isa = PBXBuildFile; fileRef = AFAF3FE31C5823B80072F393 /* movile.json */; };
 		AFAF3FE81C5844540072F393 /* merging.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AFAF3FE61C5844540072F393 /* merging.atlas */; };
 		AFAF3FE91C5844540072F393 /* merging.json in Resources */ = {isa = PBXBuildFile; fileRef = AFAF3FE71C5844540072F393 /* merging.json */; };
 		AFAF3FEC1C5846740072F393 /* draw_order.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AFAF3FEA1C5846740072F393 /* draw_order.atlas */; };
@@ -120,6 +123,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A36A22281C64F9160099156B /* NodeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeType.swift; sourceTree = "<group>"; };
+		A36A222A1C64F9660099156B /* ActionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionType.swift; sourceTree = "<group>"; };
+		A36A222C1C64F9960099156B /* ActionPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionPerformer.swift; sourceTree = "<group>"; };
+		A36A222E1C64F9CD0099156B /* SKNode+NodeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+NodeType.swift"; sourceTree = "<group>"; };
+		A36A22301C64F9F10099156B /* SKAction+ActionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKAction+ActionType.swift"; sourceTree = "<group>"; };
 		AF3100A91C5146F70076F440 /* TimelineBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineBuilder.swift; sourceTree = "<group>"; };
 		AF3100AC1C5149980076F440 /* MathUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
 		AF4045971C35794600F7E3CE /* alien.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = alien.atlas; sourceTree = "<group>"; };
@@ -183,8 +191,6 @@
 		AFA547F11C5542580030B0C4 /* dragon-bite.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "dragon-bite.mp3"; sourceTree = "<group>"; };
 		AFAF3FDE1C5801210072F393 /* bezier.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bezier.atlas; sourceTree = "<group>"; };
 		AFAF3FDF1C5801210072F393 /* bezier.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bezier.json; sourceTree = "<group>"; };
-		AFAF3FE21C5823B80072F393 /* movile.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = movile.atlas; sourceTree = "<group>"; };
-		AFAF3FE31C5823B80072F393 /* movile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movile.json; sourceTree = "<group>"; };
 		AFAF3FE61C5844540072F393 /* merging.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = merging.atlas; sourceTree = "<group>"; };
 		AFAF3FE71C5844540072F393 /* merging.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = merging.json; sourceTree = "<group>"; };
 		AFAF3FEA1C5846740072F393 /* draw_order.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = draw_order.atlas; sourceTree = "<group>"; };
@@ -225,6 +231,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A36A22241C64F8C00099156B /* types */ = {
+			isa = PBXGroup;
+			children = (
+				A36A22271C64F8FD0099156B /* nodes */,
+				A36A22261C64F8FD0099156B /* actions */,
+			);
+			path = types;
+			sourceTree = "<group>";
+		};
+		A36A22261C64F8FD0099156B /* actions */ = {
+			isa = PBXGroup;
+			children = (
+				A36A222A1C64F9660099156B /* ActionType.swift */,
+				A36A222C1C64F9960099156B /* ActionPerformer.swift */,
+			);
+			path = actions;
+			sourceTree = "<group>";
+		};
+		A36A22271C64F8FD0099156B /* nodes */ = {
+			isa = PBXGroup;
+			children = (
+				A36A22281C64F9160099156B /* NodeType.swift */,
+			);
+			path = nodes;
+			sourceTree = "<group>";
+		};
 		AF3100AE1C5149A00076F440 /* math */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,8 +293,6 @@
 				AF945E881C593C8C0062FC79 /* skin.json */,
 				AFAF3FEA1C5846740072F393 /* draw_order.atlas */,
 				AFAF3FEB1C5846740072F393 /* draw_order.json */,
-				AFAF3FE21C5823B80072F393 /* movile.atlas */,
-				AFAF3FE31C5823B80072F393 /* movile.json */,
 				AFAF3FE61C5844540072F393 /* merging.atlas */,
 				AFAF3FE71C5844540072F393 /* merging.json */,
 				AFAF3FDE1C5801210072F393 /* bezier.atlas */,
@@ -306,6 +336,7 @@
 			children = (
 				AF594A7E1C34AD2600734C1C /* data */,
 				AF594ACF1C34AEB900734C1C /* resources */,
+				A36A22241C64F8C00099156B /* types */,
 				AF594ACC1C34AE9F00734C1C /* spritekit */,
 				AF594AC51C34AE7F00734C1C /* utils */,
 				AF594A501C34ACAC00734C1C /* AppDelegate.swift */,
@@ -447,6 +478,7 @@
 		AFFF4B821C457C2100D7FD61 /* actions */ = {
 			isa = PBXGroup;
 			children = (
+				A36A22301C64F9F10099156B /* SKAction+ActionType.swift */,
 				AF6A776A1C4590290032514F /* SKActionKeyFrame.swift */,
 				AFFF4B6E1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift */,
 				AFA547E91C542E060030B0C4 /* EventKeyFrame+SKAction.swift */,
@@ -462,6 +494,7 @@
 		AFFF4B831C457C3300D7FD61 /* nodes */ = {
 			isa = PBXGroup;
 			children = (
+				A36A222E1C64F9CD0099156B /* SKNode+NodeType.swift */,
 				AFFF4B6B1C45356400D7FD61 /* SKBoneNode.swift */,
 				AF515CB51C4C4516006FED09 /* SKSlotNode.swift */,
 				AFFF4B641C44751900D7FD61 /* SKSpineNode.swift */,
@@ -576,11 +609,9 @@
 				AF594A5B1C34ACAC00734C1C /* LaunchScreen.storyboard in Resources */,
 				AF4045AD1C35794600F7E3CE /* spinosaurus.atlas in Resources */,
 				AF4045AE1C35794600F7E3CE /* spinosaurus.json in Resources */,
-				AFAF3FE51C5823B80072F393 /* movile.json in Resources */,
 				AFAF3FE01C5801210072F393 /* bezier.atlas in Resources */,
 				AFAF3FE91C5844540072F393 /* merging.json in Resources */,
 				AF594A581C34ACAC00734C1C /* Assets.xcassets in Resources */,
-				AFAF3FE41C5823B80072F393 /* movile.atlas in Resources */,
 				AF4045A71C35794600F7E3CE /* powerup.atlas in Resources */,
 				AF4045A61C35794600F7E3CE /* dragon.json in Resources */,
 				AF945E8D1C5971430062FC79 /* slots.atlas in Resources */,
@@ -642,12 +673,16 @@
 				AFFF4B6F1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift in Sources */,
 				AFFF4B7F1C45750900D7FD61 /* Bezier.swift in Sources */,
 				AFA547E61C53EFFC0030B0C4 /* UIColorRGB.swift in Sources */,
+				A36A22311C64F9F10099156B /* SKAction+ActionType.swift in Sources */,
 				AFFF4B6C1C45356400D7FD61 /* SKBoneNode.swift in Sources */,
 				AF515CB61C4C4516006FED09 /* SKSlotNode.swift in Sources */,
 				AF594A531C34ACAC00734C1C /* ViewController.swift in Sources */,
 				AF594AC01C34AE5E00734C1C /* TranslateKeyFrame.swift in Sources */,
+				A36A222F1C64F9CD0099156B /* SKNode+NodeType.swift in Sources */,
 				AF594A511C34ACAC00734C1C /* AppDelegate.swift in Sources */,
 				AF594AB41C34AE4600734C1C /* SlotTimeline.swift in Sources */,
+				A36A222D1C64F9960099156B /* ActionPerformer.swift in Sources */,
+				A36A22291C64F9160099156B /* NodeType.swift in Sources */,
 				AF594AC91C34AE9100734C1C /* FileHelper.swift in Sources */,
 				AFFF4B7D1C453E4100D7FD61 /* AnimationController.swift in Sources */,
 				AF3100AD1C5149980076F440 /* MathUtils.swift in Sources */,
@@ -665,6 +700,7 @@
 				AFA547EA1C542E060030B0C4 /* EventKeyFrame+SKAction.swift in Sources */,
 				AF945E901C5988CB0062FC79 /* SkinController.swift in Sources */,
 				AF594ABF1C34AE5E00734C1C /* ScaleKeyFrame.swift in Sources */,
+				A36A222B1C64F9660099156B /* ActionType.swift in Sources */,
 				AF594AA41C34AD8400734C1C /* SpineModel.swift in Sources */,
 				AF594ACB1C34AE9100734C1C /* UIColoFromHexString.swift in Sources */,
 			);
