@@ -10,6 +10,8 @@ import SpriteKit
 
 class SKSlotNode: SKSpriteNode, SlotNodeType {
     
+    typealias TextureAtlas = SKTextureAtlas
+    
     private var slot: Slot?
     
     private var region: [String: (attachment: Attachment, texture: SKTexture)] = [:]

@@ -15,6 +15,10 @@
 		A36A22331C64FC260099156B /* BoneNodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A22321C64FC260099156B /* BoneNodeType.swift */; };
 		A36A22351C6524800099156B /* SlotNodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A22341C6524800099156B /* SlotNodeType.swift */; };
 		A36A22371C6526270099156B /* SpineNodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A22361C6526270099156B /* SpineNodeType.swift */; };
+		A36A223A1C65537B0099156B /* TextureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A22391C65537B0099156B /* TextureType.swift */; };
+		A36A223C1C6553890099156B /* TextureAtlasType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A223B1C6553890099156B /* TextureAtlasType.swift */; };
+		A36A223E1C65548C0099156B /* SKTexture+TextureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A223D1C65548C0099156B /* SKTexture+TextureType.swift */; };
+		A36A22411C6554B60099156B /* SKTextureAtals+TextureAtlasType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A22401C6554B60099156B /* SKTextureAtals+TextureAtlasType.swift */; };
 		AF3100AA1C5146F70076F440 /* TimelineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3100A91C5146F70076F440 /* TimelineBuilder.swift */; };
 		AF3100AD1C5149980076F440 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3100AC1C5149980076F440 /* MathUtils.swift */; };
 		AF40455C1C34B1F300F7E3CE /* Curve.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF594AC11C34AE6D00734C1C /* Curve.swift */; };
@@ -134,6 +138,10 @@
 		A36A22321C64FC260099156B /* BoneNodeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoneNodeType.swift; sourceTree = "<group>"; };
 		A36A22341C6524800099156B /* SlotNodeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlotNodeType.swift; sourceTree = "<group>"; };
 		A36A22361C6526270099156B /* SpineNodeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpineNodeType.swift; sourceTree = "<group>"; };
+		A36A22391C65537B0099156B /* TextureType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextureType.swift; sourceTree = "<group>"; };
+		A36A223B1C6553890099156B /* TextureAtlasType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextureAtlasType.swift; sourceTree = "<group>"; };
+		A36A223D1C65548C0099156B /* SKTexture+TextureType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKTexture+TextureType.swift"; sourceTree = "<group>"; };
+		A36A22401C6554B60099156B /* SKTextureAtals+TextureAtlasType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKTextureAtals+TextureAtlasType.swift"; sourceTree = "<group>"; };
 		AF3100A91C5146F70076F440 /* TimelineBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineBuilder.swift; sourceTree = "<group>"; };
 		AF3100AC1C5149980076F440 /* MathUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
 		AF4045971C35794600F7E3CE /* alien.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = alien.atlas; sourceTree = "<group>"; };
@@ -242,6 +250,7 @@
 			children = (
 				A36A22271C64F8FD0099156B /* nodes */,
 				A36A22261C64F8FD0099156B /* actions */,
+				A36A22381C6553490099156B /* textures */,
 			);
 			path = types;
 			sourceTree = "<group>";
@@ -264,6 +273,24 @@
 				A36A22361C6526270099156B /* SpineNodeType.swift */,
 			);
 			path = nodes;
+			sourceTree = "<group>";
+		};
+		A36A22381C6553490099156B /* textures */ = {
+			isa = PBXGroup;
+			children = (
+				A36A22391C65537B0099156B /* TextureType.swift */,
+				A36A223B1C6553890099156B /* TextureAtlasType.swift */,
+			);
+			path = textures;
+			sourceTree = "<group>";
+		};
+		A36A223F1C6554940099156B /* textures */ = {
+			isa = PBXGroup;
+			children = (
+				A36A223D1C65548C0099156B /* SKTexture+TextureType.swift */,
+				A36A22401C6554B60099156B /* SKTextureAtals+TextureAtlasType.swift */,
+			);
+			name = textures;
 			sourceTree = "<group>";
 		};
 		AF3100AE1C5149A00076F440 /* math */ = {
@@ -480,6 +507,7 @@
 			children = (
 				AFFF4B831C457C3300D7FD61 /* nodes */,
 				AFFF4B821C457C2100D7FD61 /* actions */,
+				A36A223F1C6554940099156B /* textures */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -677,6 +705,7 @@
 				AF594A971C34AD8400734C1C /* Bone.swift in Sources */,
 				AF594AA11C34AD8400734C1C /* Skin.swift in Sources */,
 				AFFF4B711C4538F900D7FD61 /* ColorTransitionKeyFrame+ SKAction.swift in Sources */,
+				A36A223E1C65548C0099156B /* SKTexture+TextureType.swift in Sources */,
 				AF594A811C34AD5500734C1C /* SpineParse.swift in Sources */,
 				AF594ABB1C34AE5E00734C1C /* AttachmentKeyFrame.swift in Sources */,
 				AFFF4B6F1C4538E700D7FD61 /* AttachmentKeyFrame+SKAction.swift in Sources */,
@@ -684,6 +713,7 @@
 				AFFF4B7F1C45750900D7FD61 /* Bezier.swift in Sources */,
 				AFA547E61C53EFFC0030B0C4 /* UIColorRGB.swift in Sources */,
 				A36A22311C64F9F10099156B /* SKAction+ActionType.swift in Sources */,
+				A36A223C1C6553890099156B /* TextureAtlasType.swift in Sources */,
 				AFFF4B6C1C45356400D7FD61 /* SKBoneNode.swift in Sources */,
 				AF515CB61C4C4516006FED09 /* SKSlotNode.swift in Sources */,
 				AF594A531C34ACAC00734C1C /* ViewController.swift in Sources */,
@@ -692,6 +722,7 @@
 				A36A222F1C64F9CD0099156B /* SKNode+NodeType.swift in Sources */,
 				AF594A511C34ACAC00734C1C /* AppDelegate.swift in Sources */,
 				AF594AB41C34AE4600734C1C /* SlotTimeline.swift in Sources */,
+				A36A22411C6554B60099156B /* SKTextureAtals+TextureAtlasType.swift in Sources */,
 				A36A222D1C64F9960099156B /* ActionPerformer.swift in Sources */,
 				A36A22291C64F9160099156B /* NodeType.swift in Sources */,
 				AF594AC91C34AE9100734C1C /* FileHelper.swift in Sources */,
@@ -703,6 +734,7 @@
 				AF3100AA1C5146F70076F440 /* TimelineBuilder.swift in Sources */,
 				AF594A951C34AD8400734C1C /* Attachment.swift in Sources */,
 				AF594AC31C34AE6D00734C1C /* Curve.swift in Sources */,
+				A36A223A1C65537B0099156B /* TextureType.swift in Sources */,
 				AF6A776B1C4590290032514F /* SKActionKeyFrame.swift in Sources */,
 				AF594AA01C34AD8400734C1C /* Skeleton.swift in Sources */,
 				AF594A9D1C34AD8400734C1C /* EventKeyFrame.swift in Sources */,

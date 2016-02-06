@@ -9,13 +9,13 @@
 import Foundation
 
 protocol SlotNodeType: NodeType {
-    typealias Texture
-    
+    typealias TextureAtlas: TextureAtlasType //TODO: Review this
+
     var drawOrder: Double? { get }
     
     init(slot: Slot)
     
-    func addAttachmentWithTexture(name: String, attachment: Attachment, texture: Texture)
+    func addAttachmentWithTexture(name: String, attachment: Attachment, texture: TextureAtlas.Texture)
     
     func setDrawOrder(drawOrder: Double)
     

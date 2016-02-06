@@ -25,7 +25,7 @@ class SpineBuilder {
 
         if let spine = spine, let bones = spine.bones, let slots = spine.slots, let skins = spine.skins, let animations = spine.animations {
             
-            let skinController = SkinController(skins: skins, atlas: atlas)
+            let skinController = SkinController<SKSlotNode>(skins: skins, atlas: atlas)
             let bonesDict = buildBonesDict(bones)
             let slotsDict = buildSlotDict(slots, skinController: skinController, skinName: skinName, atlas: atlas)
             
@@ -51,7 +51,7 @@ class SpineBuilder {
         return root
     }
     
-    private func buildSpineRootNode(animationController animationController: AnimationController, skinController: SkinController, drawOrderController: DrawOrderController, spine: SpineModel, bonesDict: [String: SKBoneNode], slotsDict: [String: SKSlotNode], canChangeSkin: Bool) -> SKSpineNode? {
+    private func buildSpineRootNode(animationController animationController: AnimationController, skinController: SkinController<SKSlotNode>, drawOrderController: DrawOrderController, spine: SpineModel, bonesDict: [String: SKBoneNode], slotsDict: [String: SKSlotNode], canChangeSkin: Bool) -> SKSpineNode? {
         
         let spineNode = SKSpineNode(
             animationController: animationController,
@@ -107,7 +107,7 @@ class SpineBuilder {
         return boneDict
     }
     
-    private func buildSlotDict(slots: [Slot], skinController: SkinController, skinName: String?, atlas: SKTextureAtlas) -> [String: SKSlotNode] {
+    private func buildSlotDict(slots: [Slot], skinController: SkinController<SKSlotNode>, skinName: String?, atlas: SKTextureAtlas) -> [String: SKSlotNode] {
         
         let defaultSkinName = "default"
         var slotNodes:  [String: SKSlotNode] = [:]

@@ -16,14 +16,14 @@ class SKSpineNode: SKNode, SpineNodeType {
     typealias SlotType = SKSlotNode
     
     private var animationController: AnimationController?
-    private var skinController: SkinController?
+    private var skinController: SkinController<SlotType>?
     private var drawOrderController: DrawOrderController?
     
     private var canChangeSkin: Bool = false
     private var bonesDict: [String: SKBoneNode] = [:]
     private var slotsDict: [String: SKSlotNode] = [:]
     
-    required init(animationController: AnimationController, skinController: SkinController, drawOrderController: DrawOrderController, bonesDict: [String: SKBoneNode], slotsDict: [String: SKSlotNode], canChangeSkin: Bool) {
+    required init(animationController: AnimationController, skinController: SkinController<SlotType>, drawOrderController: DrawOrderController, bonesDict: [String: SKBoneNode], slotsDict: [String: SKSlotNode], canChangeSkin: Bool) {
         super.init()
         self.animationController = animationController
         self.drawOrderController = drawOrderController

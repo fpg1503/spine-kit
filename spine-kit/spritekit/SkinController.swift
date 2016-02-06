@@ -7,17 +7,17 @@
 //
 import SpriteKit
 
-class SkinController {
+class SkinController<SlotNode: SlotNodeType> {
     
-    private let atlas: SKTextureAtlas
+    private let atlas: SlotNode.TextureAtlas
     private let skinsDict: [String: Skin] = [:]
     
-    init(skins: [Skin], atlas: SKTextureAtlas) {
+    init(skins: [Skin], atlas: SlotNode.TextureAtlas) {
         self.atlas = atlas
         skins.forEach { skin in self.skinsDict[skin.name] = skin }
     }
     
-    func changeSkin(name: String, slotsDict: [String: SKSlotNode]) {
+    func changeSkin(name: String, slotsDict: [String: SlotNode]) {
         if let skin = self.skinsDict[name] {
             
             slotsDict.forEach { (slotName, slot) in

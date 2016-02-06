@@ -12,7 +12,7 @@ protocol SpineNodeType: NodeType {
     typealias BoneNode: BoneNodeType
     typealias SlotNode: SlotNodeType
     
-    init(animationController: AnimationController, skinController: SkinController, drawOrderController: DrawOrderController, bonesDict: [String: BoneNode], slotsDict: [String: SlotNode], canChangeSkin: Bool)
+    init(animationController: AnimationController, skinController: SkinController<SlotNode>, drawOrderController: DrawOrderController, bonesDict: [String: BoneNode], slotsDict: [String: SlotNode], canChangeSkin: Bool)
     
     func play(name: String, times: Int?, merge: Bool?, completion: AnimationCallback?)
     
